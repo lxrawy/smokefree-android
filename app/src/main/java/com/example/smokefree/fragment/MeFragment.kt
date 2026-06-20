@@ -29,6 +29,7 @@ class MeFragment : Fragment() {
     private lateinit var tvHistDaily: TextView
     private lateinit var tvHistYears: TextView
     private lateinit var tvHistTotal: TextView
+    private lateinit var tvHistoryDesc: TextView
     private lateinit var btnLogout: Button
 
     override fun onCreateView(
@@ -61,6 +62,7 @@ class MeFragment : Fragment() {
         tvHistDaily = view.findViewById(R.id.tv_res_daily)
         tvHistYears = view.findViewById(R.id.tv_res_years)
         tvHistTotal = view.findViewById(R.id.tv_res_total)
+        tvHistoryDesc = view.findViewById(R.id.tv_history_desc)
         btnLogout = view.findViewById(R.id.btn_logout)
     }
 
@@ -111,11 +113,26 @@ class MeFragment : Fragment() {
         // Update history display
         val dailyCigs = prefs.getInt("daily_cigs", 0)
         val yearsSmoking = prefs.getInt("years_smoking", 0)
+        val packPrice = prefs.getInt("pack_price", 0)
 
         if (dailyCigs > 0) {
             tvHistDaily.text = "${dailyCigs}支/天"
             tvHistYears.text = "${yearsSmoking}年"
             layoutHistoryResult.visibility = View.VISIBLE
+            // 更新"未填写"为已填写摘要
+            tvHistoryDesc.text = "${dailyCigs}支/天 · ${yearsSmoking}年"
+            tvHistoryDesc.setTextColor(resources.getColor(R.color.pink_600, null))
+        }
+
+        // 更新戒烟计划按钮状态
+        val quitStartDate = prefs.getLong("quit_start_date", 0)
+        if (quitStartDate > 0) {
+            btnStartQuit.text = "🚀 戒烟计划进行中..."
+            // 改变按钮背景为绿色表示已启动（需要新建一个绿色背景）
+            btnStartQuit.setBackgroundColor(
+                resources.getColor(android.R.color.holo_green_dark, null)
+            )
+            btnStartQuit.isEnabled = false
         }
     }
 
@@ -144,7 +161,11 @@ class MeFragment : Fragment() {
         tvHistDaily.text = "$daily"
         tvHistYears.text = "$years"
         tvHistTotal.text = "¥${totalMoney}"
-        
+
+        // 更新"未填写"为已填写摘要
+        tvHistoryDesc.text = "${daily}支/天 · ${years}年"
+        tvHistoryDesc.setTextColor(resources.getColor(R.color.pink_600, null))
+
         layoutHistoryForm.visibility = View.GONE
         layoutHistoryResult.visibility = View.VISIBLE
         
@@ -156,7 +177,14 @@ class MeFragment : Fragment() {
         prefs.edit()
             .putLong("quit_start_date", System.currentTimeMillis())
             .apply()
-        
+
+        // 立即更新按钮状态
+        btnStartQuit.text = "🚀 戒烟计划进行中..."
+        btnStartQuit.setBackgroundColor(
+            resources.getColor(android.R.color.holo_green_dark, null)
+        )
+        btnStartQuit.isEnabled = false
+
         Toast.makeText(requireContext(), "🚭 戒烟计划已启动！加油！", Toast.LENGTH_LONG).show()
     }
 
