@@ -100,13 +100,18 @@
                 android:textColor="@color/gray_700" />
         </LinearLayout>
 
-        <!-- ========== 四宫格数据卡片 ========== -->
-        <GridLayout
+        <!-- ========== 四宫格数据卡片（带居中重置按钮） ========== -->
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:columnCount="2"
-            android:rowCount="2">
+            android:layout_marginTop="12dp">
+
+            <GridLayout
+                android:id="@+id/grid_stats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="2">
 
             <!-- 未吸菸時間 -->
             <LinearLayout
@@ -259,7 +264,23 @@
                     android:textSize="11sp"
                     android:textColor="@color/gray_500" />
             </LinearLayout>
-        </GridLayout>
+            </GridLayout>
+
+            <!-- 居中重置计时器按钮（圆形刷新图标） -->
+            <TextView
+                android:id="@+id/btn_reset_timer"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="↻"
+                android:textSize="26sp"
+                android:textColor="@color/pink_500"
+                android:background="@drawable/bg_reset_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:elevation="4dp" />
+        </FrameLayout>
 
         <!-- ========== 吸烟历史统计 ========== -->
         <LinearLayout

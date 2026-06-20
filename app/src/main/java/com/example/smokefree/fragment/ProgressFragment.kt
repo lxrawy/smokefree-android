@@ -1,6 +1,7 @@
 package com.example.smokefree.fragment
 
 import android.animation.ValueAnimator
+import android.app.AlertDialog
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -68,6 +69,9 @@ class ProgressFragment : Fragment() {
     private lateinit var tvHistMoney: TextView           // 浪費的錢
     private lateinit var tvHistLifeLost: TextView        // 損失的生命
 
+    // 重置按钮
+    private lateinit var btnResetTimer: TextView
+
     /** 当前查看的天数：0=今天(实时), 1=第1天, 2=第2天 ... */
     private var selectedDayIndex: Int = 0
 
@@ -121,6 +125,9 @@ class ProgressFragment : Fragment() {
         tvHistCigarettes = view.findViewById(R.id.tv_hist_cigarettes)
         tvHistMoney = view.findViewById(R.id.tv_hist_money)
         tvHistLifeLost = view.findViewById(R.id.tv_hist_life_lost)
+
+        btnResetTimer = view.findViewById(R.id.btn_reset_timer)
+        setupResetButton()
     }
 
     /**
@@ -150,6 +157,65 @@ class ProgressFragment : Fragment() {
             }
             popup.show()
         }
+    }
+
+    /**
+     * 四宫格居中：重置计时器按钮
+     * 点击弹出鼓励确认框，确认后重新开始戒烟计时
+     */
+    private fun setupResetButton() {
+        btnResetTimer.setOnClickListener {
+            showResetConfirmationDialog()
+        }
+    }
+
+    /**
+     * 弹出重置确认对话框（含鼓励语）
+     */
+    private fun showResetConfirmationDialog() {
+        AlertDialog.Builder(requireContext())
+            .setTitle("不要放弃！")
+            .setMessage(
+                "如果您不小心破戒，不要责怪自己\"软弱\"。\n" +
+                "當您接近成功時，一兩次失誤不是失敗。\n" +
+                "唯一的失敗是放棄。"
+            )
+            .setPositiveButton("重置計時器") { _, _ ->
+                doResetTimer()
+            }
+            .setNegativeButton("取消", null)
+            .show()
+    }
+
+    /**
+     * 执行重置：将 quit_start_date 设为当前时间，清空吸烟记录
+     */
+    private fun doResetTimer() {
+        val prefs = requireContext().getSharedPreferences("smokefree", 0)
+        val now = System.currentTimeMillis()
+
+        // 重置戒烟开始时间为现在
+        prefs.edit()
+            .putLong("quit_start_date", now)
+            // 清空今日吸烟记录
+            .putInt("today_smoked", 0)
+            .putInt("today_smoked_prev", 0)
+            .putInt("total_smoked_all_time", 0)
+            // 清空打卡日期（允许重新打卡）
+            .remove("last_checkin_date")
+            .apply()
+
+        // 回到"今天实时"视图
+        selectedDayIndex = 0
+
+        // 立即刷新显示
+        updateAllStats()
+
+        android.widget.Toast.makeText(
+            requireContext(),
+            "已重新開始計時，你可以的！💪",
+            android.widget.Toast.LENGTH_SHORT
+        ).show()
     }
 
     // ==================== 核心计算引擎 ====================
