@@ -182,16 +182,34 @@ class MeFragment : Fragment() {
             btnLogout.visibility = View.GONE
         }
 
-        // Update history display
+        // Update history display（从SharedPreferences恢复已保存的数据）
         val dailyCigs = prefs.getInt("daily_cigs", 0)
         val yearsSmoking = prefs.getInt("years_smoking", 0)
         val packPrice = prefs.getInt("pack_price", 0)
 
-        if (dailyCigs > 0) {
+        if (dailyCigs > 0 && packPrice > 0 && yearsSmoking > 0) {
+            // 恢复输入框
+            etDaily.setText(dailyCigs.toString())
+            etPrice.setText(packPrice.toString())
+            etYears.setText(yearsSmoking.toString())
+
+            // 恢复摘要栏
+            tvHistoryDesc.text = "${dailyCigs}支/天 · ${yearsSmoking}年"
+            tvHistoryDesc.setTextColor(resources.getColor(R.color.pink_600, null))
+
+            // 恢复结果区域
+            val totalCigs = dailyCigs.toLong() * 365 * yearsSmoking
+            val totalMoney = (totalCigs / 20.0 * packPrice).toLong()
+            tvHistDaily.text = "${dailyCigs}支/天"
+            tvHistYears.text = "${yearsSmoking}年"
+            tvHistTotal.text = "¥${"%,d".format(totalMoney)}"
+            layoutHistoryResult.visibility = View.VISIBLE
+            layoutHistoryForm.visibility = View.GONE
+        } else if (dailyCigs > 0) {
+            // 只有部分数据的情况（兼容旧数据）
             tvHistDaily.text = "${dailyCigs}支/天"
             tvHistYears.text = "${yearsSmoking}年"
             layoutHistoryResult.visibility = View.VISIBLE
-            // 更新"未填写"为已填写摘要
             tvHistoryDesc.text = "${dailyCigs}支/天 · ${yearsSmoking}年"
             tvHistoryDesc.setTextColor(resources.getColor(R.color.pink_600, null))
         }
