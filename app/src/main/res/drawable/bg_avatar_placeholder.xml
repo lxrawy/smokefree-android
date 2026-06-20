@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 白色背景圆 -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#FFFFFF"/>
+        </shape>
+    </item>
+    <!-- 默认 emoji 占位（用文字居中模拟） -->
+    <item
+        android:gravity="center"
+        android:width="36dp"
+        android:height="36dp">
+        <!-- 实际显示由代码控制，这里只做白色底 -->
+        <shape android:shape="oval">
+            <solid android:color="@android:color/transparent"/>
+        </shape>
+    </item>
+</layer-list>
