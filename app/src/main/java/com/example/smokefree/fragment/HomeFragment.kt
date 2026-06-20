@@ -109,7 +109,16 @@ class HomeFragment : Fragment() {
 
     private fun saveTodayRecord(count: Int) {
         val prefs = requireContext().getSharedPreferences("smokefree", 0)
-        prefs.edit().putInt("today_smoked", count).apply()
+        val editor = prefs.edit()
+        editor.putInt("today_smoked", count)
+
+        // 累计总吸烟数（供进度页计算挽回生命时扣除）
+        if (count > 0) {
+            val totalSoFar = prefs.getInt("total_smoked_all_time", 0)
+            editor.putInt("total_smoked_all_time", totalSoFar + count)
+        }
+
+        editor.apply()
         updateStats()
     }
 

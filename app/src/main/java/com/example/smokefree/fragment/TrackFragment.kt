@@ -118,9 +118,16 @@ class TrackFragment : Fragment() {
 
     private fun submitCheckin() {
         val prefs = requireContext().getSharedPreferences("smokefree", 0)
-        prefs.edit()
-            .putInt("today_smoked", cigaretteCount)
-            .apply()
+        val editor = prefs.edit()
+        editor.putInt("today_smoked", cigaretteCount)
+
+        // 累计总吸烟数（供进度页计算挽回生命时扣除）
+        if (cigaretteCount > 0) {
+            val totalSoFar = prefs.getInt("total_smoked_all_time", 0)
+            editor.putInt("total_smoked_all_time", totalSoFar + cigaretteCount)
+        }
+
+        editor.apply()
         
         if (cigaretteCount == 0) {
             Toast.makeText(requireContext(), "🎉 太棒了！你一根都没抽！", Toast.LENGTH_LONG).show()
