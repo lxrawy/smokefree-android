@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="28dp"
+        android:gravity="center_horizontal">
+
+        <!-- Logo -->
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/bg_header"
+            android:gravity="center"
+            android:text="🚭"
+            android:textSize="40sp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_title"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/gray_700"
+            android:layout_marginBottom="6dp" />
+
+        <!-- Subtitle -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_subtitle"
+            android:textSize="13sp"
+            android:textColor="@color/gray_400"
+            android:layout_marginBottom="36dp" />
+
+        <!-- Tabs -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_tab_selected"
+            android:padding="4dp"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:id="@+id/tab_phone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/phone_login"
+                android:textSize="14sp"
+                android:textColor="@color/pink_600"
+                android:textStyle="bold"
+                android:background="@drawable/bg_card"
+                android:layout_marginEnd="2dp" />
+
+            <TextView
+                android:id="@+id/tab_wechat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/wechat_login"
+                android:textSize="14sp"
+                android:textColor="@color/gray_500"
+                android:layout_marginStart="2dp" />
+        </LinearLayout>
+
+        <!-- Phone Login Form -->
+        <LinearLayout
+            android:id="@+id/form_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📱 手机号码"
+                android:textSize="13sp"
+                android:textColor="@color/gray_600"
+                android:layout_marginBottom="6dp" />
+
+            <EditText
+                android:id="@+id/et_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input"
+                android:padding="14dp"
+                android:hint="@string/hint_phone"
+                android:inputType="phone"
+                android:maxLength="11"
+                android:textSize="15sp"
+                android:textColor="@color/gray_700"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔐 验证码"
+                android:textSize="13sp"
+                android:textColor="@color/gray_600"
+                android:layout_marginBottom="6dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp">
+
+                <EditText
+                    android:id="@+id/et_code"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_input"
+                    android:padding="14dp"
+                    android:hint="@string/hint_code"
+                    android:inputType="number"
+                    android:maxLength="6"
+                    android:textSize="15sp"
+                    android:textColor="@color/gray_700" />
+
+                <TextView
+                    android:id="@+id/btn_send_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_tab_selected"
+                    android:padding="14dp"
+                    android:text="@string/btn_send_code"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/pink_600"
+                    android:layout_marginStart="10dp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_primary_button"
+                android:text="@string/btn_login"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:paddingVertical="16dp" />
+        </LinearLayout>
+
+        <!-- Wechat Login Form -->
+        <LinearLayout
+            android:id="@+id/form_wechat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="💚"
+                android:textSize="64sp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="使用微信账号快速登录"
+                android:textSize="14sp"
+                android:textColor="@color/gray_500"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="安全便捷，无需记忆密码"
+                android:textSize="12sp"
+                android:textColor="@color/gray_400"
+                android:layout_marginBottom="24dp" />
+
+            <Button
+                android:id="@+id/btn_wechat_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/wechat_green"
+                android:text="@string/btn_wechat_login"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:paddingVertical="16dp"
+                android:drawableStart="💬"
+                android:drawablePadding="8dp" />
+        </LinearLayout>
+
+        <!-- Divider -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/pink_200" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="戒烟助手 · 助力健康生活"
+                android:textSize="12sp"
+                android:textColor="@color/gray_400"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/pink_200" />
+        </LinearLayout>
+
+        <!-- Agreement -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_agreement"
+            android:textSize="11sp"
+            android:textColor="@color/gray_300"
+            android:gravity="center"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_data_note"
+            android:textSize="11sp"
+            android:textColor="@color/gray_300"
+            android:gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/tv_skip_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/skip_login"
+            android:textSize="13sp"
+            android:textColor="@color/gray_400"
+            android:padding="8dp" />
+
+    </LinearLayout>
+</ScrollView>

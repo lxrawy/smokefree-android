@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">戒烟助手</string>
+    <string name="slogan">每一次坚持，都是给自己最好的礼物</string>
+    
+    <!-- Login -->
+    <string name="login_title">戒烟助手</string>
+    <string name="login_subtitle">每一次坚持，都是给自己最好的礼物</string>
+    <string name="phone_login">手机号登录</string>
+    <string name="wechat_login">微信登录</string>
+    <string name="hint_phone">请输入11位手机号</string>
+    <string name="hint_code">请输入验证码</string>
+    <string name="btn_send_code">发送验证码</string>
+    <string name="btn_login">登录 / 注册</string>
+    <string name="btn_wechat_login">微信授权登录</string>
+    <string name="login_agreement">登录即代表同意《用户协议》和《隐私政策》</string>
+    <string name="login_data_note">你的数据仅用于戒烟跟踪，不会被共享</string>
+    <string name="skip_login">暂不登录，随便看看</string>
+    
+    <!-- Home -->
+    <string name="home_title">戒烟助手</string>
+    <string name="home_days">天 · 已成功远离香烟</string>
+    <string name="today_status">今日情况</string>
+    <string name="today_smoked">今日已吸</string>
+    <string name="today_cost">今日花费</string>
+    <string name="total_saved">累计节省</string>
+    <string name="health_recovery">健康指数</string>
+    <string name="health_timeline">身体恢复进度</string>
+    <string name="quick_record">随时记录</string>
+    <string name="record_prompt">刚才有吸烟吗？记录一下吧</string>
+    <string name="btn_no_smoke">✅ 没有，坚持住了！</string>
+    <string name="btn_smoked">😔 没忍住…</string>
+    
+    <!-- History -->
+    <string name="history_title">吸烟回顾</string>
+    <string name="history_desc">看看你一路走来的变化</string>
+    <string name="history_summary">吸烟历史总结</string>
+    <string name="weekly_trend">本周吸烟趋势</string>
+    <string name="daily_record">每日记录</string>
+    <string name="date">日期</string>
+    <string name="cigarettes">吸烟</string>
+    <string name="cost">花费</string>
+    <string name="status">状态</string>
+    
+    <!-- Track -->
+    <string name="track_title">每日打卡</string>
+    <string name="track_desc">记录每一天，见证改变</string>
+    <string name="track_days">天 · 打卡坚持中</string>
+    <string name="set_goal">设置戒烟目标奖励</string>
+    <string name="goal_hint">省下的烟钱用来买什么？设置一个目标，让戒烟更有动力！</string>
+    <string name="goal_name_hint">例如：买一台MacBook</string>
+    <string name="goal_amount_hint">例如：8000</string>
+    <string name="btn_set_goal">🎯 设定目标</string>
+    <string name="today_checkin">今日打卡</string>
+    <string name="cigarette_count_prompt">今天抽了几支烟？</string>
+    <string name="zero_cigarette_note">支（0 = 今天完全没吸！）</string>
+    <string name="btn_submit_checkin">✅ 提交今日打卡</string>
+    <string name="achievements">成就徽章</string>
+    
+    <!-- Me -->
+    <string name="me_title">我的</string>
+    <string name="me_desc">管理你的戒烟之旅</string>
+    <string name="click_login">点击登录 · 开启戒烟之旅</string>
+    <string name="quit_settings">戒烟设置</string>
+    <string name="smoking_history">吸烟历史信息</string>
+    <string name="notification_settings">提醒设置</string>
+    <string name="others">其他</string>
+    <string name="data_export">数据导出</string>
+    <string name="help_feedback">帮助与反馈</string>
+    <string name="about">关于</string>
+    <string name="version">v1.0.0</string>
+    <string name="logout">退出登录</string>
+    
+    <!-- Account -->
+    <string name="account_info">账户信息</string>
+    <string name="bind_manage">绑定管理</string>
+    <string name="bind_phone">绑定手机号</string>
+    <string name="bind_email">绑定邮箱</string>
+    <string name="bind_wechat">绑定微信</string>
+    <string name="security_settings">安全设置</string>
+    <string name="change_password">修改密码</string>
+    
+    <!-- Notifications -->
+    <string name="notif_title">戒烟提醒</string>
+    <string name="notif_message">嘿！过去 %d 小时里，你抽了几支烟？</string>
+    
+    <!-- Bottom Navigation -->
+    <string name="nav_home">首页</string>
+    <string name="nav_history">回顾</string>
+    <string name="nav_track">打卡</string>
+    <string name="nav_me">我</string>
+</resources>
