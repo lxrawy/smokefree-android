@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/bg_header"
+        android:background="@drawable/bg_main_header"
         android:paddingStart="24dp"
         android:paddingEnd="24dp"
         android:paddingTop="20dp"
