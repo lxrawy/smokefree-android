@@ -3,20 +3,20 @@ package com.example.smokefree.activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.smokefree.R
-import com.google.android.material.button.MaterialButton
-import com.google.android.material.textfield.TextInputEditText
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var etPhone: TextInputEditText
-    private lateinit var etCode: TextInputEditText
+    private lateinit var etPhone: EditText
+    private lateinit var etCode: EditText
     private lateinit var btnSendCode: TextView
-    private lateinit var btnLogin: MaterialButton
-    private lateinit var btnWechatLogin: MaterialButton
+    private lateinit var btnLogin: Button
+    private lateinit var btnWechatLogin: Button
     private lateinit var tvSkipLogin: TextView
     private lateinit var tabPhone: TextView
     private lateinit var tabWechat: TextView
