@@ -14,6 +14,8 @@ import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
+import java.text.SimpleDateFormat
+import java.util.*
 
 class HistoryFragment : Fragment() {
 
@@ -67,23 +69,34 @@ class HistoryFragment : Fragment() {
 
     private fun updateChartData() {
         val entries = ArrayList<BarEntry>()
-        
-        // Sample data (in real app, load from SharedPreferences)
-        val weeklyData = listOf(6f, 8f, 4f, 2f, 3f, 1f, 0.5f)
-        
-        for (i in weeklyData.indices) {
-            entries.add(BarEntry(i.toFloat(), weeklyData[i]))
+        val prefs = requireContext().getSharedPreferences("smokefree", 0)
+        val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.US)
+        val cal = Calendar.getInstance()
+
+        // 计算本周一到本周日的日期
+        cal.firstDayOfWeek = Calendar.MONDAY
+        // 回退到本周一
+        cal[Calendar.DAY_OF_WEEK] = Calendar.MONDAY
+        val mondayMs = cal.timeInMillis
+
+        for (i in 0..6) {
+            cal.timeInMillis = mondayMs
+            cal.add(Calendar.DATE, i)
+            val dateKey = sdf.format(cal.time)
+            // 从 SharedPreferences 读取当天的吸烟记录（默认 0）
+            val count = prefs.getInt("smoke_$dateKey", 0).toFloat()
+            entries.add(BarEntry(i.toFloat(), count))
         }
-        
+
         val dataSet = BarDataSet(entries, "吸烟数量")
         dataSet.color = resources.getColor(R.color.pink_400)
         dataSet.setDrawValues(true)
         dataSet.valueTextColor = resources.getColor(R.color.gray_600)
         dataSet.valueTextSize = 10f
-        
+
         val data = BarData(dataSet)
         data.barWidth = 0.6f
-        
+
         barChart.data = data
         barChart.invalidate() // Refresh chart
     }

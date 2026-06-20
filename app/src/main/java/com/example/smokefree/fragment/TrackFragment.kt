@@ -129,6 +129,9 @@ class TrackFragment : Fragment() {
         editor.putString("last_checkin_date", todayKey)
         editor.putInt("today_smoked", cigaretteCount)
 
+        // 按日期存储，供本周趋势图读取
+        editor.putInt("smoke_$todayKey", cigaretteCount)
+
         // 累计总吸烟数（供进度页计算挽回生命时扣除）
         if (cigaretteCount > 0) {
             val totalSoFar = prefs.getInt("total_smoked_all_time", 0)

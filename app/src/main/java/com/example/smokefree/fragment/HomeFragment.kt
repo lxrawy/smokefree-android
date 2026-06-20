@@ -173,6 +173,10 @@ class HomeFragment : Fragment() {
         val editor = prefs.edit()
         editor.putInt("today_smoked", count)
 
+        // 按日期存储，供本周趋势图读取
+        val todayKey = SimpleDateFormat("yyyy-MM-dd", Locale.US).format(Date())
+        editor.putInt("smoke_$todayKey", count)
+
         // 累计总吸烟数（供进度页计算挽回生命时扣除）
         // 每次基于增量更新：本次count - 上次记录的today_smoked
         val prevSmoked = prefs.getInt("today_smoked_prev", 0)
