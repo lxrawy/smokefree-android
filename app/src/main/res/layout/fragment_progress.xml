@@ -307,10 +307,13 @@
                 android:gravity="center_vertical"
                 android:paddingVertical="10dp">
                 
-                <View
+                <TextView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:background="@drawable/circle_gray_icon" />
+                    android:text="🚬"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:background="@drawable/bg_icon_circle_pink_light" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -346,10 +349,13 @@
                 android:gravity="center_vertical"
                 android:paddingVertical="10dp">
 
-                <View
+                <TextView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:background="@drawable/circle_skull_icon" />
+                    android:text="💰"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:background="@drawable/bg_icon_circle_pink_light" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -385,10 +391,13 @@
                 android:gravity="center_vertical"
                 android:paddingVertical="10dp">
 
-                <View
+                <TextView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:background="@drawable/circle_clock_icon" />
+                    android:text="⏱️"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:background="@drawable/bg_icon_circle_pink_light" />
 
                 <LinearLayout
                     android:layout_width="0dp"
