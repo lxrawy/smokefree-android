@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.GridLayout
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -31,6 +32,13 @@ class MeFragment : Fragment() {
     private lateinit var tvHistTotal: TextView
     private lateinit var tvHistoryDesc: TextView
     private lateinit var btnLogout: Button
+
+    // Timer / notification settings
+    private lateinit var gridTimerOptions: GridLayout
+    private lateinit var tvTimerDesc: TextView
+    private var selectedTimerHours: Int = 2   // 默认2小时
+    /** 当前选中的选项 View，用于切换样式 */
+    private var selectedTimerView: TextView? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -64,6 +72,10 @@ class MeFragment : Fragment() {
         tvHistTotal = view.findViewById(R.id.tv_res_total)
         tvHistoryDesc = view.findViewById(R.id.tv_history_desc)
         btnLogout = view.findViewById(R.id.btn_logout)
+
+        // Timer options
+        gridTimerOptions = view.findViewById(R.id.grid_timer_options)
+        tvTimerDesc = view.findViewById(R.id.tv_timer_desc)
     }
 
     private fun setupListeners() {
@@ -76,6 +88,20 @@ class MeFragment : Fragment() {
             }
         }
 
+        // Toggle notification form
+        view?.findViewById<View>(R.id.layout_notification)?.setOnClickListener {
+            val notifForm = view?.findViewById<LinearLayout>(R.id.layout_notif_form)
+            if (notifForm?.visibility == View.VISIBLE) {
+                notifForm.visibility = View.GONE
+            } else {
+                notifForm?.visibility = View.VISIBLE
+                // 首次展开时动态生成选项
+                if (gridTimerOptions.childCount == 0) {
+                    buildTimerOptions()
+                }
+            }
+        }
+
         // Calculate history
         btnCalculate.setOnClickListener {
             calculateHistory()
@@ -84,6 +110,11 @@ class MeFragment : Fragment() {
         // Start quit plan
         btnStartQuit.setOnClickListener {
             startQuitPlan()
+        }
+
+        // Save timer settings
+        view?.findViewById<Button>(R.id.btn_save_timer)?.setOnClickListener {
+            saveTimerSettings()
         }
 
         // Logout
@@ -171,6 +202,95 @@ class MeFragment : Fragment() {
         
         Toast.makeText(requireContext(), "已保存你的吸烟历史 📊", Toast.LENGTH_SHORT).show()
     }
+
+    // ==================== 提醒设置：动态生成24个选项 ====================
+
+    /**
+     * 动态创建 1小时 ~ 24小时的选项按钮（4列 × 6行）
+     */
+    private fun buildTimerOptions() {
+        gridTimerOptions.removeAllViews()
+
+        val savedHours = requireContext().getSharedPreferences("smokefree", 0)
+            .getInt("reminder_interval_hours", 2)
+
+        for (hour in 1..24) {
+            val tv = TextView(requireContext()).apply {
+                id = View.generateViewId()
+                text = "$hour\n小時"
+                textSize = 12f
+                gravity = android.view.Gravity.CENTER
+                setPadding(0, 10.dp, 0, 10.dp)
+                setTextColor(resources.getColor(R.color.gray_600, null))
+                background = resources.getDrawable(R.drawable.bg_input, null)
+                layoutParams = GridLayout.LayoutParams().apply {
+                    width = 0
+                    columnWeight = 1f
+                    marginStart = 3.dp
+                    marginEnd = 3.dp
+                    topMargin = 4.dp
+                    bottomMargin = 4.dp
+                }
+                isClickable = true
+                isFocusable = true
+
+                setOnClickListener { v ->
+                    selectTimerOption(v as TextView, hour)
+                }
+            }
+
+            // 标记已保存的选中项
+            if (hour == savedHours) {
+                selectedTimerHours = hour
+                applySelectedStyle(tv)
+                selectedTimerView = tv
+            }
+
+            gridTimerOptions.addView(tv)
+        }
+
+        // 更新右侧描述文字
+        tvTimerDesc.text = "每${savedHours}小時"
+    }
+
+    /** 选中某个时间间隔 */
+    private fun selectTimerOption(tv: TextView, hours: Int) {
+        // 恢复之前选中的为普通样式
+        selectedTimerView?.let {
+            it.setTextColor(resources.getColor(R.color.gray_600, null))
+            it.background = resources.getDrawable(R.drawable.bg_input, null)
+        }
+
+        // 设置新的选中样式
+        selectedTimerHours = hours
+        selectedTimerView = tv
+        applySelectedStyle(tv)
+    }
+
+    private fun applySelectedStyle(tv: TextView) {
+        tv.setTextColor(resources.getColor(R.color.pink_700, null))
+        tv.setTypeface(null, android.graphics.Typeface.BOLD)
+        tv.background = resources.getDrawable(R.drawable.bg_tab_selected, null)
+    }
+
+    private fun saveTimerSettings() {
+        val prefs = requireContext().getSharedPreferences("smokefree", 0)
+        prefs.edit()
+            .putInt("reminder_interval_hours", selectedTimerHours)
+            .apply()
+
+        tvTimerDesc.text = "每${selectedTimerHours}小時"
+        Toast.makeText(requireContext(),
+            "✅ 已设置为每 ${selectedTimerHours} 小时提醒一次",
+            Toast.LENGTH_SHORT).show()
+
+        // 收起表单
+        view?.findViewById<LinearLayout>(R.id.layout_notif_form)?.visibility = View.GONE
+    }
+
+    // dp 转 px 扩展
+    private val Int.dp: Int get() =
+        (this * resources.displayMetrics.density).toInt()
 
     private fun startQuitPlan() {
         val prefs = requireContext().getSharedPreferences("smokefree", 0)
