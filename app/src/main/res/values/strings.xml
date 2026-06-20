@@ -30,6 +30,13 @@
     <string name="record_prompt">刚才有吸烟吗？记录一下吧</string>
     <string name="btn_no_smoke">✅ 没有，坚持住了！</string>
     <string name="btn_smoked">😔 没忍住…</string>
+
+    <!-- Timer -->
+    <string name="timer_label">⏱ 戒烟倒计时</string>
+    <string name="timer_start_prompt">点击下方按钮开始你的戒烟之旅</string>
+    <string name="btn_start_quit_now">🚀 现在开始戒烟</string>
+    <string name="timer_running_subtitle">坚持住！你正在创造奇迹 ✨</string>
+    <string name="timer_format">%1$d小時 %2$02d分 %3$02d秒</string>
     
     <!-- History -->
     <string name="history_title">吸烟回顾</string>

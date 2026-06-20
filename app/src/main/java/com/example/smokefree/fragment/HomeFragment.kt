@@ -6,6 +6,7 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -23,6 +24,12 @@ class HomeFragment : Fragment() {
     private lateinit var tvHealthScore: TextView
     private lateinit var btnNoSmoke: TextView
     private lateinit var btnSmoked: TextView
+
+    // Timer views
+    private lateinit var tvTimerDisplay: TextView
+    private lateinit var tvTimerSubtitle: TextView
+    private lateinit var btnStartTimer: Button
+    private lateinit var timerCard: View
 
     private val quotes = listOf(
         "「种一棵树最好的时间是十年前，其次是现在。」",
@@ -42,6 +49,14 @@ class HomeFragment : Fragment() {
         }
     }
 
+    // Real-time timer: ticks every second
+    private val timerRunnable = object : Runnable {
+        override fun run() {
+            updateTimerDisplay()
+            handler.postDelayed(this, 1000)
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -52,10 +67,11 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        
+
         initViews(view)
         setupListeners()
         updateStats()
+        setupTimer()
         startQuoteRotation()
     }
 
@@ -68,6 +84,12 @@ class HomeFragment : Fragment() {
         tvHealthScore = view.findViewById(R.id.tv_health_score)
         btnNoSmoke = view.findViewById(R.id.btn_no_smoke)
         btnSmoked = view.findViewById(R.id.btn_smoked)
+
+        // Timer views
+        tvTimerDisplay = view.findViewById(R.id.tv_timer_display)
+        tvTimerSubtitle = view.findViewById(R.id.tv_timer_subtitle)
+        btnStartTimer = view.findViewById(R.id.btn_start_timer)
+        timerCard = view.findViewById(R.id.timer_card)
     }
 
     private fun setupListeners() {
@@ -130,8 +152,68 @@ class HomeFragment : Fragment() {
         handler.postDelayed(quoteRunnable, 8000)
     }
 
+    // ==================== Timer Logic ====================
+
+    private fun setupTimer() {
+        val prefs = requireContext().getSharedPreferences("smokefree", 0)
+        val quitStartDate = prefs.getLong("quit_start_date", 0)
+
+        if (quitStartDate > 0) {
+            // Already started - show running state
+            btnStartTimer.visibility = View.GONE
+            tvTimerSubtitle.text = getString(R.string.timer_running_subtitle)
+            updateTimerDisplay()
+            handler.post(timerRunnable)
+        } else {
+            // Not started yet - show start button
+            btnStartTimer.visibility = View.VISIBLE
+            tvTimerSubtitle.text = getString(R.string.timer_start_prompt)
+            tvTimerDisplay.text = "0小時 0分 0秒"
+        }
+
+        btnStartTimer.setOnClickListener {
+            startQuitTimer(prefs)
+        }
+    }
+
+    private fun startQuitTimer(prefs: android.content.SharedPreferences) {
+        val now = System.currentTimeMillis()
+        prefs.edit()
+            .putLong("quit_start_date", now)
+            .apply()
+
+        // Update UI to running state
+        btnStartTimer.visibility = View.GONE
+        tvTimerSubtitle.text = getString(R.string.timer_running_subtitle)
+
+        // Start ticking
+        handler.post(timerRunnable)
+
+        // Also refresh day counter stats
+        updateStats()
+
+        Toast.makeText(requireContext(), "🎉 恭喜！戒烟计时已开始，加油！", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun updateTimerDisplay() {
+        val prefs = requireContext().getSharedPreferences("smokefree", 0)
+        val quitStartDate = prefs.getLong("quit_start_date", 0)
+
+        if (quitStartDate <= 0) return
+
+        val elapsedMs = System.currentTimeMillis() - quitStartDate
+        val totalSeconds = (elapsedMs / 1000).toInt()
+
+        val hours = totalSeconds / 3600
+        val minutes = (totalSeconds % 3600) / 60
+        val seconds = totalSeconds % 60
+
+        tvTimerDisplay.text = getString(R.string.timer_format, hours, minutes, seconds)
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         handler.removeCallbacks(quoteRunnable)
+        handler.removeCallbacks(timerRunnable)
     }
 }
