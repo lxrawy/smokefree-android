@@ -1,0 +1,42 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    
+    <!-- Simplified background circle -->
+    <path
+        android:pathData="M54,0C83.82,0 108,24.18 108,54C108,83.82 83.82,108 54,108C24.18,108 0,83.82 0,54C0,24.18 24.18,0 54,0Z"
+        android:fillColor="#FF6090"/>
+    
+    <!-- No smoking symbol - simple and clear -->
+    <!-- Cigarette -->
+    <line
+        android:startX="28"
+        android:startY="65"
+        android:endX="68"
+        android:endY="65"
+        android:strokeWidth="5"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"/>
+    
+    <!-- Cigarette filter/tip -->
+    <path
+        android:pathData="M68,62 L73,65 L68,68Z"
+        android:fillColor="#FFD700"/>
+    
+    <!-- No smoking circle -->
+    <path
+        android:pathData="M54,28A18,18 0 1,0 54,64A18,18 0 1,0 54,28Z"
+        android:strokeWidth="3.5"
+        android:strokeColor="#FFFFFF"
+        android:fillColor="@android:color/transparent"/>
+    
+    <!-- Prohibition line -->
+    <path
+        android:pathData="M40,42L68,62"
+        android:strokeWidth="3.5"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"/>
+        
+</vector>

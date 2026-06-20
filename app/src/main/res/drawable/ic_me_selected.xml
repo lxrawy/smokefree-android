@@ -4,8 +4,9 @@
     android:viewportWidth="24"
     android:viewportHeight="24">
     
+    <!-- Person/Me icon -->
     <path
         android:fillColor="#FF6090"
-        android:pathData="M5,3H19A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3M5,5V19H19V5H5M7,7H17V9H7V7M7,11H17V13H7V11M7,15H14V17H7V15Z" />
+        android:pathData="M12,12C14.21,12 16,10.21 16,8C16,5.79 14.21,4 12,4C9.79,4 8,5.79 8,8C8,10.21 9.79,12 12,12M12,14C9.33,14 4,15.34 4,18V20H20V18C20,15.34 14.67,14 12,14Z" />
         
 </vector>

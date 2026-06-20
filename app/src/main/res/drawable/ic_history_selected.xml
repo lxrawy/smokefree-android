@@ -4,6 +4,7 @@
     android:viewportWidth="24"
     android:viewportHeight="24">
     
+    <!-- History/Chart icon -->
     <path
         android:fillColor="#FF6090"
         android:pathData="M5,3H19A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3M5,5V19H19V5H5M7,7H17V9H7V7M7,11H17V13H7V11M7,15H14V17H7V15Z" />
