@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 背景轨道：浅灰色（未完成部分可见） -->
+    <item android:id="@android:id/background">
+        <shape
+            android:shape="ring"
+            android:innerRadiusRatio="3.5"
+            android:thickness="14dp"
+            android:useLevel="false">
+            <solid android:color="#E8DDE1" />
+        </shape>
+    </item>
+
+    <!-- 进度弧：粉色实心，从左侧(9点钟方向)顺时针填满 -->
+    <item android:id="@android:id/progress">
+        <rotate
+            android:fromDegrees="180"
+            android:toDegrees="540"
+            android:pivotX="50%"
+            android:pivotY="50%">
+            <shape
+                android:shape="ring"
+                android:innerRadiusRatio="3.5"
+                android:thickness="14dp"
+                android:useLevel="true">
+                <solid android:color="#EC4899" />
+            </shape>
+        </rotate>
+    </item>
+
+</layer-list>

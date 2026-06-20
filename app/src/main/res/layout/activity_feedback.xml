@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_feedback"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/bg_header" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- 提示文字 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="💬 我们非常重视您的反馈！"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/gray_700"
+                android:layout_marginBottom="6dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="您的每一条建议都能帮助我们做得更好"
+                android:textSize="12sp"
+                android:textColor="@color/gray_400"
+                android:layout_marginBottom="24dp" />
+
+            <!-- 反馈标题 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📝 反馈标题 *"
+                android:textSize="13sp"
+                android:textColor="@color/gray_600"
+                android:layout_marginBottom="6dp" />
+
+            <EditText
+                android:id="@+id/et_feedback_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input"
+                android:padding="14dp"
+                android:hint="请简要描述您的问题或建议"
+                android:maxLines="2"
+                android:textSize="14sp"
+                android:textColor="@color/gray_700"
+                android:layout_marginBottom="16dp" />
+
+            <!-- 反馈内容 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📋 详细内容 *"
+                android:textSize="13sp"
+                android:textColor="@color/gray_600"
+                android:layout_marginBottom="6dp" />
+
+            <EditText
+                android:id="@+id/et_feedback_content"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:background="@drawable/bg_input"
+                android:padding="14dp"
+                android:gravity="top|start"
+                android:hint="请详细描述您遇到的问题、使用感受、功能建议等..."
+                android:minLines="5"
+                android:textSize="14sp"
+                android:textColor="@color/gray_700"
+                android:layout_marginBottom="16dp" />
+
+            <!-- 联系方式（可选） -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="✉️ 联系方式（选填）"
+                android:textSize="13sp"
+                android:textColor="@color/gray_600"
+                android:layout_marginBottom="6dp" />
+
+            <EditText
+                android:id="@+id/et_feedback_contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input"
+                android:padding="14dp"
+                android:hint="手机号 / 邮箱 / 微信，方便我们回复您"
+                android:textSize="14sp"
+                android:textColor="@color/gray_700"
+                android:inputType="textEmailAddress"
+                android:layout_marginBottom="24dp" />
+
+            <!-- 常见问题快捷选项 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⚡ 快捷反馈"
+                android:textSize="13sp"
+                android:textColor="@color/gray_500"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:id="@+id/btn_quick_bug"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_input"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    android:text="🐛 Bug反馈"
+                    android:textSize="12sp"
+                    android:textColor="@color/gray_600"
+                    android:layout_marginEnd="6dp" />
+
+                <TextView
+                    android:id="@+id/btn_quick_feature"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_input"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    android:text="💡 功能建议"
+                    android:textSize="12sp"
+                    android:textColor="@color/gray_600"
+                    android:layout_marginStart="6dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- 发送按钮 -->
+    <Button
+        android:id="@+id/btn_send_feedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_primary_button"
+        android:text="📤 发送反馈"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:paddingVertical="14dp"
+        android:layout_margin="20dp" />
+</LinearLayout>

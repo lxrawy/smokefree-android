@@ -7,6 +7,10 @@
     
     <!-- Notification permission for reminders -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    
+    <!-- Alarm for scheduled reminders -->
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
@@ -31,6 +35,31 @@
             android:name=".activity.MainActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+
+        <!-- User Profile Activity -->
+        <activity
+            android:name=".activity.UserProfileActivity"
+            android:exported="false" />
+
+        <!-- Data Export Activity -->
+        <activity
+            android:name=".activity.DataExportActivity"
+            android:exported="false" />
+
+        <!-- Feedback Activity -->
+        <activity
+            android:name=".activity.FeedbackActivity"
+            android:exported="false" />
+
+        <!-- About Activity -->
+        <activity
+            android:name=".activity.AboutActivity"
+            android:exported="false" />
+
+        <!-- Reminder Receiver -->
+        <receiver
+            android:name=".receiver.ReminderReceiver"
+            android:exported="false" />
             
     </application>
 

@@ -269,6 +269,7 @@
                     android:background="@color/pink_200"
                     android:layout_marginStart="4dp" />
 
+                <!-- Item 1: 20分钟 -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -276,6 +277,7 @@
                     android:layout_marginBottom="14dp">
 
                     <TextView
+                        android:id="@+id/tv_recovery_time_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="20分钟后"
@@ -290,8 +292,19 @@
                         android:textSize="13sp"
                         android:textColor="@color/gray_600"
                         android:layout_marginTop="2dp" />
+
+                    <ProgressBar
+                        android:id="@+id/pb_recovery_1"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="6dp"
+                        android:progress="0"
+                        android:max="100"
+                        android:progressDrawable="@drawable/bg_progress_recovery"
+                        android:layout_marginTop="6dp" />
                 </LinearLayout>
 
+                <!-- Item 2: 12小时 -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -299,6 +312,7 @@
                     android:layout_marginBottom="14dp">
 
                     <TextView
+                        android:id="@+id/tv_recovery_time_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="12小时"
@@ -313,8 +327,19 @@
                         android:textSize="13sp"
                         android:textColor="@color/gray_600"
                         android:layout_marginTop="2dp" />
+
+                    <ProgressBar
+                        android:id="@+id/pb_recovery_2"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="6dp"
+                        android:progress="0"
+                        android:max="100"
+                        android:progressDrawable="@drawable/bg_progress_recovery"
+                        android:layout_marginTop="6dp" />
                 </LinearLayout>
 
+                <!-- Item 3: 2-3周 -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -322,6 +347,7 @@
                     android:layout_marginBottom="14dp">
 
                     <TextView
+                        android:id="@+id/tv_recovery_time_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="2-3周"
@@ -336,8 +362,19 @@
                         android:textSize="13sp"
                         android:textColor="@color/gray_600"
                         android:layout_marginTop="2dp" />
+
+                    <ProgressBar
+                        android:id="@+id/pb_recovery_3"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="6dp"
+                        android:progress="0"
+                        android:max="100"
+                        android:progressDrawable="@drawable/bg_progress_recovery"
+                        android:layout_marginTop="6dp" />
                 </LinearLayout>
 
+                <!-- Item 4: 1-9个月 -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -345,6 +382,7 @@
                     android:layout_marginBottom="14dp">
 
                     <TextView
+                        android:id="@+id/tv_recovery_time_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="1-9个月"
@@ -359,14 +397,26 @@
                         android:textSize="13sp"
                         android:textColor="@color/gray_600"
                         android:layout_marginTop="2dp" />
+
+                    <ProgressBar
+                        android:id="@+id/pb_recovery_4"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="6dp"
+                        android:progress="0"
+                        android:max="100"
+                        android:progressDrawable="@drawable/bg_progress_recovery"
+                        android:layout_marginTop="6dp" />
                 </LinearLayout>
 
+                <!-- Item 5: 1年 -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tv_recovery_time_5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="1年"
@@ -381,6 +431,16 @@
                         android:textSize="13sp"
                         android:textColor="@color/gray_600"
                         android:layout_marginTop="2dp" />
+
+                    <ProgressBar
+                        android:id="@+id/pb_recovery_5"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="6dp"
+                        android:progress="0"
+                        android:max="100"
+                        android:progressDrawable="@drawable/bg_progress_recovery"
+                        android:layout_marginTop="6dp" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

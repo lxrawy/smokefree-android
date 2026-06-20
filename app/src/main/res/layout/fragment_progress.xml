@@ -48,29 +48,19 @@
                     android:background="?attr/selectableItemBackgroundBorderless" />
             </RelativeLayout>
 
-            <!-- Circle Progress -->
+            <!-- 圆形进度条 (完整360°圆环，文字居中) -->
             <FrameLayout
                 android:layout_width="220dp"
                 android:layout_height="220dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="4dp">
 
-                <!-- Background circle -->
-                <View
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/circle_progress_bg" />
+                <com.example.smokefree.widget.ArcProgressView
+                    android:id="@+id/arc_progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
-                <!-- Progress arc -->
-                <View
-                    android:id="@+id/progress_arc"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/circle_progress_foreground" />
-
-                <!-- Center content -->
+                <!-- 居中文字 (圆圈正中央) -->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

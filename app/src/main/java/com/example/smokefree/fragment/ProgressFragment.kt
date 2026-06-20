@@ -14,6 +14,7 @@ import android.widget.PopupMenu
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.smokefree.R
+import com.example.smokefree.widget.ArcProgressView
 
 /**
  * 进度页面 — 实时戒烟数据展示
@@ -54,6 +55,7 @@ class ProgressFragment : Fragment() {
     private lateinit var tvProgressTarget: TextView
     private lateinit var tvProgressStatus: TextView
     private lateinit var btnDaySelector: TextView
+    private lateinit var arcProgress: ArcProgressView
 
     // 四宫格实时数据
     private lateinit var tvSmokeFreeTime: TextView      // 未吸菸時間
@@ -109,6 +111,7 @@ class ProgressFragment : Fragment() {
         tvProgressStatus = view.findViewById(R.id.tv_progress_status)
 
         btnDaySelector = view.findViewById(R.id.btn_day_selector)
+        arcProgress = view.findViewById(R.id.arc_progress)
 
         tvSmokeFreeTime = view.findViewById(R.id.tv_smoke_free_time)
         tvMoneySaved = view.findViewById(R.id.tv_money_saved)
@@ -224,24 +227,26 @@ class ProgressFragment : Fragment() {
         tvProgressTarget.text = "24小時"
         tvProgressStatus.text = getTodayMotivation(fullDaysElapsed)
 
+        // 设置弧形进度条（max=10000，精度到0.01%）
+        arcProgress.progress = (circlePercent * 100).toInt()
+
         // ---- A3. 未吸的香菸 = 已过总小时 × (日均支数 ÷ 24h) ----
         // 例: 19.8236h × (20÷24) ≈ 16.52支
         val cigsPerHour = dailyCigs.toDouble() / HOURS_PER_DAY
         val cigsAvoided = totalHours * cigsPerHour
 
-        // 减去用户实际记录的吸烟量
+        // 减去用户实际记录的吸烟量（但不让早期为负）
         val totalSmokedRecorded = prefs.getInt("total_smoked_all_time", 0).toDouble()
         val netCigsAvoided = (cigsAvoided - totalSmokedRecorded).coerceAtLeast(0.0)
-        tvCigarettesAvoided.text = "%.1f".format(netCigsAvoided)
+        tvCigarettesAvoided.text = "%.2f".format(netCigsAvoided)
 
         // ---- A4. 省下的錢 = 未吸支数 × 单支价 ----
-        // 例: 20.6支 × ¥0.70 = ¥14.42
         val moneySaved = netCigsAvoided * pricePerCig
         tvMoneySaved.text = "¥ %.2f".format(moneySaved)
 
-        // ---- A5. 挽回的生命 = 未吸支数 × 20分钟/支 → 转时分秒 ----
-        // 例: 20.6支 × 20min = 412min = 6h 52m
-        formatLifeRegained(netCigsAvoided)
+        // ---- A5. 挽回的生命 = 未吸支数 × 20分钟/支 → 转时分秒（含小数秒）----
+        // 实时计算：每秒都在增加，确保秒数也在走动
+        formatLifeRegainedRealtime(netCigsAvoided)
     }
 
     // ==================== B. 历史某一天（完整24h） ====================
@@ -266,11 +271,12 @@ class ProgressFragment : Fragment() {
         // ---- B1. 未吸菸時間 = 完整 24小時 00分 00秒 ----
         tvSmokeFreeTime.text = "24小時 00分 00秒"
 
-        // ---- B2. 圆环 = 100% ----
+        // ---- B2. 弧形 = 100% ----
         tvProgressDays.text = "第${targetDay}天"
         tvProgressPercent.text = "100.0%"
         tvProgressTarget.text = "24小時"
         tvProgressStatus.text = getPastDayMotivation(targetDay)
+        arcProgress.progress = 10000  // 历史天弧形满格
 
         // ---- 到这一天为止的累计数据 ----
         // 历史天默认视为完全避免(没打卡记录=没抽烟)
@@ -323,18 +329,31 @@ class ProgressFragment : Fragment() {
     // ==================== 工具方法 ====================
 
     /**
-     * 格式化挽回生命：未吸支数 × 20分钟 → X小時 XX分 XX秒
+     * 格式化挽回生命（实时版）：基于未吸支数 × 20分钟，精确到秒级显示
+     *
+     * 计算逻辑：
+     *   总挽回秒数 = 未吸支数 × 20分钟 × 60秒
+     *   → 格式化为 X小時 XX分 XX秒
+     *
+     * 每次定时器触发都重新计算，保证秒数实时跳动
+     */
+    private fun formatLifeRegainedRealtime(cigsAvoided: Double) {
+        // 总挽回 秒数（用Double保留小数精度）
+        val totalSecondsRegained = cigsAvoided * LIFE_LOSS_MINUTES_PER_CIG * MINUTES_PER_HOUR
+
+        // 拆分为 时 : 分 : 秒
+        val hours = (totalSecondsRegained / 3600.0).toInt()
+        val mins = ((totalSecondsRegained % 3600.0) / 60.0).toInt()
+        val secs = (totalSecondsRegained % 60.0).toInt()
+
+        tvLifeRegained.text = "%d小時 %02d分 %02d秒".format(hours, mins, secs)
+    }
+
+    /**
+     * 格式化挽回生命（历史天累计版）
      */
     private fun formatLifeRegained(cigsAvoided: Double) {
-        // 总挽回分钟数
-        val totalMinutesRegained = cigsAvoided * LIFE_LOSS_MINUTES_PER_CIG
-
-        // 转为 小時 : 分 : 秒
-        val hours = totalMinutesRegained.toInt() / MINUTES_PER_HOUR
-        val remainingMins = totalMinutesRegained.toInt() % MINUTES_PER_HOUR
-        val seconds = ((totalMinutesRegained % 1.0) * MINUTES_PER_HOUR).toInt()
-
-        tvLifeRegained.text = "%d小時 %02d分 %02d秒".format(hours, remainingMins, seconds)
+        formatLifeRegainedRealtime(cigsAvoided)
     }
 
     /** 鼓励语 — 今天 */
@@ -364,6 +383,7 @@ class ProgressFragment : Fragment() {
         tvProgressPercent.text = "0.0%"
         tvProgressTarget.text = "24小時"
         tvProgressStatus.text = "點擊首頁開始戒菸"
+        arcProgress.progress = 0
         tvSmokeFreeTime.text = "0小時 00分 00秒"
         tvMoneySaved.text = "¥ 0.00"
         tvLifeRegained.text = "0小時 00分 00秒"

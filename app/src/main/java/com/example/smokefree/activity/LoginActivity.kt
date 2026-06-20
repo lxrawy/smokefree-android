@@ -64,9 +64,13 @@ class LoginActivity : AppCompatActivity() {
         btnLogin.setOnClickListener {
             val phone = etPhone.text.toString().trim()
             val code = etCode.text.toString().trim()
-            
+
             if (validatePhone(phone) && validateCode(code)) {
-                // Simulate login success
+                // 保存登录状态
+                getSharedPreferences("smokefree", MODE_PRIVATE).edit()
+                    .putBoolean("is_logged_in", true)
+                    .putString("phone", phone)
+                    .apply()
                 Toast.makeText(this, "登录成功！", Toast.LENGTH_SHORT).show()
                 navigateToMain()
             }
@@ -74,8 +78,14 @@ class LoginActivity : AppCompatActivity() {
 
         // Wechat login
         btnWechatLogin.setOnClickListener {
-            Toast.makeText(this, "微信登录功能开发中", Toast.LENGTH_SHORT).show()
-            // In real app, integrate WeChat SDK here
+            // 模拟微信登录成功，保存微信用户信息
+            getSharedPreferences("smokefree", MODE_PRIVATE).edit()
+                .putBoolean("is_logged_in", true)
+                .putString("phone", "")
+                .putString("wechat_name", "微信用户")
+                .apply()
+            Toast.makeText(this, "微信登录成功！", Toast.LENGTH_SHORT).show()
+            navigateToMain()
         }
 
         // Skip login
@@ -94,19 +104,19 @@ class LoginActivity : AppCompatActivity() {
             tabWechat.setTextColor(getColor(R.color.gray_500))
             tabWechat.setTypeface(null, android.graphics.Typeface.NORMAL)
             
-            findViewById<android.widget.ScrollView>(R.id.form_phone).visibility = android.view.View.VISIBLE
-            findViewById<android.widget.ScrollView>(R.id.form_wechat).visibility = android.view.View.GONE
+            findViewById<android.widget.LinearLayout>(R.id.form_phone).visibility = android.view.View.VISIBLE
+            findViewById<android.widget.LinearLayout>(R.id.form_wechat).visibility = android.view.View.GONE
         } else {
             tabWechat.setBackgroundResource(R.drawable.bg_card)
             tabWechat.setTextColor(getColor(R.color.pink_600))
             tabWechat.setTypeface(null, android.graphics.Typeface.BOLD)
-            
+
             tabPhone.setBackgroundResource(0)
             tabPhone.setTextColor(getColor(R.color.gray_500))
             tabPhone.setTypeface(null, android.graphics.Typeface.NORMAL)
-            
-            findViewById<android.widget.ScrollView>(R.id.form_phone).visibility = android.view.View.GONE
-            findViewById<android.widget.ScrollView>(R.id.form_wechat).visibility = android.view.View.VISIBLE
+
+            findViewById<android.widget.LinearLayout>(R.id.form_phone).visibility = android.view.View.GONE
+            findViewById<android.widget.LinearLayout>(R.id.form_wechat).visibility = android.view.View.VISIBLE
         }
     }
 

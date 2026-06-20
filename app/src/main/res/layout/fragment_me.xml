@@ -453,6 +453,7 @@
                 android:paddingEnd="18dp">
 
                 <LinearLayout
+                    android:id="@+id/layout_data_export"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -498,6 +499,7 @@
                     android:background="@color/pink_100" />
 
                 <LinearLayout
+                    android:id="@+id/layout_feedback"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -543,6 +545,7 @@
                     android:background="@color/pink_100" />
 
                 <LinearLayout
+                    android:id="@+id/layout_about_item"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -587,9 +590,9 @@
                 android:id="@+id/btn_logout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/gray_100"
+                android:background="@color/pink_500"
                 android:text="@string/logout"
-                android:textColor="@color/red_500"
+                android:textColor="@color/white"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:paddingVertical="14dp"

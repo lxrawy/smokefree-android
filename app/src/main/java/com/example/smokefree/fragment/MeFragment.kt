@@ -13,7 +13,12 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.smokefree.R
+import com.example.smokefree.receiver.ReminderReceiver
 import com.example.smokefree.activity.LoginActivity
+import com.example.smokefree.activity.UserProfileActivity
+import com.example.smokefree.activity.DataExportActivity
+import com.example.smokefree.activity.FeedbackActivity
+import com.example.smokefree.activity.AboutActivity
 
 class MeFragment : Fragment() {
 
@@ -79,6 +84,18 @@ class MeFragment : Fragment() {
     }
 
     private fun setupListeners() {
+        // 点击登录 → 跳转登录页
+        view?.findViewById<View>(R.id.layout_not_logged_in)?.setOnClickListener {
+            val intent = Intent(requireContext(), LoginActivity::class.java)
+            startActivity(intent)
+        }
+
+        // 已登录状态点击用户信息区域 → 跳转账户详情页
+        view?.findViewById<View>(R.id.layout_logged_in)?.setOnClickListener {
+            val intent = Intent(requireContext(), UserProfileActivity::class.java)
+            startActivity(intent)
+        }
+
         // Toggle history form
         view?.findViewById<View>(R.id.layout_smoking_history)?.setOnClickListener {
             layoutHistoryForm.visibility = if (layoutHistoryForm.visibility == View.VISIBLE) {
@@ -121,6 +138,24 @@ class MeFragment : Fragment() {
         btnLogout.setOnClickListener {
             logout()
         }
+
+        // 数据导出
+        view?.findViewById<View>(R.id.layout_data_export)?.setOnClickListener {
+            val intent = Intent(requireContext(), DataExportActivity::class.java)
+            startActivity(intent)
+        }
+
+        // 帮助与反馈
+        view?.findViewById<View>(R.id.layout_feedback)?.setOnClickListener {
+            val intent = Intent(requireContext(), FeedbackActivity::class.java)
+            startActivity(intent)
+        }
+
+        // 关于
+        view?.findViewById<View>(R.id.layout_about_item)?.setOnClickListener {
+            val intent = Intent(requireContext(), AboutActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun updateUI() {
@@ -129,15 +164,21 @@ class MeFragment : Fragment() {
 
         if (isLoggedIn) {
             layoutLoggedIn.visibility = View.VISIBLE
+            view?.findViewById<View>(R.id.layout_not_logged_in)?.visibility = View.GONE
             btnLogout.visibility = View.VISIBLE
 
             val phone = prefs.getString("phone", "") ?: ""
+            val wechatName = prefs.getString("wechat_name", "") ?: ""
             if (phone.isNotEmpty()) {
                 tvUserName.text = phone.substring(0, 3) + "****" + phone.substring(7)
                 tvUserDesc.text = "手机号登录 · 点击查看详情"
+            } else if (wechatName.isNotEmpty()) {
+                tvUserName.text = wechatName
+                tvUserDesc.text = "微信登录 · 点击查看详情"
             }
         } else {
             layoutLoggedIn.visibility = View.GONE
+            view?.findViewById<View>(R.id.layout_not_logged_in)?.visibility = View.VISIBLE
             btnLogout.visibility = View.GONE
         }
 
@@ -225,7 +266,7 @@ class MeFragment : Fragment() {
                 background = resources.getDrawable(R.drawable.bg_input, null)
                 layoutParams = GridLayout.LayoutParams().apply {
                     width = 0
-                    columnWeight = 1f
+                    columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1f)
                     marginStart = 3.dp
                     marginEnd = 3.dp
                     topMargin = 4.dp
@@ -277,11 +318,17 @@ class MeFragment : Fragment() {
         val prefs = requireContext().getSharedPreferences("smokefree", 0)
         prefs.edit()
             .putInt("reminder_interval_hours", selectedTimerHours)
+            .putBoolean("reminder_enabled", true)
             .apply()
 
         tvTimerDesc.text = "每${selectedTimerHours}小時"
+
+        // 创建通知渠道 & 设置定时提醒
+        ReminderReceiver.createNotificationChannel(requireContext())
+        ReminderReceiver.scheduleReminder(requireContext(), selectedTimerHours)
+
         Toast.makeText(requireContext(),
-            "✅ 已设置为每 ${selectedTimerHours} 小时提醒一次",
+            "✅ 已设置每 ${selectedTimerHours} 小时提醒",
             Toast.LENGTH_SHORT).show()
 
         // 收起表单
