@@ -94,6 +94,7 @@
     <!-- Bottom Navigation -->
     <string name="nav_home">首页</string>
     <string name="nav_history">回顾</string>
+    <string name="nav_progress">进度</string>
     <string name="nav_track">打卡</string>
     <string name="nav_me">我</string>
 </resources>

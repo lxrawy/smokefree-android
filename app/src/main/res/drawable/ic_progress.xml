@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Bar chart icon - unselected (gray) -->
+    <path
+        android:pathData="M4,20h2V10H4v10zM9,20h2V6H9v14zM14,20h2V12h-2v8zM19,20h2V3h-2v17z"
+        android:fillColor="#999999" />
+</vector>

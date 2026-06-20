@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
             val fragment: Fragment = when (item.itemId) {
                 R.id.nav_home -> HomeFragment()
                 R.id.nav_history -> HistoryFragment()
+                R.id.nav_progress -> ProgressFragment()
                 R.id.nav_track -> TrackFragment()
                 R.id.nav_me -> MeFragment()
                 else -> HomeFragment()
