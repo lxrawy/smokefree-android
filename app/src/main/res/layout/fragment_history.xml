@@ -232,87 +232,12 @@
                     android:gravity="center" />
             </LinearLayout>
 
-            <!-- Table Rows -->
+            <!-- 动态生成的每日记录行 -->
             <LinearLayout
+                android:id="@+id/daily_record_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="10dp"
-                android:background="@color/pink_50">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="6/19"
-                    android:textSize="13sp"
-                    android:gravity="center" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="0支"
-                    android:textSize="13sp"
-                    android:gravity="center" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="¥0"
-                    android:textSize="13sp"
-                    android:gravity="center" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="✅ 完美"
-                    android:textSize="12sp"
-                    android:textColor="@color/green_600"
-                    android:gravity="center" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="10dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="6/18"
-                    android:textSize="13sp"
-                    android:gravity="center" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="1支"
-                    android:textSize="13sp"
-                    android:gravity="center" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="¥5"
-                    android:textSize="13sp"
-                    android:gravity="center" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="⚠️ 注意"
-                    android:textSize="12sp"
-                    android:textColor="#D97706"
-                    android:gravity="center" />
-            </LinearLayout>
+                android:orientation="vertical" />
         </LinearLayout>
 
     </LinearLayout>
