@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#FF6090"/>
+            <size
+                android:width="108dp"
+                android:height="108dp"/>
+        </shape>
+    </item>
+    <item
+        android:bottom="24dp"
+        android:left="24dp"
+        android:right="24dp"
+        android:top="24dp">
+        <vector xmlns:android="http://schemas.android.com/apk/res/android"
+            android:width="60dp"
+            android:height="60dp"
+            android:viewportWidth="108"
+            android:viewportHeight="108">
+            <!-- Cigarette -->
+            <line
+                android:startX="28"
+                android:startY="65"
+                android:endX="68"
+                android:endY="65"
+                android:strokeWidth="6"
+                android:strokeColor="#FFFFFF"
+                android:strokeLineCap="round"/>
+            <!-- Cigarette filter -->
+            <path
+                android:pathData="M68,61 L75,65 L68,69Z"
+                android:fillColor="#FFD700"/>
+            <!-- No smoking circle -->
+            <path
+                android:pathData="M54,26A20,20 0 1,0 54,66A20,20 0 1,0 54,26Z"
+                android:strokeWidth="4"
+                android:strokeColor="#FFFFFF"
+                android:fillColor="@android:color/transparent"/>
+            <!-- Prohibition line -->
+            <path
+                android:pathData="M38,40L70,64"
+                android:strokeWidth="4"
+                android:strokeColor="#FFFFFF"
+                android:strokeLineCap="round"/>
+        </vector>
+    </item>
+</layer-list>

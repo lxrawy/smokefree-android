@@ -200,9 +200,7 @@
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:paddingVertical="16dp"
-                android:drawableStart="💬"
-                android:drawablePadding="8dp" />
+                android:paddingVertical="16dp" />
         </LinearLayout>
 
         <!-- Divider -->
