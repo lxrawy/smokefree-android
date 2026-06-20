@@ -115,18 +115,18 @@ class HistoryFragment : Fragment() {
         val yearsSmoking = prefs.getInt("years_smoking", 0)
         val packPrice = prefs.getInt("pack_price", 0)
         
-        if (dailyCigs > 0 && yearsSmoking > 0) {
-            val totalCigs = dailyCigs * 365 * yearsSmoking
-            val totalMoney = (totalCigs / 20.0 * packPrice).toInt()
+        if (dailyCigs > 0 && yearsSmoking > 0 && packPrice > 0) {
+            val totalCigs = dailyCigs * 365L * yearsSmoking
+            val totalMoney = totalCigs * packPrice / 20.0
             val packEquiv = totalCigs / 20
-            val coffeeEquiv = totalMoney / 30
-            
+            val coffeeEquiv = (totalMoney / 30).toInt()
+
             view?.findViewById<TextView>(R.id.tv_hist_daily)?.text = dailyCigs.toString()
             view?.findViewById<TextView>(R.id.tv_hist_years)?.text = yearsSmoking.toString()
-            view?.findViewById<TextView>(R.id.tv_hist_total)?.text = "¥${totalMoney}"
-            
-            view?.findViewById<TextView>(R.id.tv_hist_note)?.text = 
-                "💡 你已累计吸烟 ${totalCigs} 支，相当于 ${packEquiv} 包烟。\n这些钱可以买 ${coffeeEquiv} 杯咖啡 ☕"
+            view?.findViewById<TextView>(R.id.tv_hist_total)?.text = "¥${"%,.0f".format(totalMoney)}"
+
+            view?.findViewById<TextView>(R.id.tv_hist_note)?.text =
+                "💡 你已累计吸烟 ${"%,d".format(totalCigs)} 支，相当于 ${"%,d".format(packEquiv)} 包烟。\n这些钱可以买 ${"%,d".format(coffeeEquiv)} 杯咖啡 ☕"
         }
         
         // Update chart
@@ -165,7 +165,9 @@ class HistoryFragment : Fragment() {
                 cigs = 0
             }
 
-            val cost = (cigs * pricePerCig).toInt()
+            // 花费：保留1位小数（如 ¥2.5），整数则不显示.0
+            val costRaw = cigs * pricePerCig
+            val costStr = if (costRaw == costRaw.toLong().toDouble()) "¥${costRaw.toInt()}" else "¥${"%.1f".format(costRaw)}"
             val status: String
             val statusColor: Int
             when {
@@ -211,7 +213,7 @@ class HistoryFragment : Fragment() {
 
             // 花费
             row.addView(TextView(requireContext()).apply {
-                text = "¥$cost"
+                text = costStr
                 textSize = 13f
                 gravity = android.view.Gravity.CENTER
                 layoutParams = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
