@@ -151,7 +151,10 @@ class HomeFragment : Fragment() {
             // 今日已吸 & 今日花费
             val todaySmoked = prefs.getInt("today_smoked", 0)
             tvTodaySmoked.text = todaySmoked.toString()
-            tvTodayCost.text = "¥${(todaySmoked * pricePerCig).toInt()}"
+            // 今日花费（保留小数：2支×1.25=¥2.5，整数不显示.0）
+            val todayCost = todaySmoked * pricePerCig
+            tvTodayCost.text = if (todayCost == todayCost.toLong().toDouble())
+                "¥${todayCost.toLong()}" else "¥${"%.1f".format(todayCost)}"
 
             // 累计节省（与进度页"省下的錢"一致）
             val moneySaved = netCigsAvoided * pricePerCig
