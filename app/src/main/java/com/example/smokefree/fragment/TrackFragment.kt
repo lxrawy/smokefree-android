@@ -17,8 +17,8 @@ class TrackFragment : Fragment() {
 
     private lateinit var tvDays: TextView
     private lateinit var tvCigaretteCount: TextView
-    private lateinit var btnMinus: Button
-    private lateinit var btnPlus: Button
+    private lateinit var btnMinus: View
+    private lateinit var btnPlus: View
     private lateinit var btnSubmit: Button
     private lateinit var progressBar: ProgressBar
     private lateinit var tvGoalName: TextView
@@ -46,12 +46,12 @@ class TrackFragment : Fragment() {
     }
 
     private fun initViews(view: View) {
-        tvDays = view.findViewById(R.id.tv_days)
+        tvDays = view.findViewById(R.id.tv_track_days)
         tvCigaretteCount = view.findViewById(R.id.tv_cigarette_count)
         btnMinus = view.findViewById(R.id.btn_minus)
         btnPlus = view.findViewById(R.id.btn_plus)
-        btnSubmit = view.findViewById(R.id.btn_submit)
-        progressBar = view.findViewById(R.id.progress_bar)
+        btnSubmit = view.findViewById(R.id.btn_submit_checkin)
+        progressBar = view.findViewById(R.id.progress_goal)
         tvGoalName = view.findViewById(R.id.tv_goal_name)
         tvGoalTarget = view.findViewById(R.id.tv_goal_target)
         tvGoalSaved = view.findViewById(R.id.tv_goal_saved)

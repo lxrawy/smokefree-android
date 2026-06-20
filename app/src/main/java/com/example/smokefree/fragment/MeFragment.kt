@@ -18,7 +18,6 @@ class MeFragment : Fragment() {
 
     private lateinit var tvUserName: TextView
     private lateinit var tvUserDesc: TextView
-    private lateinit var btnLogin: Button
     private lateinit var layoutLoggedIn: LinearLayout
     private lateinit var layoutHistoryForm: LinearLayout
     private lateinit var layoutHistoryResult: LinearLayout
@@ -51,26 +50,28 @@ class MeFragment : Fragment() {
     private fun initViews(view: View) {
         tvUserName = view.findViewById(R.id.tv_user_name)
         tvUserDesc = view.findViewById(R.id.tv_user_desc)
-        btnLogin = view.findViewById(R.id.btn_login)
         layoutLoggedIn = view.findViewById(R.id.layout_logged_in)
         layoutHistoryForm = view.findViewById(R.id.layout_history_form)
         layoutHistoryResult = view.findViewById(R.id.layout_history_result)
-        etDaily = view.findViewById(R.id.et_daily)
-        etPrice = view.findViewById(R.id.et_price)
-        etYears = view.findViewById(R.id.et_years)
-        btnCalculate = view.findViewById(R.id.btn_calculate)
+        etDaily = view.findViewById(R.id.et_daily_cigs)
+        etPrice = view.findViewById(R.id.et_pack_price)
+        etYears = view.findViewById(R.id.et_years_smoking)
+        btnCalculate = view.findViewById(R.id.btn_calculate_history)
         btnStartQuit = view.findViewById(R.id.btn_start_quit)
-        tvHistDaily = view.findViewById(R.id.tv_hist_daily)
-        tvHistYears = view.findViewById(R.id.tv_hist_years)
-        tvHistTotal = view.findViewById(R.id.tv_hist_total)
+        tvHistDaily = view.findViewById(R.id.tv_res_daily)
+        tvHistYears = view.findViewById(R.id.tv_res_years)
+        tvHistTotal = view.findViewById(R.id.tv_res_total)
         btnLogout = view.findViewById(R.id.btn_logout)
     }
 
     private fun setupListeners() {
-        // Login button
-        btnLogin.setOnClickListener {
-            val intent = Intent(requireContext(), LoginActivity::class.java)
-            startActivity(intent)
+        // Toggle history form
+        view?.findViewById<View>(R.id.layout_smoking_history)?.setOnClickListener {
+            layoutHistoryForm.visibility = if (layoutHistoryForm.visibility == View.VISIBLE) {
+                View.GONE
+            } else {
+                View.VISIBLE
+            }
         }
 
         // Calculate history
@@ -87,41 +88,30 @@ class MeFragment : Fragment() {
         btnLogout.setOnClickListener {
             logout()
         }
-
-        // Toggle history form
-        view?.findViewById<TextView>(R.id.tv_history_title)?.setOnClickListener {
-            layoutHistoryForm.visibility = if (layoutHistoryForm.visibility == View.VISIBLE) {
-                View.GONE
-            } else {
-                View.VISIBLE
-            }
-        }
     }
 
     private fun updateUI() {
         val prefs = requireContext().getSharedPreferences("smokefree", 0)
         val isLoggedIn = prefs.getBoolean("is_logged_in", false)
-        
+
         if (isLoggedIn) {
-            btnLogin.visibility = View.GONE
             layoutLoggedIn.visibility = View.VISIBLE
             btnLogout.visibility = View.VISIBLE
-            
+
             val phone = prefs.getString("phone", "") ?: ""
             if (phone.isNotEmpty()) {
                 tvUserName.text = phone.substring(0, 3) + "****" + phone.substring(7)
                 tvUserDesc.text = "手机号登录 · 点击查看详情"
             }
         } else {
-            btnLogin.visibility = View.VISIBLE
             layoutLoggedIn.visibility = View.GONE
             btnLogout.visibility = View.GONE
         }
-        
+
         // Update history display
         val dailyCigs = prefs.getInt("daily_cigs", 0)
         val yearsSmoking = prefs.getInt("years_smoking", 0)
-        
+
         if (dailyCigs > 0) {
             tvHistDaily.text = "${dailyCigs}支/天"
             tvHistYears.text = "${yearsSmoking}年"
