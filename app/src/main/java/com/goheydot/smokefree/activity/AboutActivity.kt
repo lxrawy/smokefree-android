@@ -1,4 +1,4 @@
-package com.example.smokefree.activity
+package com.goheydot.smokefree.activity
 
 import android.content.Intent
 import android.net.Uri
@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import com.example.smokefree.R
+import com.goheydot.smokefree.R
 
 class AboutActivity : AppCompatActivity() {
 

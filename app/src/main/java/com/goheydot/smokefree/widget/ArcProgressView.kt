@@ -1,4 +1,4 @@
-package com.example.smokefree.widget
+package com.goheydot.smokefree.widget
 
 import android.content.Context
 import android.graphics.Canvas
@@ -7,7 +7,7 @@ import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.ContextCompat
-import com.example.smokefree.R
+import com.goheydot.smokefree.R
 
 /**
  * 圆形进度条 — 完整 360° 圆环

@@ -1,11 +1,11 @@
-package com.example.smokefree.activity
+package com.goheydot.smokefree.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.example.smokefree.R
-import com.example.smokefree.fragment.*
-import com.example.smokefree.receiver.ReminderReceiver
+import com.goheydot.smokefree.R
+import com.goheydot.smokefree.fragment.*
+import com.goheydot.smokefree.receiver.ReminderReceiver
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {

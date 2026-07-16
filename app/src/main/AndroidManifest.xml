@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.smokefree">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Internet permission for future API calls -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    
     <!-- Notification permission for reminders -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     
@@ -23,9 +19,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         
-        <!-- Login Activity - Entry point -->
+        <!-- Login Activity -->
         <activity
             android:name=".activity.LoginActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        
+        <!-- Main Activity - Entry point -->
+        <activity
+            android:name=".activity.MainActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
@@ -33,12 +35,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-        <!-- Main Activity -->
-        <activity
-            android:name=".activity.MainActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
 
         <!-- User Profile Activity -->
         <activity

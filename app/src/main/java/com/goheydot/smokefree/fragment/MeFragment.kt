@@ -1,4 +1,4 @@
-package com.example.smokefree.fragment
+package com.goheydot.smokefree.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,13 +12,13 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.smokefree.R
-import com.example.smokefree.receiver.ReminderReceiver
-import com.example.smokefree.activity.LoginActivity
-import com.example.smokefree.activity.UserProfileActivity
-import com.example.smokefree.activity.DataExportActivity
-import com.example.smokefree.activity.FeedbackActivity
-import com.example.smokefree.activity.AboutActivity
+import com.goheydot.smokefree.R
+import com.goheydot.smokefree.receiver.ReminderReceiver
+import com.goheydot.smokefree.activity.LoginActivity
+import com.goheydot.smokefree.activity.UserProfileActivity
+import com.goheydot.smokefree.activity.DataExportActivity
+import com.goheydot.smokefree.activity.FeedbackActivity
+import com.goheydot.smokefree.activity.AboutActivity
 
 class MeFragment : Fragment() {
 

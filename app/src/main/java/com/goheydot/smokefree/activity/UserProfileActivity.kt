@@ -1,4 +1,4 @@
-package com.example.smokefree.activity
+package com.goheydot.smokefree.activity
 
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -18,7 +18,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.example.smokefree.R
+import com.goheydot.smokefree.R
 import java.io.File
 import java.io.FileOutputStream
 

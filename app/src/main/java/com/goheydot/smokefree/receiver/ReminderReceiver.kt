@@ -1,4 +1,4 @@
-package com.example.smokefree.receiver
+package com.goheydot.smokefree.receiver
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -8,8 +8,8 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import androidx.core.app.NotificationCompat
-import com.example.smokefree.R
-import com.example.smokefree.activity.MainActivity
+import com.goheydot.smokefree.R
+import com.goheydot.smokefree.activity.MainActivity
 
 class ReminderReceiver : BroadcastReceiver() {
 

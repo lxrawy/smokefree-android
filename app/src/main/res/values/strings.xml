@@ -97,4 +97,7 @@
     <string name="nav_progress">进度</string>
     <string name="nav_track">打卡</string>
     <string name="nav_me">我</string>
+
+    <!-- Toast messages -->
+    <string name="smoked_toast">已抽了%1$d根烟，寿命缩短了%2$d分钟</string>
 </resources>

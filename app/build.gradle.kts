@@ -17,11 +17,11 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace = "com.example.smokefree"
+    namespace = "com.goheydot.smokefree"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.smokefree"
+        applicationId = "com.goheydot.smokefree"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

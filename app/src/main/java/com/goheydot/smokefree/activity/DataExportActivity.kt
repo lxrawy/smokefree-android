@@ -1,4 +1,4 @@
-package com.example.smokefree.activity
+package com.goheydot.smokefree.activity
 
 import android.app.DatePickerDialog
 import android.content.Intent
@@ -9,7 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import com.example.smokefree.R
+import com.goheydot.smokefree.R
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale

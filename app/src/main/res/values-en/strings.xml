@@ -150,6 +150,6 @@
     <string name="confirm">Confirm</string>
     <string name="ok">OK</string>
     <string name="already_checked_in">You already checked in today!</string>
-    <string name="smoked_toast">Smoked %d cigarette(s). Life reduced by %d min.</string>
+    <string name="smoked_toast">Smoked %1$d cigarette(s). Life reduced by %2$d min.</string>
     <string name="health_disclaimer">This app is not a medical device and does not provide medical advice. Consult a healthcare professional for smoking cessation guidance.</string>
 </resources>

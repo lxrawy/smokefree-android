@@ -1,4 +1,4 @@
-package com.example.smokefree.fragment
+package com.goheydot.smokefree.fragment
 
 import android.os.Bundle
 import android.os.Handler
@@ -10,7 +10,7 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.smokefree.R
+import com.goheydot.smokefree.R
 import java.text.SimpleDateFormat
 import java.util.*
 
