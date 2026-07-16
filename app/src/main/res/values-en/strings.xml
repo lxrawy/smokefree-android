@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SmokeFree</string>
+    <string name="slogan">Every day you resist is a gift to yourself</string>
+
+    <!-- Login -->
+    <string name="login_title">SmokeFree</string>
+    <string name="login_subtitle">Every day you resist is a gift to yourself</string>
+    <string name="phone_login">Phone</string>
+    <string name="email_login">Email</string>
+    <string name="wechat_login">WeChat</string>
+    <string name="hint_phone">Enter your phone number</string>
+    <string name="hint_email">Enter your email</string>
+    <string name="hint_code">Verification code</string>
+    <string name="btn_send_code">Send code</string>
+    <string name="btn_login">Login / Sign up</string>
+    <string name="btn_wechat_login">Continue with WeChat</string>
+    <string name="login_agreement">By logging in, you agree to the Terms of Service and Privacy Policy</string>
+    <string name="login_data_note">Your data is only used for quit tracking and is never shared</string>
+    <string name="skip_login">Skip — just looking around</string>
+
+    <!-- Home -->
+    <string name="home_title">SmokeFree</string>
+    <string name="home_days">days · smoke-free</string>
+    <string name="today_status">Today</string>
+    <string name="today_smoked">Smoked today</string>
+    <string name="today_cost">Spent today</string>
+    <string name="total_saved">Total saved</string>
+    <string name="health_recovery">Health index</string>
+    <string name="health_timeline">Body recovery progress</string>
+    <string name="quick_record">Quick log</string>
+    <string name="record_prompt">Did you just smoke? Log it</string>
+    <string name="btn_no_smoke">Stayed strong!</string>
+    <string name="btn_smoked">Slipped up...</string>
+
+    <!-- Timer -->
+    <string name="timer_label">Quit timer</string>
+    <string name="timer_start_prompt">Tap below to start your quit journey</string>
+    <string name="btn_start_quit_now">Start quitting now</string>
+    <string name="timer_running_subtitle">Stay strong! You are making miracles</string>
+    <string name="timer_format">%1$d h %2$02d m %3$02d s</string>
+
+    <!-- History -->
+    <string name="history_title">History</string>
+    <string name="history_desc">See how far you have come</string>
+    <string name="history_summary">Smoking history summary</string>
+    <string name="weekly_trend">This week\'s trend</string>
+    <string name="daily_record">Daily records</string>
+    <string name="date">Date</string>
+    <string name="cigarettes">Smoked</string>
+    <string name="cost">Cost</string>
+    <string name="status">Status</string>
+
+    <!-- Track -->
+    <string name="track_title">Daily Check-in</string>
+    <string name="track_desc">Track each day, witness the change</string>
+    <string name="track_days">days · checking in</string>
+    <string name="set_goal">Set a quit reward goal</string>
+    <string name="goal_hint">What will you buy with the money saved? Set a goal to stay motivated!</string>
+    <string name="goal_name_hint">e.g., a new MacBook</string>
+    <string name="goal_amount_hint">e.g., 8000</string>
+    <string name="btn_set_goal">Set goal</string>
+    <string name="today_checkin">Today\'s check-in</string>
+    <string name="cigarette_count_prompt">How many cigarettes today?</string>
+    <string name="zero_cigarette_note">(0 = completely smoke-free today!)</string>
+    <string name="btn_submit_checkin">Submit check-in</string>
+    <string name="achievements">Achievements</string>
+
+    <!-- Me -->
+    <string name="me_title">Me</string>
+    <string name="me_desc">Manage your quit journey</string>
+    <string name="click_login">Tap to login · Start your journey</string>
+    <string name="quit_settings">Quit settings</string>
+    <string name="smoking_history">Smoking history</string>
+    <string name="notification_settings">Reminders</string>
+    <string name="others">Others</string>
+    <string name="data_export">Export data</string>
+    <string name="help_feedback">Help &amp; Feedback</string>
+    <string name="about">About</string>
+    <string name="version">v1.0.0</string>
+    <string name="logout">Log out</string>
+    <string name="delete_account">Delete account</string>
+
+    <!-- Account -->
+    <string name="account_info">Account info</string>
+    <string name="bind_manage">Linked accounts</string>
+    <string name="bind_phone">Link phone</string>
+    <string name="bind_email">Link email</string>
+    <string name="bind_wechat">Link WeChat</string>
+    <string name="security_settings">Security</string>
+    <string name="change_password">Change password</string>
+
+    <!-- Notifications -->
+    <string name="notif_title">Quit reminder</string>
+    <string name="notif_message">Hey! How many cigarettes in the last %d hours?</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_history">History</string>
+    <string name="nav_progress">Progress</string>
+    <string name="nav_track">Check-in</string>
+    <string name="nav_me">Me</string>
+
+    <!-- Progress Page -->
+    <string name="progress_title">Progress</string>
+    <string name="time_smoke_free">Smoke-free time</string>
+    <string name="money_saved">Money saved</string>
+    <string name="life_regained">Life regained</string>
+    <string name="cigarettes_avoided">Cigarettes avoided</string>
+    <string name="cigarettes_smoked">Cigarettes smoked</string>
+    <string name="money_wasted">Money wasted</string>
+    <string name="life_lost">Life lost</string>
+    <string name="during_smoking_period">While you were smoking</string>
+    <string name="reset_timer">Reset timer</string>
+    <string name="reset_confirm_title">Don\'t give up!</string>
+    <string name="reset_confirm_message">Are you sure you want to reset your quit timer? This will clear your progress.</string>
+    <string name="reset_confirm_button">Reset timer</string>
+    <string name="reset_cancel_button">Keep going</string>
+
+    <!-- Health Recovery Milestones -->
+    <string name="milestone_20min">20 minutes: Heart rate normalizes</string>
+    <string name="milestone_12h">12 hours: Carbon monoxide drops</string>
+    <string name="milestone_3weeks">3 weeks: Circulation improves</string>
+    <string name="milestone_9months">9 months: Lung function improves</string>
+    <string name="milestone_1year">1 year: Heart disease risk halves</string>
+
+    <!-- Data Export -->
+    <string name="export_title">Export Data</string>
+    <string name="export_date_range">Select date range (max 30 days)</string>
+    <string name="export_start_date">Start date</string>
+    <string name="export_end_date">End date</string>
+    <string name="btn_export">Generate report</string>
+
+    <!-- Feedback -->
+    <string name="feedback_title">Feedback</string>
+    <string name="feedback_subject">Subject</string>
+    <string name="feedback_content">Your message</string>
+    <string name="feedback_contact">Contact (optional)</string>
+    <string name="btn_send_feedback">Send</string>
+
+    <!-- About -->
+    <string name="about_title">About SmokeFree</string>
+    <string name="about_version">Version</string>
+    <string name="about_privacy_policy">Privacy Policy</string>
+    <string name="about_terms">Terms of Service</string>
+    <string name="about_rate">Rate us</string>
+
+    <!-- Common -->
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
+    <string name="ok">OK</string>
+    <string name="already_checked_in">You already checked in today!</string>
+    <string name="smoked_toast">Smoked %d cigarette(s). Life reduced by %d min.</string>
+    <string name="health_disclaimer">This app is not a medical device and does not provide medical advice. Consult a healthcare professional for smoking cessation guidance.</string>
+</resources>

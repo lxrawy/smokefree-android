@@ -1,62 +1,80 @@
-# 戒烟助手隐私政策
+# SmokeFree — Privacy Policy (Bilingual)
 
-**生效日期：2026年6月20日**
+> Effective Date: July 16, 2026 | Version: 2.0
+> This is the Markdown source for the hosted HTML version at `privacy_policy.html`.
 
-## 一、我们收集的信息
+## Key Promise
 
-戒烟助手（SmokeFree）是一款帮助您戒烟的健康类应用。我们使用您的信息来提供和改善服务。
-
-### 1. 您主动提供的信息
-- **吸烟记录**：每日吸烟数量、戒烟开始日期
-- **吸烟历史**：每日吸烟支数、吸烟年限、香烟价格（用于统计省钱金额）
-- **账户信息**：登录方式（手机号/微信）、昵称（如通过微信登录）
-
-### 2. 我们自动收集的信息
-- **设备信息**：Android 版本、设备型号（用于兼容性优化）
-- **使用数据**：应用内操作记录（本地存储，不上传服务器）
-
-**重要说明**：本应用**不收集任何个人身份信息**，所有数据均存储在您的手机本地，不会上传到任何服务器。
-
-## 二、我们如何使用信息
-
-我们使用您的信息用于以下目的：
-- 计算戒烟进度、省钱金额、身体恢复里程碑
-- 提供定时提醒功能（通过系统通知）
-- 生成戒烟数据报告（本地导出）
-
-我们**不会**将您的数据出售、出租或分享给任何第三方。
-
-## 三、数据存储与安全
-
-- 所有数据存储在您的手机本地（SharedPreferences / 本地文件）
-- 头像图片存储在应用私有目录
-- 我们不使用网络传输您的数据
-- 您可以通过"退出登录"清除所有本地数据
-
-## 四、第三方服务
-
-本应用目前**不集成**任何第三方 SDK（无广告、无统计、无社交分享）。
-
-## 五、您的权利
-
-您可以随时：
-- 在应用内清除所有吸烟记录
-- 退出登录并清除账户信息
-- 卸载应用以删除所有本地数据
-
-## 六、儿童隐私
-
-本应用不面向 13 岁以下儿童，我们不会故意收集儿童的个人信息。
-
-## 七、政策更新
-
-我们可能会不时更新本隐私政策。如有重大变更，将在应用内通知您。
-
-## 八、联系我们
-
-如有任何疑问，请通过以下方式联系我们：
-- 在应用内"帮助与反馈"页面提交反馈
+SmokeFree stores all your data locally on your device. We do not collect, transmit, or share your personal data with any server or third party.
 
 ---
 
-*本隐私政策根据《中华人民共和国个人信息保护法》编写。*
+## 1. Information We Collect
+
+### 1.1 Information You Provide (stored locally only)
+- Smoking records: daily cigarette count, quit-smoking start date
+- Smoking history: cigarettes per day, years of smoking, pack price
+- Reminders: custom intervals and settings
+- Goals: savings goals for motivation
+
+### 1.2 Automatically Collected Information
+**None.** No analytics SDKs, no advertising SDKs, no crash reporting, no behavioral tracking.
+
+### 1.3 Account Information
+Optional local login only. Credentials stored on device. Nothing transmitted to any server.
+
+## 2. How We Use Your Information
+- Calculating quit progress, money saved, health milestones
+- Scheduled reminders via system notifications
+- Local data report generation (exported only when you choose)
+- On-screen trends and statistics
+
+## 3. Legal Basis (GDPR)
+- Consent (Article 6(1)(a)): you voluntarily input data
+- Performance of contract (Article 6(1)(b)): necessary for core functionality
+
+## 4. Data Storage and Security
+- Local storage only (SharedPreferences / local files)
+- No network transmission — no backend, no cloud sync
+- Avatar images stored in app private directory
+
+## 5. Data Retention
+Data retained until you delete it via:
+- In-app "Clear all data" / "Reset"
+- In-app "Delete Account"
+- Uninstalling the app
+
+## 6. Third-Party Services
+**None.** No advertising, no analytics, no crash reporting, no social SDKs, no cloud sync.
+
+## 7. Your Rights
+
+### GDPR (EEA/UK/Switzerland)
+Access, rectification, erasure, portability, objection, restriction, withdraw consent — all exercisable via in-app features or uninstall.
+
+### CCPA/CPRA (California)
+Right to know, right to delete, right to opt-out of sale (not applicable — we don't sell), right to non-discrimination.
+
+## 8. Children's Privacy
+Not directed at children under 13 (or 16 where GDPR-K applies). We do not knowingly collect children's data.
+
+## 9. International Data Transfers
+**Not applicable.** No data crosses borders. All data stays on device.
+
+## 10. Cookies and Tracking
+**None.** No cookies, no tracking pixels, no ATT required.
+
+## 11. Health Information Disclaimer
+SmokeFree is not a medical device. Health recovery timelines are based on general research and are for informational purposes only. Consult a healthcare professional for medical advice.
+
+## 12. Policy Updates
+We update the effective date and version number. Material changes notified in-app.
+
+## 13. Contact
+- Email: [your-email@your-domain.com]
+- In-app: Settings → Help & Feedback
+- Response within 30 days (GDPR requirement)
+
+---
+
+*This Privacy Policy complies with GDPR, CCPA/CPRA, COPPA, and PIPL.*
