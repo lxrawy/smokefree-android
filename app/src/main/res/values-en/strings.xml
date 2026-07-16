@@ -3,6 +3,13 @@
     <string name="app_name">SmokeFree</string>
     <string name="slogan">Every day you resist is a gift to yourself</string>
 
+    <!-- Currency -->
+    <string name="currency_symbol">$</string>
+
+    <!-- Privacy Policy URL -->
+    <string name="privacy_policy_url">https://lxrawy.github.io/smokefree-android/privacy_policy.html</string>
+    <string name="support_email">coleleeindia@gmail.com</string>
+
     <!-- Login -->
     <string name="login_title">SmokeFree</string>
     <string name="login_subtitle">Every day you resist is a gift to yourself</string>
@@ -32,6 +39,44 @@
     <string name="record_prompt">Did you just smoke? Log it</string>
     <string name="btn_no_smoke">Stayed strong!</string>
     <string name="btn_smoked">Slipped up...</string>
+    <string name="unit_cigs">cigs</string>
+    <string name="unit_yuan"></string>
+    <string name="recovery_label">Recovery</string>
+    <string name="home_motivation_default">Keep going, you can do it! 💪</string>
+
+    <!-- Home Quotes -->
+    <string name="quote_1">"The best time to plant a tree was 20 years ago. The second best time is now."</string>
+    <string name="quote_2">"Every cigarette you refuse is a gift to your future self."</string>
+    <string name="quote_3">"You are stronger than cigarettes. Believe in yourself!"</string>
+    <string name="quote_4">"One day of persistence is a victory; a lifetime is a miracle."</string>
+    <string name="quote_5">"Today\'s perseverance is tomorrow\'s health."</string>
+
+    <!-- Home Encouragements -->
+    <string name="encourage_title_1">🎉 Awesome! Zero cigarettes!</string>
+    <string name="encourage_sub_1">Every refusal is an investment in health</string>
+    <string name="encourage_title_2">💪 Persistence is victory! Great job!</string>
+    <string name="encourage_sub_2">Your body is quietly getting better</string>
+    <string name="encourage_title_3">🌟 Zero smoking, perfect record!</string>
+    <string name="encourage_sub_3">Be proud of yourself</string>
+    <string name="encourage_title_4">🏆 You are the champion of self-discipline!</string>
+    <string name="encourage_sub_4">Keep up this perfect score</string>
+    <string name="encourage_title_5">💚 Your lungs are thanking you!</string>
+    <string name="encourage_sub_5">Every breath is easier now</string>
+
+    <!-- Home Toast -->
+    <string name="toast_smoked_warning">⚠️ Logged %1$d cigarette(s)\n💔 Life reduced by %2$d min\nDon\'t give up, next time you can resist!</string>
+
+    <!-- Health Recovery Milestones -->
+    <string name="milestone_20min">20 minutes</string>
+    <string name="milestone_20min_desc">Heart rate and blood pressure normalize</string>
+    <string name="milestone_12h">12 hours</string>
+    <string name="milestone_12h_desc">Carbon monoxide levels drop to normal</string>
+    <string name="milestone_3weeks">2-3 weeks</string>
+    <string name="milestone_3weeks_desc">Circulation improves, lung function increases</string>
+    <string name="milestone_9months">1-9 months</string>
+    <string name="milestone_9months_desc">Coughing and shortness of breath decrease</string>
+    <string name="milestone_1year">1 year</string>
+    <string name="milestone_1year_desc">Heart disease risk cut by 50%</string>
 
     <!-- Timer -->
     <string name="timer_label">Quit timer</string>
@@ -39,6 +84,7 @@
     <string name="btn_start_quit_now">Start quitting now</string>
     <string name="timer_running_subtitle">Stay strong! You are making miracles</string>
     <string name="timer_format">%1$d h %2$02d m %3$02d s</string>
+    <string name="format_24h">24 h</string>
 
     <!-- History -->
     <string name="history_title">History</string>
@@ -50,6 +96,23 @@
     <string name="cigarettes">Smoked</string>
     <string name="cost">Cost</string>
     <string name="status">Status</string>
+    <string name="unit_per_day">/day</string>
+    <string name="unit_year">yrs</string>
+    <string name="trend_improving">📉 Trends are improving!</string>
+    <string name="label_smoking_count">Cigarettes</string>
+    <string name="status_perfect">✅ Perfect</string>
+    <string name="status_warning">⚠️ Caution</string>
+    <string name="status_over">❌ Over limit</string>
+    <string name="format_history_note">💡 You have smoked %1$s cigarettes, about %2$s packs.\nThat money could buy %3$s cups of coffee ☕</string>
+
+    <!-- Weekday labels -->
+    <string name="weekday_mon">Mon</string>
+    <string name="weekday_tue">Tue</string>
+    <string name="weekday_wed">Wed</string>
+    <string name="weekday_thu">Thu</string>
+    <string name="weekday_fri">Fri</string>
+    <string name="weekday_sat">Sat</string>
+    <string name="weekday_sun">Sun</string>
 
     <!-- Track -->
     <string name="track_title">Daily Check-in</string>
@@ -65,6 +128,20 @@
     <string name="zero_cigarette_note">(0 = completely smoke-free today!)</string>
     <string name="btn_submit_checkin">Submit check-in</string>
     <string name="achievements">Achievements</string>
+    <string name="goal_achieved_msg">🎉 Congratulations! Goal achieved! Go treat yourself!</string>
+    <string name="goal_name_label">🎁 Goal name</string>
+    <string name="goal_amount_label">💰 Goal amount</string>
+    <string name="badge_day1_title">Day 1</string>
+    <string name="badge_day1_desc">First check-in completed</string>
+    <string name="badge_day3_title">3-day streak</string>
+    <string name="badge_day3_desc">Three days without smoking</string>
+    <string name="toast_goal_achieved">🎉 Congratulations! Goal achieved!</string>
+    <string name="toast_already_checked_in">Already checked in today! Come back tomorrow.</string>
+    <string name="toast_checkin_zero">🎉 Awesome! Zero cigarettes! %1$d day streak!</string>
+    <string name="toast_checkin_count">✅ Check-in done! %1$d cigarette(s) today, %2$d day streak!</string>
+    <string name="format_goal_target">Goal: $%1$d</string>
+    <string name="format_goal_saved">Saved: $%1$d</string>
+    <string name="format_goal_remain">Remaining: $%1$d</string>
 
     <!-- Me -->
     <string name="me_title">Me</string>
@@ -79,20 +156,66 @@
     <string name="about">About</string>
     <string name="version">v1.0.0</string>
     <string name="logout">Log out</string>
-    <string name="delete_account">Delete account</string>
+    <string name="me_user_default">User</string>
+    <string name="me_view_account">Tap to view account details</string>
+    <string name="me_history_not_filled">Not filled</string>
+    <string name="me_daily_cigs_prompt">🚬 How many cigarettes per day?</string>
+    <string name="me_pack_price_prompt">💰 Price per pack? (20 cigs/pack)</string>
+    <string name="me_years_prompt">📅 How many years smoking?</string>
+    <string name="me_view_summary">📊 View my smoking summary</string>
+    <string name="me_total_spent">Total spent</string>
+    <string name="me_start_quit">🚭 Start my quit plan!</string>
+    <string name="me_quit_in_progress">🚀 Quit plan in progress...</string>
+    <string name="me_reminder_desc">Every %1$d h</string>
+    <string name="me_save_reminder">✅ Save reminder settings</string>
+    <string name="me_export_records">Export quit records</string>
+    <string name="me_encounter_problem">Having trouble?</string>
+    <string name="me_unit_hour">h</string>
+    <string name="me_toast_fill_complete">Please fill in all fields~</string>
+    <string name="me_toast_history_saved">Smoking history saved 📊</string>
+    <string name="me_toast_reminder_set">✅ Reminder set for every %1$d hours</string>
+    <string name="me_toast_quit_started">🚭 Quit plan started! You can do it!</string>
+    <string name="me_toast_logged_out">Logged out</string>
+    <string name="format_cigs_per_day">%1$d/day</string>
+    <string name="format_years">%1$d yrs</string>
 
     <!-- Account -->
     <string name="account_info">Account info</string>
+    <string name="profile_title">Account Details</string>
     <string name="bind_manage">Linked accounts</string>
     <string name="bind_phone">Link phone</string>
     <string name="bind_email">Link email</string>
     <string name="bind_wechat">Link WeChat</string>
     <string name="security_settings">Security</string>
     <string name="change_password">Change password</string>
+    <string name="account_login_method">Login method</string>
+    <string name="bind_wechat_desc">Link WeChat account for WeChat login</string>
+    <string name="bind_phone_desc">Link phone number for extra security</string>
+    <string name="bind_email_desc">Receive quit reports and backup notifications</string>
+    <string name="phone_login_label">Phone login</string>
+    <string name="wechat_login_label">WeChat login</string>
+    <string name="toast_wechat_bound">✅ WeChat linked</string>
+    <string name="toast_phone_bound">✅ Phone linked</string>
+    <string name="toast_email_bound">✅ Email linked</string>
+    <string name="toast_avatar_permission">Storage permission needed to change avatar</string>
+    <string name="toast_avatar_updated">Avatar updated</string>
+    <string name="toast_avatar_failed">Avatar failed: %1$s</string>
+    <string name="choose_avatar">Choose avatar</string>
 
     <!-- Notifications -->
     <string name="notif_title">Quit reminder</string>
     <string name="notif_message">Hey! How many cigarettes in the last %d hours?</string>
+    <string name="notif_channel_name">Quit Reminder</string>
+    <string name="notif_channel_desc">Scheduled quit smoking reminders</string>
+    <string name="notif_title_emoji">🚭 Quit Reminder</string>
+    <string name="notif_encourage_1">Every cigarette you refuse is a gift to your future self</string>
+    <string name="notif_encourage_2">You are stronger than cigarettes. Believe in yourself!</string>
+    <string name="notif_encourage_3">One day of persistence is a victory; a lifetime is a miracle</string>
+    <string name="notif_encourage_4">Today\'s perseverance is tomorrow\'s health</string>
+    <string name="notif_encourage_5">Breathing gets easier, your body thanks you</string>
+    <string name="notif_encourage_6">Don\'t let one cigarette ruin your effort</string>
+    <string name="notif_encourage_7">You\'re doing great, keep it up!</string>
+    <string name="notif_encourage_8">The best time to plant a tree was 20 years ago. The second best time is now</string>
 
     <!-- Bottom Navigation -->
     <string name="nav_home">Home</string>
@@ -110,46 +233,125 @@
     <string name="cigarettes_smoked">Cigarettes smoked</string>
     <string name="money_wasted">Money wasted</string>
     <string name="life_lost">Life lost</string>
-    <string name="during_smoking_period">While you were smoking</string>
+    <string name="during_smoking_period">While you were smoking:</string>
     <string name="reset_timer">Reset timer</string>
     <string name="reset_confirm_title">Don\'t give up!</string>
-    <string name="reset_confirm_message">Are you sure you want to reset your quit timer? This will clear your progress.</string>
+    <string name="reset_confirm_message">If you slipped up, don\'t blame yourself for being "weak".\nWhen you\'re close to success, a mistake or two isn\'t failure.\nThe only failure is giving up.</string>
     <string name="reset_confirm_button">Reset timer</string>
-    <string name="reset_cancel_button">Keep going</string>
+    <string name="reset_cancel_button">Cancel</string>
+    <string name="toast_timer_reset">Timer restarted. You can do it! 💪</string>
+    <string name="menu_today_realtime">📅 Today (real-time)</string>
+    <string name="format_day_n">Day %1$d</string>
+    <string name="format_time_hms">%1$d h %2$02d m %3$02d s</string>
+    <string name="format_money_2f">$ %1$.2f</string>
+    <string name="format_life_ymd">%1$d yrs %2$d mos %3$d days</string>
 
-    <!-- Health Recovery Milestones -->
-    <string name="milestone_20min">20 minutes: Heart rate normalizes</string>
-    <string name="milestone_12h">12 hours: Carbon monoxide drops</string>
-    <string name="milestone_3weeks">3 weeks: Circulation improves</string>
-    <string name="milestone_9months">9 months: Lung function improves</string>
-    <string name="milestone_1year">1 year: Heart disease risk halves</string>
+    <!-- Progress Motivation - Today -->
+    <string name="motiv_today_default">I\'m winning every day!</string>
+    <string name="motiv_today_day2">Day two! Keep it up!</string>
+    <string name="motiv_today_day3">Day three, the hardest part is over!</string>
+    <string name="motiv_today_week">One week! You\'re doing great!</string>
+    <string name="motiv_today_month">One month! Your body is recovering</string>
+    <string name="motiv_today_year">You\'ve been smoke-free for a year! You\'re a legend!</string>
+
+    <!-- Progress Motivation - Past Day -->
+    <string name="motiv_past_day1">Day 1 success! What a start!</string>
+    <string name="motiv_past_week">Full week! You\'re amazing!</string>
+    <string name="motiv_past_milestone">Day %1$d milestone! 🎉</string>
+    <string name="motiv_past_warrior">Day %1$d! You\'re a warrior!</string>
+    <string name="motiv_past_year">One year!!! Legend!!!</string>
+    <string name="motiv_past_default">Day %1$d perfectly done ✅</string>
+    <string name="motiv_past_normal">Day %1$d complete! Keep going!</string>
+
+    <!-- Progress Zero State -->
+    <string name="zero_day">Day 0</string>
+    <string name="zero_status">Tap Home to start quitting</string>
+    <string name="zero_time">0 h 00 m 00 s</string>
+    <string name="zero_money">$ 0.00</string>
+    <string name="zero_money_short">$ 0</string>
+    <string name="zero_life">0 yrs 0 mos 0 days</string>
+    <string name="progress_default_status">I\'m in control now!</string>
 
     <!-- Data Export -->
     <string name="export_title">Export Data</string>
+    <string name="export_select_range">📊 Select export date range</string>
+    <string name="export_start_date">📅 Start date</string>
+    <string name="export_end_date">📅 End date</string>
+    <string name="export_start_hint">Tap to select start date</string>
+    <string name="export_end_hint">Tap to select end date</string>
+    <string name="export_range_hint">Select date range (max 30 days)</string>
+    <string name="export_info_note">💡 Export includes:\n· Smoking history data\n· Quit progress stats\n· Money saved &amp; life regained\n· Share via email or other apps</string>
+    <string name="export_btn">📤 Generate &amp; export report</string>
     <string name="export_date_range">Select date range (max 30 days)</string>
-    <string name="export_start_date">Start date</string>
-    <string name="export_end_date">End date</string>
-    <string name="btn_export">Generate report</string>
+    <string name="format_days_selected">%1$d days selected</string>
+    <string name="format_days_over_limit">%1$d days selected (max 30)</string>
+    <string name="select_valid_range">Please select a valid date range</string>
+    <string name="toast_export_generated">✅ Report generated. Choose to save or share.</string>
+    <string name="export_report_title">=== SmokeFree - Data Export Report ===</string>
+    <string name="export_report_time">Exported: %1$s</string>
+    <string name="export_report_range">Range: %1$s ~ %2$s</string>
+    <string name="export_report_history">[Smoking History]</string>
+    <string name="export_report_daily">Daily average: %1$d cigs/day</string>
+    <string name="export_report_price">Price per pack: $%1$d</string>
+    <string name="export_report_years">Years smoking: %1$d years</string>
+    <string name="export_report_total_cigs">Total cigarettes smoked: %1$d</string>
+    <string name="export_report_total_money">Total money spent: $%1$d</string>
+    <string name="export_report_life_saved">Life saved: ~%1$d days %2$d hours</string>
+    <string name="export_report_progress">[Quit Progress]</string>
+    <string name="export_report_quit_date">Quit start date: %1$s</string>
+    <string name="export_report_quit_days">Days quit: %1$d days %2$d hours</string>
+    <string name="export_report_unsmoked">Cigarettes avoided: ~%1$d</string>
+    <string name="export_report_saved_money">Money saved: $%1$d</string>
+    <string name="export_report_life_regained">Life regained: ~%1$d days %2$d hours</string>
+    <string name="export_report_not_started">[Quit Progress] Not started yet</string>
+    <string name="export_report_footer">Thank you for using SmokeFree. Wishing you success! 🚭</string>
+    <string name="export_share_title">SmokeFree - Data Export Report</string>
+    <string name="export_share_chooser">Share/Save Report</string>
 
     <!-- Feedback -->
-    <string name="feedback_title">Feedback</string>
-    <string name="feedback_subject">Subject</string>
-    <string name="feedback_content">Your message</string>
-    <string name="feedback_contact">Contact (optional)</string>
-    <string name="btn_send_feedback">Send</string>
+    <string name="feedback_title">Help &amp; Feedback</string>
+    <string name="feedback_header">💬 We value your feedback!</string>
+    <string name="feedback_subheader">Every suggestion helps us improve</string>
+    <string name="feedback_subject">📝 Subject *</string>
+    <string name="feedback_content">📋 Message *</string>
+    <string name="feedback_contact">✉️ Contact (optional)</string>
+    <string name="feedback_quick">⚡ Quick feedback</string>
+    <string name="feedback_bug">🐛 Bug report</string>
+    <string name="feedback_suggestion">💡 Feature request</string>
+    <string name="btn_send_feedback">📤 Send feedback</string>
+    <string name="toast_enter_title">Please enter a subject</string>
+    <string name="toast_enter_content">Please enter your message</string>
+    <string name="toast_opening_email">Opening email client...</string>
+    <string name="share_feedback">Share feedback</string>
+    <string name="feedback_email_body_title">=== SmokeFree - User Feedback ===</string>
+    <string name="feedback_email_body_title_label">[Subject]</string>
+    <string name="feedback_email_body_content_label">[Message]</string>
+    <string name="feedback_email_body_contact_label">[Contact] %1$s</string>
+    <string name="feedback_email_device">Device: Android %1$s</string>
+    <string name="feedback_email_version">App version: v1.0.0</string>
+    <string name="feedback_email_time">Time: %1$s</string>
+    <string name="feedback_email_subject">[SmokeFree] %1$s</string>
 
     <!-- About -->
-    <string name="about_title">About SmokeFree</string>
+    <string name="about_title">About</string>
+    <string name="about_title_bar">About</string>
     <string name="about_version">Version</string>
     <string name="about_privacy_policy">Privacy Policy</string>
     <string name="about_terms">Terms of Service</string>
     <string name="about_rate">Rate us</string>
+    <string name="about_tagline">🚭 SmokeFree · Healthier Life</string>
+    <string name="about_copyright">© 2026 SmokeFree Team</string>
+    <string name="about_rights">All Rights Reserved</string>
+    <string name="toast_rate_thanks">Thank you for your support!</string>
+    <string name="toast_coming_soon">Coming soon</string>
 
     <!-- Common -->
     <string name="cancel">Cancel</string>
     <string name="confirm">Confirm</string>
     <string name="ok">OK</string>
     <string name="already_checked_in">You already checked in today!</string>
+
+    <!-- Toast messages -->
     <string name="smoked_toast">Smoked %1$d cigarette(s). Life reduced by %2$d min.</string>
     <string name="health_disclaimer">This app is not a medical device and does not provide medical advice. Consult a healthcare professional for smoking cessation guidance.</string>
 </resources>

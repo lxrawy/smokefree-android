@@ -88,7 +88,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="📱 手机号码"
+                android:text="@string/phone_login"
                 android:textSize="13sp"
                 android:textColor="@color/gray_600"
                 android:layout_marginBottom="6dp" />
@@ -109,7 +109,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="🔐 验证码"
+                android:text="@string/hint_code"
                 android:textSize="13sp"
                 android:textColor="@color/gray_600"
                 android:layout_marginBottom="6dp" />
@@ -178,7 +178,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="使用微信账号快速登录"
+                android:text="@string/btn_wechat_login"
                 android:textSize="14sp"
                 android:textColor="@color/gray_500"
                 android:layout_marginBottom="8dp" />
@@ -186,7 +186,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="安全便捷，无需记忆密码"
+                android:text="@string/login_data_note"
                 android:textSize="12sp"
                 android:textColor="@color/gray_400"
                 android:layout_marginBottom="24dp" />
@@ -221,7 +221,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="戒烟助手 · 助力健康生活"
+                android:text="@string/about_tagline"
                 android:textSize="12sp"
                 android:textColor="@color/gray_400"
                 android:layout_marginStart="12dp"

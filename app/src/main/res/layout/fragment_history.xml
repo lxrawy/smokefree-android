@@ -59,7 +59,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="支/天"
+                        android:text="@string/unit_per_day"
                         android:textSize="12sp"
                         android:textColor="@color/gray_500" />
                 </LinearLayout>
@@ -86,7 +86,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="年"
+                        android:text="@string/unit_year"
                         android:textSize="12sp"
                         android:textColor="@color/gray_500" />
                 </LinearLayout>
@@ -114,7 +114,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="元"
+                        android:text="@string/unit_yuan"
                         android:textSize="12sp"
                         android:textColor="@color/gray_500" />
                 </LinearLayout>
@@ -124,7 +124,7 @@
                 android:id="@+id/tv_hist_note"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="💡 你已累计吸烟 0 支，相当于 0 包烟。\n这些钱可以买 0 杯咖啡 ☕"
+                android:text="@string/format_history_note"
                 android:textSize="13sp"
                 android:textColor="@color/gray_500"
                 android:lineSpacingExtra="4dp"
@@ -159,7 +159,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="📉 趋势正在向好！"
+                android:text="@string/trend_improving"
                 android:textSize="11sp"
                 android:textColor="@color/gray_400"
                 android:gravity="center"

@@ -21,7 +21,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="📊 选择导出时间范围"
+            android:text="@string/export_select_range"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="@color/gray_700"
@@ -31,7 +31,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="📅 开始日期"
+            android:text="@string/export_start_date"
             android:textSize="13sp"
             android:textColor="@color/gray_600"
             android:layout_marginBottom="6dp" />
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bg_input"
             android:padding="14dp"
-            android:text="点击选择开始日期"
+            android:text="@string/export_start_hint"
             android:textSize="15sp"
             android:textColor="@color/gray_700"
             android:drawableEnd="@android:drawable/arrow_down_float"
@@ -52,7 +52,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="📅 结束日期"
+            android:text="@string/export_end_date"
             android:textSize="13sp"
             android:textColor="@color/gray_600"
             android:layout_marginBottom="6dp" />
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bg_input"
             android:padding="14dp"
-            android:text="点击选择结束日期"
+            android:text="@string/export_end_hint"
             android:textSize="15sp"
             android:textColor="@color/gray_700"
             android:drawableEnd="@android:drawable/arrow_down_float" />
@@ -73,7 +73,7 @@
             android:id="@+id/tv_date_range_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="请选择日期范围（最多30天）"
+            android:text="@string/export_range_hint"
             android:textSize="12sp"
             android:textColor="@color/gray_400"
             android:layout_marginTop="10dp" />
@@ -105,7 +105,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="💡 导出内容包括：\n· 吸烟历史数据\n· 戒烟进度统计\n· 省钱与挽回生命时长\n· 可通过邮件或微信发送"
+                android:text="@string/export_info_note"
                 android:textSize="12sp"
                 android:textColor="@color/gray_500"
                 android:lineSpacingMultiplier="1.3" />
@@ -116,7 +116,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_primary_button"
-            android:text="📤 生成并导出报告"
+            android:text="@string/export_btn"
             android:textColor="@color/white"
             android:textSize="15sp"
             android:textStyle="bold"

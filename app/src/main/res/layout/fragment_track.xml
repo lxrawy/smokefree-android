@@ -64,7 +64,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="🎉 恭喜！目标已达成！快去购买你心仪的物品吧！"
+                    android:text="@string/goal_achieved_msg"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:textColor="@color/white"
@@ -90,7 +90,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="🎁 买新电脑"
+                        android:text="@string/goal_name_label"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:textColor="@color/pink_700" />
@@ -99,7 +99,7 @@
                         android:id="@+id/tv_goal_edit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="✏️ 修改"
+                        android:text="@string/btn_set_goal"
                         android:textSize="12sp"
                         android:textColor="@color/pink_500"
                         android:textStyle="bold" />
@@ -109,7 +109,7 @@
                     android:id="@+id/tv_goal_target"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="目标金额：¥0"
+                    android:text="@string/format_goal_target"
                     android:textSize="13sp"
                     android:textColor="@color/gray_500"
                     android:layout_marginBottom="4dp" />
@@ -133,7 +133,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="已攒：¥0"
+                        android:text="@string/format_goal_saved"
                         android:textSize="13sp"
                         android:textStyle="bold"
                         android:textColor="@color/pink_600" />
@@ -143,7 +143,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="还差：¥0"
+                        android:text="@string/format_goal_remain"
                         android:textSize="13sp"
                         android:textStyle="bold"
                         android:textColor="@color/gray_500"
@@ -201,7 +201,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="💰 目标金额（元）"
+                android:text="@string/goal_amount_label"
                 android:textSize="13sp"
                 android:textColor="@color/gray_600"
                 android:layout_marginBottom="6dp" />
@@ -359,7 +359,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="第一天"
+                        android:text="@string/badge_day1_title"
                         android:textSize="13sp"
                         android:textStyle="bold"
                         android:textColor="@color/gray_700" />
@@ -367,7 +367,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="成功完成第一次打卡"
+                        android:text="@string/badge_day1_desc"
                         android:textSize="11sp"
                         android:textColor="@color/gray_400"
                         android:layout_marginTop="2dp" />
@@ -398,7 +398,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="3天坚持"
+                        android:text="@string/badge_day3_title"
                         android:textSize="13sp"
                         android:textStyle="bold"
                         android:textColor="@color/gray_700" />
@@ -406,7 +406,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="连续三天没有吸烟"
+                        android:text="@string/badge_day3_desc"
                         android:textSize="11sp"
                         android:textColor="@color/gray_400"
                         android:layout_marginTop="2dp" />

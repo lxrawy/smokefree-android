@@ -3,7 +3,6 @@ package com.goheydot.smokefree.activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
@@ -44,7 +43,7 @@ class UserProfileActivity : AppCompatActivity() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar_profile)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "账户详情"
+        supportActionBar?.title = getString(R.string.profile_title)
 
         initViews()
         updateUI()
@@ -68,17 +67,15 @@ class UserProfileActivity : AppCompatActivity() {
         val email = prefs.getString("email", "") ?: ""
 
         if (phone.isNotEmpty()) {
-            // 手机号登录 → 显示绑定微信和绑定邮箱
             tvUserName.text = phone.substring(0, 3) + "****" + phone.substring(7)
-            tvUserDesc.text = "手机号登录"
-            layoutBindPhone.visibility = View.GONE   // 已绑定手机号，隐藏
+            tvUserDesc.text = getString(R.string.phone_login_label)
+            layoutBindPhone.visibility = View.GONE
             layoutBindWechat.visibility = View.VISIBLE
             layoutBindEmail.visibility = View.VISIBLE
         } else if (wechatName.isNotEmpty()) {
-            // 微信登录 → 显示绑定手机号和绑定邮箱
             tvUserName.text = wechatName
-            tvUserDesc.text = "微信登录"
-            layoutBindWechat.visibility = View.GONE    // 已绑定微信，隐藏
+            tvUserDesc.text = getString(R.string.wechat_login_label)
+            layoutBindWechat.visibility = View.GONE
             layoutBindPhone.visibility = View.VISIBLE
             layoutBindEmail.visibility = View.VISIBLE
         } else {
@@ -86,63 +83,52 @@ class UserProfileActivity : AppCompatActivity() {
             return
         }
 
-        // 邮箱已绑定则隐藏绑定邮箱选项
         if (email.isNotEmpty()) {
             layoutBindEmail.visibility = View.GONE
         }
 
-        // 加载已保存的头像
         loadSavedAvatar()
     }
 
     private fun setupListeners() {
-        // 点击头像 → 选择图片
         ivAvatar.setOnClickListener {
             checkPermissionAndPickImage()
         }
-        // 绑定微信
         layoutBindWechat.setOnClickListener {
-            val prefs = getSharedPreferences("smokefree", 0)
-            prefs.edit()
-                .putString("wechat_name", "微信用户")
+            getSharedPreferences("smokefree", 0).edit()
+                .putString("wechat_name", getString(R.string.wechat_login_label))
                 .apply()
-            Toast.makeText(this, "✅ 微信绑定成功", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.toast_wechat_bound), Toast.LENGTH_SHORT).show()
             updateUI()
         }
 
-        // 绑定手机号（模拟：直接标记已绑定）
         layoutBindPhone.setOnClickListener {
-            val prefs = getSharedPreferences("smokefree", 0)
-            prefs.edit()
+            getSharedPreferences("smokefree", 0).edit()
                 .putString("phone", "13800001111")
                 .apply()
-            Toast.makeText(this, "✅ 手机号绑定成功", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.toast_phone_bound), Toast.LENGTH_SHORT).show()
             updateUI()
         }
 
-        // 绑定邮箱（模拟）
         layoutBindEmail.setOnClickListener {
-            val prefs = getSharedPreferences("smokefree", 0)
-            prefs.edit()
-                .putString("email", "user@example.com")
+            val supportEmail = getString(R.string.support_email)
+            getSharedPreferences("smokefree", 0).edit()
+                .putString("email", supportEmail)
                 .apply()
-            Toast.makeText(this, "✅ 邮箱绑定成功", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.toast_email_bound), Toast.LENGTH_SHORT).show()
             updateUI()
         }
 
-        // 退出登录
         btnLogout.setOnClickListener {
             getSharedPreferences("smokefree", 0).edit()
                 .putBoolean("is_logged_in", false)
                 .putString("phone", "")
                 .putString("wechat_name", "")
                 .apply()
-            Toast.makeText(this, "已退出登录", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.me_toast_logged_out), Toast.LENGTH_SHORT).show()
             finish()
         }
     }
-
-    // ==================== 头像相关 ====================
 
     private fun checkPermissionAndPickImage() {
         val permission = if (Build.VERSION_CODES.TIRAMISU <= Build.VERSION.SDK_INT)
@@ -162,7 +148,7 @@ class UserProfileActivity : AppCompatActivity() {
             type = "image/*"
         }
         @Suppress("DEPRECATION")
-        startActivityForResult(Intent.createChooser(intent, "选择头像"), PICK_IMAGE_REQUEST)
+        startActivityForResult(Intent.createChooser(intent, getString(R.string.choose_avatar)), PICK_IMAGE_REQUEST)
     }
 
     override fun onRequestPermissionsResult(
@@ -175,7 +161,7 @@ class UserProfileActivity : AppCompatActivity() {
             grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             openImagePicker()
         } else {
-            Toast.makeText(this, "需要相册权限才能更换头像", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.toast_avatar_permission), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -184,7 +170,6 @@ class UserProfileActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK) {
             val uri = data?.data ?: return
-            // 保存到应用私有目录（避免外部文件被删除后丢失）
             try {
                 val inputStream = contentResolver.openInputStream(uri) ?: return
                 val avatarDir = File(filesDir, "avatars")
@@ -195,16 +180,14 @@ class UserProfileActivity : AppCompatActivity() {
                 }
                 inputStream.close()
 
-                // 保存路径到 SharedPreferences
                 getSharedPreferences("smokefree", 0).edit()
                     .putString("avatar_path", avatarFile.absolutePath)
                     .apply()
 
-                // 显示新头像
                 ivAvatar.setImageBitmap(BitmapFactory.decodeFile(avatarFile.absolutePath))
-                Toast.makeText(this, "头像更新成功", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.toast_avatar_updated), Toast.LENGTH_SHORT).show()
             } catch (e: Exception) {
-                Toast.makeText(this, "头像设置失败: ${e.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.toast_avatar_failed, e.message ?: ""), Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -216,20 +199,13 @@ class UserProfileActivity : AppCompatActivity() {
             if (file.exists()) {
                 ivAvatar.setImageBitmap(BitmapFactory.decodeFile(file.absolutePath))
             } else {
-                // 文件不存在，清除无效路径
                 getSharedPreferences("smokefree", 0).edit().remove("avatar_path").apply()
             }
-        } else {
-            // 无自定义头像，显示默认 emoji 占位（用 TextView 方式模拟）
-            // ImageView 保持 placeholder 背景即可
         }
     }
 
-    // ==================== 头像结束 ====================
-
     override fun onResume() {
         super.onResume()
-        // 从绑定页面返回时刷新UI（模拟已绑定后隐藏对应项）
         updateUI()
     }
 

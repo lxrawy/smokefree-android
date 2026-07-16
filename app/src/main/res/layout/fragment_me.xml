@@ -76,7 +76,7 @@
                         android:id="@+id/tv_user_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="用户"
+                        android:text="@string/me_user_default"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:textColor="@color/white" />
@@ -85,7 +85,7 @@
                         android:id="@+id/tv_user_desc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="点击查看账户详情"
+                        android:text="@string/me_view_account"
                         android:textSize="12sp"
                         android:textColor="@color/white"
                         android:alpha="0.85"
@@ -160,7 +160,7 @@
                         android:id="@+id/tv_history_desc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="未填写"
+                        android:text="@string/me_history_not_filled"
                         android:textSize="12sp"
                         android:textColor="@color/gray_400"
                         android:layout_marginEnd="8dp" />
@@ -185,7 +185,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="🚬 每天吸多少支烟？"
+                        android:text="@string/me_daily_cigs_prompt"
                         android:textSize="13sp"
                         android:textColor="@color/gray_600"
                         android:layout_marginTop="10dp"
@@ -206,7 +206,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="💰 一包烟多少钱？（20支/包）"
+                        android:text="@string/me_pack_price_prompt"
                         android:textSize="13sp"
                         android:textColor="@color/gray_600"
                         android:layout_marginBottom="6dp" />
@@ -226,7 +226,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="📅 已经吸烟多少年？"
+                        android:text="@string/me_years_prompt"
                         android:textSize="13sp"
                         android:textColor="@color/gray_600"
                         android:layout_marginBottom="6dp" />
@@ -248,7 +248,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/bg_primary_button"
-                        android:text="📊 查看我的吸烟总结"
+                        android:text="@string/me_view_summary"
                         android:textColor="@color/white"
                         android:textSize="14sp"
                         android:textStyle="bold"
@@ -303,7 +303,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_columnWeight="1"
-                                android:text="支/天"
+                                android:text="@string/unit_per_day"
                                 android:textSize="11sp"
                                 android:textColor="@color/gray_500"
                                 android:gravity="center" />
@@ -312,7 +312,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_columnWeight="1"
-                                android:text="年"
+                                android:text="@string/unit_year"
                                 android:textSize="11sp"
                                 android:textColor="@color/gray_500"
                                 android:gravity="center" />
@@ -335,7 +335,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_columnWeight="1"
                                 android:layout_columnSpan="2"
-                                android:text="累计花费（元）"
+                                android:text="@string/me_total_spent"
                                 android:textSize="11sp"
                                 android:textColor="@color/gray_500"
                                 android:gravity="center" />
@@ -347,7 +347,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/bg_primary_button"
-                        android:text="🚭 正式启动戒烟计划！"
+                        android:text="@string/me_start_quit"
                         android:textColor="@color/white"
                         android:textSize="14sp"
                         android:textStyle="bold"
@@ -389,7 +389,7 @@
                         android:id="@+id/tv_timer_desc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="每2小时"
+                        android:text="@string/me_reminder_desc"
                         android:textSize="12sp"
                         android:textColor="@color/gray_400"
                         android:layout_marginEnd="8dp" />
@@ -423,7 +423,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/bg_primary_button"
-                        android:text="✅ 保存提醒设置"
+                        android:text="@string/me_save_reminder"
                         android:textColor="@color/white"
                         android:textSize="14sp"
                         android:textStyle="bold"
@@ -480,7 +480,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="导出戒烟记录"
+                        android:text="@string/me_export_records"
                         android:textSize="12sp"
                         android:textColor="@color/gray_400"
                         android:layout_marginEnd="8dp" />
@@ -526,7 +526,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="遇到问题？"
+                        android:text="@string/me_encounter_problem"
                         android:textSize="12sp"
                         android:textColor="@color/gray_400"
                         android:layout_marginEnd="8dp" />

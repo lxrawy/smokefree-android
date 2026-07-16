@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -25,7 +24,7 @@ class FeedbackActivity : AppCompatActivity() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar_feedback)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "帮助与反馈"
+        supportActionBar?.title = getString(R.string.feedback_title)
 
         initViews()
         setupListeners()
@@ -45,53 +44,52 @@ class FeedbackActivity : AppCompatActivity() {
             val contact = etFeedbackContact.text.toString().trim()
 
             if (title.isEmpty()) {
-                Toast.makeText(this, "请输入反馈标题", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.toast_enter_title), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             if (content.isEmpty()) {
-                Toast.makeText(this, "请输入反馈内容", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.toast_enter_content), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            // 构建邮件内容
             val emailBody = buildString {
-                appendLine("=== 戒烟助手 - 用户反馈 ===")
+                appendLine(getString(R.string.feedback_email_body_title))
                 appendLine()
-                appendLine("【反馈标题】")
+                appendLine(getString(R.string.feedback_email_body_title_label))
                 appendLine(title)
                 appendLine()
-                appendLine("【反馈内容】")
+                appendLine(getString(R.string.feedback_email_body_content_label))
                 appendLine(content)
                 appendLine()
                 if (contact.isNotEmpty()) {
-                    appendLine("【联系方式】$contact")
+                    appendLine(getString(R.string.feedback_email_body_contact_label, contact))
                     appendLine()
                 }
                 appendLine("---")
-                appendLine("设备信息：Android ${android.os.Build.VERSION.RELEASE}")
-                appendLine("应用版本：v1.0.0")
-                appendLine("反馈时间：${java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss", java.util.Locale.getDefault()).format(java.util.Date())}")
+                appendLine(getString(R.string.feedback_email_device, android.os.Build.VERSION.RELEASE))
+                appendLine(getString(R.string.feedback_email_version))
+                appendLine(getString(R.string.feedback_email_time,
+                    java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss", java.util.Locale.getDefault()).format(java.util.Date())))
             }
 
-            // 调起系统邮件客户端发送
+            val supportEmail = getString(R.string.support_email)
             val emailIntent = Intent(Intent.ACTION_SENDTO).apply {
                 data = android.net.Uri.parse("mailto:")
-                putExtra(Intent.EXTRA_EMAIL, arrayOf("smokefree@example.com"))
-                putExtra(Intent.EXTRA_SUBJECT, "[戒烟助手] $title")
+                putExtra(Intent.EXTRA_EMAIL, arrayOf(supportEmail))
+                putExtra(Intent.EXTRA_SUBJECT, getString(R.string.feedback_email_subject, title))
                 putExtra(Intent.EXTRA_TEXT, emailBody)
             }
 
             try {
                 startActivity(emailIntent)
-                Toast.makeText(this, "正在打开邮件客户端...", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.toast_opening_email), Toast.LENGTH_SHORT).show()
             } catch (e: Exception) {
-                // 如果没有邮件客户端，用分享方式代替
                 val shareIntent = Intent(Intent.ACTION_SEND).apply {
                     type = "text/plain"
-                    putExtra(Intent.EXTRA_SUBJECT, "[戒烟助手] $title")
+                    putExtra(Intent.EXTRA_SUBJECT, getString(R.string.feedback_email_subject, title))
                     putExtra(Intent.EXTRA_TEXT, emailBody)
                 }
-                startActivity(Intent.createChooser(shareIntent, "分享反馈内容"))
+                startActivity(Intent.createChooser(shareIntent, getString(R.string.share_feedback)))
             }
         }
     }

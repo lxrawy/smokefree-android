@@ -38,7 +38,7 @@ class TrackFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        
+
         initViews(view)
         setupListeners()
         updateStats()
@@ -78,7 +78,6 @@ class TrackFragment : Fragment() {
 
     private fun updateStats() {
         val prefs = requireContext().getSharedPreferences("smokefree", 0)
-        // 显示累计打卡天数
         val totalCheckins = prefs.getInt("total_checkin_days", 0)
         tvDays.text = totalCheckins.toString()
     }
@@ -87,28 +86,28 @@ class TrackFragment : Fragment() {
         val prefs = requireContext().getSharedPreferences("smokefree", 0)
         val goalName = prefs.getString("goal_name", "") ?: ""
         val goalAmount = prefs.getInt("goal_amount", 0)
-        
+
         if (goalName.isNotEmpty() && goalAmount > 0) {
             val quitStartDate = prefs.getLong("quit_start_date", 0)
             val days = if (quitStartDate > 0) {
                 ((System.currentTimeMillis() - quitStartDate) / (1000 * 60 * 60 * 24)).toInt()
             } else 0
-            
+
             val dailyCigs = prefs.getInt("daily_cigs", 10)
             val packPrice = prefs.getInt("pack_price", 25)
             val pricePerCig = packPrice / 20.0
             val saved = (days * dailyCigs * pricePerCig).toInt()
-            
+
             val progress = ((saved.toFloat() / goalAmount) * 100).toInt().coerceIn(0, 100)
-            
+
             tvGoalName.text = "🎁 $goalName"
-            tvGoalTarget.text = "目标金额：¥${goalAmount}"
-            tvGoalSaved.text = "已攒：¥${saved}"
-            tvGoalRemain.text = "还差：¥${goalAmount - saved}"
+            tvGoalTarget.text = getString(R.string.format_goal_target, goalAmount)
+            tvGoalSaved.text = getString(R.string.format_goal_saved, saved)
+            tvGoalRemain.text = getString(R.string.format_goal_remain, (goalAmount - saved).coerceAtLeast(0))
             progressBar.progress = progress
-            
+
             if (saved >= goalAmount) {
-                Toast.makeText(requireContext(), "🎉 恭喜！目标已达成！", Toast.LENGTH_LONG).show()
+                Toast.makeText(requireContext(), getString(R.string.toast_goal_achieved), Toast.LENGTH_LONG).show()
             }
         }
     }
@@ -117,37 +116,32 @@ class TrackFragment : Fragment() {
         val prefs = requireContext().getSharedPreferences("smokefree", 0)
         val editor = prefs.edit()
 
-        // 检查今天是否已经打卡
         val todayKey = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
         val lastCheckinDate = prefs.getString("last_checkin_date", "")
 
         if (todayKey == lastCheckinDate) {
-            Toast.makeText(requireContext(), "今天已经打过卡了，明天再来！", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.toast_already_checked_in), Toast.LENGTH_SHORT).show()
             return
         }
 
         editor.putString("last_checkin_date", todayKey)
         editor.putInt("today_smoked", cigaretteCount)
-
-        // 按日期存储，供本周趋势图读取
         editor.putInt("smoke_$todayKey", cigaretteCount)
 
-        // 累计总吸烟数（供进度页计算挽回生命时扣除）
         if (cigaretteCount > 0) {
             val totalSoFar = prefs.getInt("total_smoked_all_time", 0)
             editor.putInt("total_smoked_all_time", totalSoFar + cigaretteCount)
         }
 
-        // 累计打卡天数 +1
         val totalCheckins = prefs.getInt("total_checkin_days", 0)
         editor.putInt("total_checkin_days", totalCheckins + 1)
 
         editor.apply()
 
         if (cigaretteCount == 0) {
-            Toast.makeText(requireContext(), "🎉 太棒了！你一根都没抽！已坚持 ${totalCheckins + 1} 天！", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), getString(R.string.toast_checkin_zero, totalCheckins + 1), Toast.LENGTH_LONG).show()
         } else {
-            Toast.makeText(requireContext(), "✅ 打卡成功！今天抽了 ${cigaretteCount} 支，已坚持 ${totalCheckins + 1} 天！", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), getString(R.string.toast_checkin_count, cigaretteCount, totalCheckins + 1), Toast.LENGTH_LONG).show()
         }
 
         updateStats()

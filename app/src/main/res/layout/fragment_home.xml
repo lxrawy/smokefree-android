@@ -55,7 +55,7 @@
                 android:id="@+id/tv_motivation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="「种一棵树最好的时间是十年前，其次是现在。」"
+                android:text="@string/quote_1"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/white"
@@ -65,7 +65,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="继续加油，你可以的！💪"
+                android:text="@string/home_motivation_default"
                 android:textSize="12sp"
                 android:textColor="@color/white"
                 android:alpha="0.8"
@@ -118,7 +118,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="支"
+                        android:text="@string/unit_cigs"
                         android:textSize="12sp"
                         android:textColor="@color/gray_500" />
 
@@ -153,7 +153,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="元"
+                        android:text="@string/unit_yuan"
                         android:textSize="12sp"
                         android:textColor="@color/gray_500" />
 
@@ -188,7 +188,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="元"
+                        android:text="@string/unit_yuan"
                         android:textSize="12sp"
                         android:textColor="@color/gray_500" />
 
@@ -223,7 +223,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="恢复"
+                        android:text="@string/recovery_label"
                         android:textSize="12sp"
                         android:textColor="@color/gray_500" />
 
@@ -280,7 +280,7 @@
                         android:id="@+id/tv_recovery_time_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="20分钟后"
+                        android:text="@string/milestone_20min"
                         android:textSize="11sp"
                         android:textColor="@color/pink_600"
                         android:textStyle="bold" />
@@ -288,7 +288,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="心率和血压恢复正常"
+                        android:text="@string/milestone_20min_desc"
                         android:textSize="13sp"
                         android:textColor="@color/gray_600"
                         android:layout_marginTop="2dp" />
@@ -315,7 +315,7 @@
                         android:id="@+id/tv_recovery_time_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="12小时"
+                        android:text="@string/milestone_12h"
                         android:textSize="11sp"
                         android:textColor="@color/pink_600"
                         android:textStyle="bold" />
@@ -323,7 +323,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="血液中的一氧化碳降至正常"
+                        android:text="@string/milestone_12h_desc"
                         android:textSize="13sp"
                         android:textColor="@color/gray_600"
                         android:layout_marginTop="2dp" />
@@ -350,7 +350,7 @@
                         android:id="@+id/tv_recovery_time_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="2-3周"
+                        android:text="@string/milestone_3weeks"
                         android:textSize="11sp"
                         android:textColor="@color/pink_600"
                         android:textStyle="bold" />
@@ -358,7 +358,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="循环系统改善，肺功能增强"
+                        android:text="@string/milestone_3weeks_desc"
                         android:textSize="13sp"
                         android:textColor="@color/gray_600"
                         android:layout_marginTop="2dp" />
@@ -385,7 +385,7 @@
                         android:id="@+id/tv_recovery_time_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1-9个月"
+                        android:text="@string/milestone_9months"
                         android:textSize="11sp"
                         android:textColor="@color/pink_600"
                         android:textStyle="bold" />
@@ -393,7 +393,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="咳嗽和气短情况减少"
+                        android:text="@string/milestone_9months_desc"
                         android:textSize="13sp"
                         android:textColor="@color/gray_600"
                         android:layout_marginTop="2dp" />
@@ -419,7 +419,7 @@
                         android:id="@+id/tv_recovery_time_5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1年"
+                        android:text="@string/milestone_1year"
                         android:textSize="11sp"
                         android:textColor="@color/pink_600"
                         android:textStyle="bold" />
@@ -427,7 +427,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="冠心病风险降低50%"
+                        android:text="@string/milestone_1year_desc"
                         android:textSize="13sp"
                         android:textColor="@color/gray_600"
                         android:layout_marginTop="2dp" />

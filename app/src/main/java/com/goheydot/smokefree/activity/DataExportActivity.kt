@@ -32,7 +32,7 @@ class DataExportActivity : AppCompatActivity() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar_export)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "数据导出"
+        supportActionBar?.title = getString(R.string.export_title)
 
         initViews()
         setupListeners()
@@ -47,11 +47,9 @@ class DataExportActivity : AppCompatActivity() {
     }
 
     private fun setupListeners() {
-        // 选择开始日期
         tvStartDate.setOnClickListener {
             DatePickerDialog(this, { _, year, month, day ->
                 calendarStart.set(year, month, day)
-                // 开始日期不能晚于结束日期
                 if (calendarStart.after(calendarEnd)) {
                     calendarEnd.time = calendarStart.time
                 }
@@ -65,11 +63,9 @@ class DataExportActivity : AppCompatActivity() {
             ).show()
         }
 
-        // 选择结束日期
         tvEndDate.setOnClickListener {
             DatePickerDialog(this, { _, year, month, day ->
                 calendarEnd.set(year, month, day)
-                // 结束日期不能早于开始日期
                 if (calendarEnd.before(calendarStart)) {
                     calendarStart.time = calendarEnd.time
                     tvStartDate.text = dateFormat.format(calendarStart.time)
@@ -83,7 +79,6 @@ class DataExportActivity : AppCompatActivity() {
             ).show()
         }
 
-        // 导出按钮
         btnExport.setOnClickListener {
             exportData()
         }
@@ -94,17 +89,17 @@ class DataExportActivity : AppCompatActivity() {
         val diffDays = (diffMillis / (1000 * 60 * 60 * 24)).toInt() + 1
 
         if (diffDays > 30) {
-            tvDateRange.text = "已选 $diffDays 天（最多30天）"
+            tvDateRange.text = getString(R.string.format_days_over_limit, diffDays)
             tvDateRange.setTextColor(resources.getColor(R.color.red_500, null))
             btnExport.isEnabled = false
             btnExport.alpha = 0.5f
         } else if (diffDays < 1) {
-            tvDateRange.text = "请选择有效的日期范围"
+            tvDateRange.text = getString(R.string.select_valid_range)
             tvDateRange.setTextColor(resources.getColor(R.color.red_500, null))
             btnExport.isEnabled = false
             btnExport.alpha = 0.5f
         } else {
-            tvDateRange.text = "已选 $diffDays 天数据"
+            tvDateRange.text = getString(R.string.format_days_selected, diffDays)
             tvDateRange.setTextColor(resources.getColor(android.R.color.holo_green_dark, null))
             btnExport.isEnabled = true
             btnExport.alpha = 1f
@@ -117,37 +112,34 @@ class DataExportActivity : AppCompatActivity() {
         val packPrice = prefs.getInt("pack_price", 0)
         val yearsSmoking = prefs.getInt("years_smoking", 0)
         val quitStartDate = prefs.getLong("quit_start_date", 0)
+        val currency = getString(R.string.currency_symbol)
 
-        // 构建导出文本
         val sb = StringBuilder()
-        sb.appendLine("=== 戒烟助手 - 数据导出报告 ===")
-        sb.appendLine("导出时间：${dateFormat.format(System.currentTimeMillis())}")
-        sb.appendLine("导出范围：${tvStartDate.text} ~ ${tvEndDate.text}")
+        sb.appendLine(getString(R.string.export_report_title))
+        sb.appendLine(getString(R.string.export_report_time, dateFormat.format(System.currentTimeMillis())))
+        sb.appendLine(getString(R.string.export_report_range, tvStartDate.text, tvEndDate.text))
         sb.appendLine("----------------------------------------")
         sb.appendLine()
 
-        // 吸烟历史
         if (dailyCigs > 0) {
-            sb.appendLine("【吸烟历史信息】")
-            sb.appendLine("日均吸烟量：$dailyCigs 支/天")
-            sb.appendLine("每包价格：¥$packPrice")
-            sb.appendLine("吸烟年限：$yearsSmoking 年")
+            sb.appendLine(getString(R.string.export_report_history))
+            sb.appendLine(getString(R.string.export_report_daily, dailyCigs))
+            sb.appendLine(getString(R.string.export_report_price, packPrice).replace("¥", currency))
+            sb.appendLine(getString(R.string.export_report_years, yearsSmoking))
 
             val totalCigs = dailyCigs * 365 * yearsSmoking
             val totalMoney = (totalCigs / 20.0 * packPrice).toInt()
-            sb.appendLine("历史总吸烟量：${totalCigs} 支")
-            sb.appendLine("历史累计花费：¥$totalMoney 元")
+            sb.appendLine(getString(R.string.export_report_total_cigs, totalCigs))
+            sb.appendLine(getString(R.string.export_report_total_money, totalMoney).replace("¥", currency))
             sb.appendLine()
 
-            // 挽回生命（20分钟/支）
             val savedMinutes = totalCigs * 20
             val savedHours = savedMinutes / 60
             val savedDays = savedHours / 24
-            sb.appendLine("挽回生命时长：约 ${savedDays} 天 ${savedHours % 24} 小时")
+            sb.appendLine(getString(R.string.export_report_life_saved, savedDays, savedHours % 24))
             sb.appendLine()
         }
 
-        // 戒烟进度
         if (quitStartDate > 0) {
             val diffMs = System.currentTimeMillis() - quitStartDate
             val diffDays = diffMs / (1000 * 60 * 60 * 24)
@@ -156,30 +148,29 @@ class DataExportActivity : AppCompatActivity() {
             val savedMoney = (unsmokedCigs / 20.0 * packPrice).toInt()
             val lifeSavedMinutes = unsmokedCigs * 20
 
-            sb.appendLine("【戒烟进度统计】")
-            sb.appendLine("戒烟开始日期：${dateFormat.format(quitStartDate)}")
-            sb.appendLine("已坚持天数：${diffDays}天 ${diffHours}小时")
-            sb.appendLine("未吸香烟数：约 $unsmokedCigs 支")
-            sb.appendLine("已节省金额：¥$savedMoney 元")
-            sb.appendLine("挽回生命：约 ${lifeSavedMinutes / 1440} 天 ${(lifeSavedMinutes / 60) % 24} 小时")
+            sb.appendLine(getString(R.string.export_report_progress))
+            sb.appendLine(getString(R.string.export_report_quit_date, dateFormat.format(quitStartDate)))
+            sb.appendLine(getString(R.string.export_report_quit_days, diffDays, diffHours))
+            sb.appendLine(getString(R.string.export_report_unsmoked, unsmokedCigs))
+            sb.appendLine(getString(R.string.export_report_saved_money, savedMoney).replace("¥", currency))
+            sb.appendLine(getString(R.string.export_report_life_regained, lifeSavedMinutes / 1440, (lifeSavedMinutes / 60) % 24))
         } else {
-            sb.appendLine("【戒烟进度】尚未启动戒烟计划")
+            sb.appendLine(getString(R.string.export_report_not_started))
         }
 
         sb.appendLine()
         sb.appendLine("========================================")
-        sb.appendLine("感谢使用戒烟助手，祝您早日戒烟成功！🚭")
+        sb.appendLine(getString(R.string.export_report_footer))
 
         val reportText = sb.toString()
 
-        // 通过分享方式发送
         val shareIntent = Intent(Intent.ACTION_SEND).apply {
             type = "text/plain"
-            putExtra(Intent.EXTRA_SUBJECT, "戒烟助手-数据导出报告")
+            putExtra(Intent.EXTRA_SUBJECT, getString(R.string.export_share_title))
             putExtra(Intent.EXTRA_TEXT, reportText)
         }
-        startActivity(Intent.createChooser(shareIntent, "分享/保存戒烟报告"))
-        Toast.makeText(this, "✅ 数据已生成，请选择保存或分享", Toast.LENGTH_LONG).show()
+        startActivity(Intent.createChooser(shareIntent, getString(R.string.export_share_chooser)))
+        Toast.makeText(this, getString(R.string.toast_export_generated), Toast.LENGTH_LONG).show()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

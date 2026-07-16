@@ -25,7 +25,6 @@ class HomeFragment : Fragment() {
     private lateinit var btnNoSmoke: TextView
     private lateinit var btnSmoked: TextView
 
-    // 身体恢复进度条（5个里程碑）
     private lateinit var pbRecovery1: ProgressBar
     private lateinit var pbRecovery2: ProgressBar
     private lateinit var pbRecovery3: ProgressBar
@@ -37,25 +36,20 @@ class HomeFragment : Fragment() {
     private lateinit var tvRecoveryTime4: TextView
     private lateinit var tvRecoveryTime5: TextView
 
-    private val quotes = listOf(
-        "「种一棵树最好的时间是十年前，其次是现在。」",
-        "「每一次拒绝香烟，都是给未来自己的一份礼物。」",
-        "「你比香烟更强大，相信自己！」",
-        "「坚持一天，就是胜利；坚持一生，就是奇迹。」",
-        "「今天的坚持，是明天健康的基石。」"
+    private val quoteResIds = intArrayOf(
+        R.string.quote_1, R.string.quote_2, R.string.quote_3, R.string.quote_4, R.string.quote_5
     )
 
     private var quoteIndex = 0
     private val handler = Handler(Looper.getMainLooper())
     private val quoteRunnable = object : Runnable {
         override fun run() {
-            quoteIndex = (quoteIndex + 1) % quotes.size
-            tvMotivation.text = quotes[quoteIndex]
+            quoteIndex = (quoteIndex + 1) % quoteResIds.size
+            tvMotivation.text = getString(quoteResIds[quoteIndex])
             handler.postDelayed(this, 8000)
         }
     }
 
-    /** 首页数据自动刷新（与进度页保持同步） */
     private val statsRunnable = object : Runnable {
         override fun run() {
             updateStats()
@@ -91,7 +85,6 @@ class HomeFragment : Fragment() {
         btnNoSmoke = view.findViewById(R.id.btn_no_smoke)
         btnSmoked = view.findViewById(R.id.btn_smoked)
 
-        // 身体恢复进度条
         pbRecovery1 = view.findViewById(R.id.pb_recovery_1)
         pbRecovery2 = view.findViewById(R.id.pb_recovery_2)
         pbRecovery3 = view.findViewById(R.id.pb_recovery_3)
@@ -113,11 +106,10 @@ class HomeFragment : Fragment() {
         btnSmoked.setOnClickListener {
             val prefs = requireContext().getSharedPreferences("smokefree", 0)
             val count = prefs.getInt("today_smoked", 0) + 1
-            // 计算生命损失并提示用户
             val lifeLostMinutes = count * 20
             Toast.makeText(
                 requireContext(),
-                "⚠️ 记录吸烟 ${count} 支\n💔 生命减少了 ${lifeLostMinutes} 分钟\n别灰心，下一次一定能忍住！",
+                getString(R.string.toast_smoked_warning, count, lifeLostMinutes),
                 Toast.LENGTH_LONG
             ).show()
             saveTodayRecord(count)
@@ -127,6 +119,7 @@ class HomeFragment : Fragment() {
     private fun updateStats() {
         val prefs = requireContext().getSharedPreferences("smokefree", 0)
         val quitStartDate = prefs.getLong("quit_start_date", 0)
+        val currency = getString(R.string.currency_symbol)
 
         if (quitStartDate > 0) {
             val now = System.currentTimeMillis()
@@ -134,40 +127,31 @@ class HomeFragment : Fragment() {
             val days = (elapsedMs / (1000 * 60 * 60 * 24)).toInt()
             tvDays.text = days.toString()
 
-            // ---- 三大基础参数（与进度页一致）----
             val dailyCigs = prefs.getInt("daily_cigs", 20)
             val packPrice = prefs.getInt("pack_price", 25)
             val pricePerCig = packPrice / 20.0
 
-            // ---- 实时计算（与ProgressFragment.showTodayRealtimeData完全对齐）----
             val totalHoursDouble = elapsedMs / (1000.0 * 60.0 * 60.0)
             val cigsPerHour = dailyCigs.toDouble() / 24.0
             val cigsAvoided = totalHoursDouble * cigsPerHour
 
-            // 扣减实际吸烟量
             val totalSmokedRecorded = prefs.getInt("total_smoked_all_time", 0).toDouble()
             val netCigsAvoided = (cigsAvoided - totalSmokedRecorded).coerceAtLeast(0.0)
 
-            // 今日已吸 & 今日花费
             val todaySmoked = prefs.getInt("today_smoked", 0)
             tvTodaySmoked.text = todaySmoked.toString()
-            // 今日花费（保留小数：2支×1.25=¥2.5，整数不显示.0）
             val todayCost = todaySmoked * pricePerCig
             tvTodayCost.text = if (todayCost == todayCost.toLong().toDouble())
-                "¥${todayCost.toLong()}" else "¥${"%.1f".format(todayCost)}"
+                "$currency${todayCost.toLong()}" else "$currency${"%.1f".format(todayCost)}"
 
-            // 累计节省（与进度页"省下的錢"一致）
             val moneySaved = netCigsAvoided * pricePerCig
-            tvTotalSaved.text = "¥${"%.2f".format(moneySaved)}"
+            tvTotalSaved.text = "$currency${"%.2f".format(moneySaved)}"
 
-            // 挽回生命 → 转换为健康指数（百分比）
-            // 满分100分 = 挽回生命达到 30天（720小时）
             val totalLifeMinutes = netCigsAvoided * 20.0
             val healthScore = ((totalLifeMinutes / (30.0 * 24 * 60)) * 100).toInt().coerceIn(0, 100)
             tvHealthScore.text = "$healthScore%"
         }
 
-        // 更新身体恢复进度条
         updateRecoveryProgress(quitStartDate)
     }
 
@@ -176,12 +160,9 @@ class HomeFragment : Fragment() {
         val editor = prefs.edit()
         editor.putInt("today_smoked", count)
 
-        // 按日期存储，供本周趋势图读取
         val todayKey = SimpleDateFormat("yyyy-MM-dd", Locale.US).format(Date())
         editor.putInt("smoke_$todayKey", count)
 
-        // 累计总吸烟数（供进度页计算挽回生命时扣除）
-        // 每次基于增量更新：本次count - 上次记录的today_smoked
         val prevSmoked = prefs.getInt("today_smoked_prev", 0)
         val increment = count - prevSmoked
         if (increment > 0) {
@@ -194,9 +175,6 @@ class HomeFragment : Fragment() {
         updateStats()
     }
 
-    /**
-     * 身体恢复里程碑数据
-     */
     data class RecoveryMilestone(
         val label: String,
         val targetMinutes: Long,
@@ -204,19 +182,6 @@ class HomeFragment : Fragment() {
         val labelView: TextView
     )
 
-    /**
-     * 更新身体恢复进度条 — 根据戒烟已过时间计算每个里程碑的完成百分比
-     *
-     * 里程碑（单位：分钟）：
-     *   1. 20分钟    → 心率和血压恢复正常
-     *   2. 12小时    → 血液中一氧化碳降至正常
-     *   3. 21天(3周) → 循环系统改善，肺功能增强
-     *   4. 270天(9月)→ 咳嗽和气短情况减少
-     *   5. 365天(1年) → 冠心病风险降低50%
-     *
-     * 进度 = 已过分钟 ÷ 里程碑总分钟 × 100%
-     * 达到100%后进度条填满绿色，标题变绿色+✅标记
-     */
     private fun updateRecoveryProgress(quitStartDate: Long) {
         if (quitStartDate <= 0) return
 
@@ -224,11 +189,11 @@ class HomeFragment : Fragment() {
         val elapsedMin = elapsedMs / (1000L * 60)
 
         val milestones = listOf(
-            RecoveryMilestone("20分钟后", 20L, pbRecovery1, tvRecoveryTime1),
-            RecoveryMilestone("12小时", 720L, pbRecovery2, tvRecoveryTime2),
-            RecoveryMilestone("2-3周", 30240L, pbRecovery3, tvRecoveryTime3),   // 21天
-            RecoveryMilestone("1-9个月", 388800L, pbRecovery4, tvRecoveryTime4), // 270天
-            RecoveryMilestone("1年", 525600L, pbRecovery5, tvRecoveryTime5),      // 365天
+            RecoveryMilestone(getString(R.string.milestone_20min), 20L, pbRecovery1, tvRecoveryTime1),
+            RecoveryMilestone(getString(R.string.milestone_12h), 720L, pbRecovery2, tvRecoveryTime2),
+            RecoveryMilestone(getString(R.string.milestone_3weeks), 30240L, pbRecovery3, tvRecoveryTime3),
+            RecoveryMilestone(getString(R.string.milestone_9months), 388800L, pbRecovery4, tvRecoveryTime4),
+            RecoveryMilestone(getString(R.string.milestone_1year), 525600L, pbRecovery5, tvRecoveryTime5),
         )
 
         for ((label, targetMin, progressBar, tvLabel) in milestones) {
@@ -236,11 +201,9 @@ class HomeFragment : Fragment() {
             progressBar.progress = progress
 
             if (progress >= 100) {
-                // 已完成：标题变绿色 + ✅
                 tvLabel.text = "✅ $label"
                 tvLabel.setTextColor(android.graphics.Color.parseColor("#4CAF50"))
             } else {
-                // 未完成：保持粉色
                 tvLabel.text = label
                 tvLabel.setTextColor(resources.getColor(R.color.pink_600))
             }
@@ -248,15 +211,17 @@ class HomeFragment : Fragment() {
     }
 
     private fun showEncouragement() {
-        val encouragements = listOf(
-            "🎉 太棒了！你一根都没抽！" to "每一次拒绝，都是对健康的投资",
-            "💪 坚持就是胜利！你做得很棒！" to "身体正在悄悄变好",
-            "🌟 零吸烟，完美的记录！" to "为自己骄傲吧",
-            "🏆 你是自律的冠军！" to "继续这张完美的成绩单",
-            "💚 你的肺正在感谢你！" to "每一次呼吸都更轻松"
+        val titleResIds = intArrayOf(
+            R.string.encourage_title_1, R.string.encourage_title_2,
+            R.string.encourage_title_3, R.string.encourage_title_4, R.string.encourage_title_5
         )
-        
-        val (text, sub) = encouragements.random()
+        val subResIds = intArrayOf(
+            R.string.encourage_sub_1, R.string.encourage_sub_2,
+            R.string.encourage_sub_3, R.string.encourage_sub_4, R.string.encourage_sub_5
+        )
+        val idx = (Math.random() * titleResIds.size).toInt()
+        val text = getString(titleResIds[idx])
+        val sub = getString(subResIds[idx])
         Toast.makeText(requireContext(), "$text\n$sub", Toast.LENGTH_LONG).show()
     }
 

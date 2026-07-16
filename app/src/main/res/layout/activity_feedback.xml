@@ -27,7 +27,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="💬 我们非常重视您的反馈！"
+                android:text="@string/feedback_header"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:textColor="@color/gray_700"
@@ -36,7 +36,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="您的每一条建议都能帮助我们做得更好"
+                android:text="@string/feedback_subheader"
                 android:textSize="12sp"
                 android:textColor="@color/gray_400"
                 android:layout_marginBottom="24dp" />
@@ -45,7 +45,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="📝 反馈标题 *"
+                android:text="@string/feedback_subject"
                 android:textSize="13sp"
                 android:textColor="@color/gray_600"
                 android:layout_marginBottom="6dp" />
@@ -66,7 +66,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="📋 详细内容 *"
+                android:text="@string/feedback_content"
                 android:textSize="13sp"
                 android:textColor="@color/gray_600"
                 android:layout_marginBottom="6dp" />
@@ -88,7 +88,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="✉️ 联系方式（选填）"
+                android:text="@string/feedback_contact"
                 android:textSize="13sp"
                 android:textColor="@color/gray_600"
                 android:layout_marginBottom="6dp" />
@@ -109,7 +109,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="⚡ 快捷反馈"
+                android:text="@string/feedback_quick"
                 android:textSize="13sp"
                 android:textColor="@color/gray_500"
                 android:layout_marginBottom="8dp" />
@@ -128,7 +128,7 @@
                     android:background="@drawable/bg_input"
                     android:padding="10dp"
                     android:gravity="center"
-                    android:text="🐛 Bug反馈"
+                    android:text="@string/feedback_bug"
                     android:textSize="12sp"
                     android:textColor="@color/gray_600"
                     android:layout_marginEnd="6dp" />
@@ -141,7 +141,7 @@
                     android:background="@drawable/bg_input"
                     android:padding="10dp"
                     android:gravity="center"
-                    android:text="💡 功能建议"
+                    android:text="@string/feedback_suggestion"
                     android:textSize="12sp"
                     android:textColor="@color/gray_600"
                     android:layout_marginStart="6dp" />
@@ -155,7 +155,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_primary_button"
-        android:text="📤 发送反馈"
+        android:text="@string/btn_send_feedback"
         android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"

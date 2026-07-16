@@ -30,7 +30,7 @@
                     android:id="@+id/tv_progress_days"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="第1天"
+                    android:text="@string/format_day_n"
                     android:textSize="16sp"
                     android:textColor="@color/gray_600" />
 
@@ -82,7 +82,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="24小時"
+                        android:text="@string/format_24h"
                         android:textSize="13sp"
                         android:textColor="@color/gray_500" />
                 </LinearLayout>
@@ -94,7 +94,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="現在我掌控了！"
+                android:text="@string/progress_default_status"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:textColor="@color/gray_700" />
@@ -146,7 +146,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="未吸菸時間"
+                    android:text="@string/time_smoke_free"
                     android:textSize="11sp"
                     android:textColor="@color/gray_500" />
             </LinearLayout>
@@ -184,7 +184,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="省下的錢"
+                    android:text="@string/money_saved"
                     android:textSize="11sp"
                     android:textColor="@color/gray_500" />
             </LinearLayout>
@@ -222,7 +222,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="挽回的生命"
+                    android:text="@string/life_regained"
                     android:textSize="11sp"
                     android:textColor="@color/gray_500" />
             </LinearLayout>
@@ -260,7 +260,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="未吸的香菸"
+                    android:text="@string/cigarettes_avoided"
                     android:textSize="11sp"
                     android:textColor="@color/gray_500" />
             </LinearLayout>
@@ -294,7 +294,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="在您吸菸期間："
+                android:text="@string/during_smoking_period"
                 android:textSize="15sp"
                 android:textColor="@color/gray_600"
                 android:layout_marginBottom="16dp" />
@@ -334,7 +334,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="已吸的香菸"
+                        android:text="@string/cigarettes_smoked"
                         android:textSize="12sp"
                         android:textColor="@color/gray_500"
                         android:layout_marginTop="1dp" />
@@ -376,7 +376,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="浪費的錢"
+                        android:text="@string/money_wasted"
                         android:textSize="12sp"
                         android:textColor="@color/gray_500"
                         android:layout_marginTop="1dp" />
@@ -418,7 +418,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="損失的生命"
+                        android:text="@string/life_lost"
                         android:textSize="12sp"
                         android:textColor="@color/gray_500"
                         android:layout_marginTop="1dp" />

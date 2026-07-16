@@ -15,31 +15,16 @@ class ReminderReceiver : BroadcastReceiver() {
 
     companion object {
         const val CHANNEL_ID = "smokefree_reminder"
-        const val CHANNEL_NAME = "戒烟提醒"
         const val NOTIFICATION_ID = 1001
 
-        private val encouragements = listOf(
-            "每一次拒绝香烟，都是给未来自己的一份礼物",
-            "你比香烟更强大，相信自己！",
-            "坚持一天，就是胜利；坚持一生，就是奇迹",
-            "今天的坚持，是明天健康的基石",
-            "呼吸越来越顺畅，身体正在感谢你",
-            "别让一根烟毁掉你的努力",
-            "你已经很棒了，继续保持！",
-            "种一棵树最好的时间是十年前，其次是现在"
-        )
-
-        /**
-         * 创建通知渠道（应用启动时调用一次即可）
-         */
         fun createNotificationChannel(context: Context) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 val channel = NotificationChannel(
                     CHANNEL_ID,
-                    CHANNEL_NAME,
+                    context.getString(R.string.notif_channel_name),
                     NotificationManager.IMPORTANCE_HIGH
                 ).apply {
-                    description = "戒烟定时提醒"
+                    description = context.getString(R.string.notif_channel_desc)
                     enableVibration(true)
                 }
                 val manager = context.getSystemService(NotificationManager::class.java)
@@ -47,10 +32,6 @@ class ReminderReceiver : BroadcastReceiver() {
             }
         }
 
-        /**
-         * 设置或更新定时提醒
-         * @param intervalHours 间隔小时数（1~24）
-         */
         fun scheduleReminder(context: Context, intervalHours: Int) {
             val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as android.app.AlarmManager
             val intent = Intent(context, ReminderReceiver::class.java)
@@ -61,7 +42,6 @@ class ReminderReceiver : BroadcastReceiver() {
                 PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
             )
 
-            // 从当前时间开始，每隔 intervalHours 触发一次
             val intervalMs = intervalHours.toLong() * 60 * 60 * 1000
             val triggerTime = System.currentTimeMillis() + intervalMs
 
@@ -73,9 +53,6 @@ class ReminderReceiver : BroadcastReceiver() {
             )
         }
 
-        /**
-         * 取消所有提醒
-         */
         fun cancelReminder(context: Context) {
             val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as android.app.AlarmManager
             val intent = Intent(context, ReminderReceiver::class.java)
@@ -90,8 +67,18 @@ class ReminderReceiver : BroadcastReceiver() {
     }
 
     override fun onReceive(context: Context, intent: Intent) {
-        val randomIndex = (Math.random() * encouragements.size).toInt()
-        val message = encouragements[randomIndex]
+        val encouragements = intArrayOf(
+            R.string.notif_encourage_1,
+            R.string.notif_encourage_2,
+            R.string.notif_encourage_3,
+            R.string.notif_encourage_4,
+            R.string.notif_encourage_5,
+            R.string.notif_encourage_6,
+            R.string.notif_encourage_7,
+            R.string.notif_encourage_8
+        )
+        val resId = encouragements[(Math.random() * encouragements.size).toInt()]
+        val message = context.getString(resId)
 
         val openIntent = Intent(context, MainActivity::class.java)
         val pendingIntent = PendingIntent.getActivity(
@@ -103,7 +90,7 @@ class ReminderReceiver : BroadcastReceiver() {
 
         val notification = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_notification)
-            .setContentTitle("🚭 戒烟提醒")
+            .setContentTitle(context.getString(R.string.notif_title_emoji))
             .setContentText(message)
             .setStyle(NotificationCompat.BigTextStyle().bigText(message))
             .setContentIntent(pendingIntent)

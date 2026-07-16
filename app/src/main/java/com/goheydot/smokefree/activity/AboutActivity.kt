@@ -17,21 +17,25 @@ class AboutActivity : AppCompatActivity() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar_about)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "关于"
+        supportActionBar?.title = getString(R.string.about_title_bar)
 
-        // 评分按钮（跳转应用商店）
+        // Rate button
         findViewById<android.widget.LinearLayout>(R.id.layout_rate_app)?.setOnClickListener {
-            Toast.makeText(this, "感谢您的支持！", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.toast_rate_thanks), Toast.LENGTH_SHORT).show()
         }
 
-        // 隐私政策
+        // Privacy policy - open in browser
         findViewById<android.widget.LinearLayout>(R.id.layout_privacy)?.setOnClickListener {
-            Toast.makeText(this, "隐私政策页面开发中", Toast.LENGTH_SHORT).show()
+            val url = getString(R.string.privacy_policy_url)
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+            startActivity(intent)
         }
 
-        // 用户协议
+        // Terms of service - open privacy policy URL for now
         findViewById<android.widget.LinearLayout>(R.id.layout_agreement)?.setOnClickListener {
-            Toast.makeText(this, "用户协议页面开发中", Toast.LENGTH_SHORT).show()
+            val url = getString(R.string.privacy_policy_url)
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+            startActivity(intent)
         }
     }
 
