@@ -1,64 +1,307 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>戒烟助手 - 隐私政策</title>
+    <title>SmokeFree - Privacy Policy</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 800px; margin: 0 auto; padding: 24px; line-height: 1.8; color: #333; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 800px; margin: 0 auto; padding: 24px; line-height: 1.8; color: #333; }
         h1 { color: #EC4899; border-bottom: 2px solid #EC4899; padding-bottom: 12px; }
         h2 { color: #DB2777; margin-top: 32px; }
         hr { border: none; border-top: 1px solid #eee; margin: 24px 0; }
         .date { color: #888; font-size: 14px; }
+        .lang-switch { margin-bottom: 24px; }
+        .lang-switch a { display: inline-block; padding: 6px 16px; margin-right: 8px; border-radius: 6px; text-decoration: none; font-size: 14px; }
+        .lang-switch a.active { background: #EC4899; color: #fff; }
+        .lang-switch a:not(.active) { background: #fce7f3; color: #DB2777; }
+        .zh { display: none; }
+        table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+        th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; font-size: 14px; }
+        th { background: #fce7f3; }
+        .contact-box { background: #fdf2f8; border: 1px solid #fbcfe8; border-radius: 8px; padding: 16px; margin: 16px 0; }
     </style>
+    <script>
+        function switchLang(lang) {
+            document.querySelectorAll('.en').forEach(el => el.style.display = lang === 'en' ? 'block' : 'none');
+            document.querySelectorAll('.zh').forEach(el => el.style.display = lang === 'zh' ? 'block' : 'none');
+            document.querySelectorAll('.lang-switch a').forEach(a => a.classList.remove('active'));
+            document.querySelector('.lang-switch a[data-lang="' + lang + '"]').classList.add('active');
+        }
+    </script>
 </head>
 <body>
-    <h1>戒烟助手隐私政策</h1>
-    <p class="date">生效日期：2026年6月20日</p>
+    <div class="lang-switch">
+        <a href="javascript:switchLang('en')" class="active" data-lang="en">English</a>
+        <a href="javascript:switchLang('zh')" data-lang="zh">中文</a>
+    </div>
 
-    <h2>一、我们收集的信息</h2>
-    <p>戒烟助手（SmokeFree）是一款帮助您戒烟的健康类应用。我们非常重视您的隐私保护。</p>
-    <p><strong>重要说明：</strong>本应用<strong>所有数据均存储在您的手机本地</strong>，不会上传到任何服务器，我们不会收集您的任何个人身份信息。</p>
-    <p>应用中保存的数据仅包括：每日吸烟数量、戒烟开始日期、吸烟历史记录（用于统计省钱金额）、提醒设置。</p>
+    <!-- ============ ENGLISH ============ -->
+    <div class="en">
+        <h1>SmokeFree — Privacy Policy</h1>
+        <p class="date">Effective Date: July 16, 2026 | Version: 2.0</p>
 
-    <h2>二、我们如何使用信息</h2>
-    <p>您的数据仅用于：</p>
-    <ul>
-        <li>计算戒烟进度、省钱金额、身体恢复里程碑</li>
-        <li>提供定时提醒功能（通过系统通知）</li>
-        <li>生成戒烟数据报告（本地导出）</li>
-    </ul>
-    <p>我们<strong>不会</strong>将您的数据出售、出租或分享给任何第三方。</p>
+        <p>SmokeFree ("we", "us", or "our") operates the SmokeFree mobile application (the "App"). This Privacy Policy explains how we handle your information when you use our App.</p>
 
-    <h2>三、数据存储与安全</h2>
-    <ul>
-        <li>所有数据存储在您的手机本地（SharedPreferences / 本地文件）</li>
-        <li>头像图片存储在应用私有目录</li>
-        <li>本应用不使用网络传输您的数据</li>
-        <li>您可以通过"退出登录"清除所有本地数据</li>
-    </ul>
+        <p><strong>Key Promise: SmokeFree stores all your data locally on your device. We do not collect, transmit, or share your personal data with any server or third party.</strong></p>
 
-    <h2>四、第三方服务</h2>
-    <p>本应用目前<strong>不集成</strong>任何第三方 SDK（无广告、无统计、无社交分享），不会向第三方分享任何数据。</p>
+        <h2>1. Information We Collect</h2>
 
-    <h2>五、您的权利</h2>
-    <p>您可以随时：</p>
-    <ul>
-        <li>在应用内清除所有吸烟记录</li>
-        <li>退出登录并清除账户信息</li>
-        <li>卸载应用以删除所有本地数据</li>
-    </ul>
+        <h3>1.1 Information You Provide</h3>
+        <p>When you use SmokeFree, you may input the following data, which is stored exclusively on your device:</p>
+        <ul>
+            <li><strong>Smoking records:</strong> Daily cigarette count, quit-smoking start date</li>
+            <li><strong>Smoking history:</strong> Cigarettes per day, years of smoking, cigarette pack price (used to calculate money saved)</li>
+            <li><strong>Reminders:</strong> Custom reminder intervals and settings</li>
+            <li><strong>Goals:</strong> Savings goals you set for motivation</li>
+        </ul>
 
-    <h2>六、儿童隐私</h2>
-    <p>本应用不面向 13 岁以下儿童，我们不会故意收集儿童的个人信息。</p>
+        <h3>1.2 Automatically Collected Information</h3>
+        <p><strong>None.</strong> SmokeFree does not use analytics SDKs, advertising SDKs, crash reporting tools, or any other code that automatically collects device information, usage data, or behavioral data.</p>
 
-    <h2>七、政策更新</h2>
-    <p>我们可能会不时更新本隐私政策。如有重大变更，将在应用内通知您。</p>
+        <h3>1.3 Account Information</h3>
+        <p>The App may offer optional local login. If you choose to log in, the login credentials are stored locally on your device only. No account information is transmitted to any server.</p>
 
-    <h2>八、联系我们</h2>
-    <p>如有任何疑问，请在应用内"帮助与反馈"页面提交反馈。</p>
+        <h2>2. How We Use Your Information</h2>
+        <p>Your data is used solely for the following purposes within the App:</p>
+        <ul>
+            <li>Calculating your quit-smoking progress, money saved, and health recovery milestones</li>
+            <li>Providing scheduled reminders via system notifications</li>
+            <li>Generating local data reports (exported only when you choose to share them)</li>
+            <li>Displaying trends and statistics on your device screen</li>
+        </ul>
 
-    <hr>
-    <p style="font-size:13px;color:#888;">本隐私政策根据《中华人民共和国个人信息保护法》编写。</p>
+        <h2>3. Legal Basis for Processing (GDPR)</h2>
+        <p>For users in the European Economic Area (EEA), United Kingdom, and Switzerland, our legal basis for processing your data is:</p>
+        <ul>
+            <li><strong>Consent (Article 6(1)(a)):</strong> You voluntarily input your smoking data into the App for your own personal use.</li>
+            <li><strong>Performance of a contract (Article 6(1)(b)):</strong> Processing is necessary to provide the App's core functionality you requested.</li>
+        </ul>
+        <p>Since all data is stored locally and not transmitted to any server, data protection obligations are minimal. You retain full control over your data at all times.</p>
+
+        <h2>4. Data Storage and Security</h2>
+        <ul>
+            <li><strong>Local storage only:</strong> All data is stored on your device using Android's SharedPreferences and local file storage (or iOS equivalent).</li>
+            <li><strong>No network transmission:</strong> The App does not send any data to any server. There is no backend, no cloud sync, and no analytics endpoint.</li>
+            <li><strong>No encryption in transit:</strong> Not applicable — no data is transmitted.</li>
+            <li><strong>Avatar images:</strong> If you set a custom avatar, the image file is stored in the App's private directory on your device.</li>
+        </ul>
+
+        <h2>5. Data Retention</h2>
+        <p>Your data is retained on your device until you choose to delete it. You can delete your data at any time by:</p>
+        <ul>
+            <li>Using the in-app "Clear all data" or "Reset" function</li>
+            <li>Using the "Delete Account" function (if available in your version)</li>
+            <li>Uninstalling the App — this permanently deletes all locally stored data</li>
+        </ul>
+        <p>We do not retain any data after deletion because we never had it — all data lives only on your device.</p>
+
+        <h2>6. Third-Party Services</h2>
+        <p>SmokeFree does <strong>not</strong> integrate any third-party SDKs or services. Specifically:</p>
+        <ul>
+            <li>No advertising networks (e.g., no Google AdMob, no Facebook Audience Network)</li>
+            <li>No analytics platforms (e.g., no Google Analytics, no Firebase Analytics)</li>
+            <li>No crash reporting (e.g., no Crashlytics, no Sentry)</li>
+            <li>No social media SDKs (e.g., no WeChat SDK, no Facebook SDK)</li>
+            <li>No cloud sync services</li>
+        </ul>
+        <p>We do not sell, rent, or share your data with any third party.</p>
+
+        <h2>7. Your Rights</h2>
+
+        <h3>7.1 GDPR Rights (EEA, UK, Switzerland)</h3>
+        <p>You have the following rights regarding your data:</p>
+        <ul>
+            <li><strong>Right of access:</strong> You can view all your data within the App at any time.</li>
+            <li><strong>Right to rectification:</strong> You can edit or correct your data within the App's settings.</li>
+            <li><strong>Right to erasure ("right to be forgotten"):</strong> You can delete all data via in-app functions or by uninstalling.</li>
+            <li><strong>Right to data portability:</strong> You can export your data using the in-app "Data Export" feature.</li>
+            <li><strong>Right to object:</strong> You can stop using the App and delete all data at any time.</li>
+            <li><strong>Right to restrict processing:</strong> You can stop inputting data or uninstall the App.</li>
+            <li><strong>Right to withdraw consent:</strong> You can delete your data at any time, which withdraws your consent to processing.</li>
+        </ul>
+        <p>Since all data is local, exercising these rights is as simple as using the App's built-in data management features or uninstalling.</p>
+
+        <h3>7.2 CCPA/CPRA Rights (California, USA)</h3>
+        <p>Under the California Consumer Privacy Act (CCPA) and California Privacy Rights Act (CPRA):</p>
+        <ul>
+            <li><strong>Right to know:</strong> You can see all data the App stores within the App itself.</li>
+            <li><strong>Right to delete:</strong> You can delete all data via in-app functions or uninstalling.</li>
+            <li><strong>Right to opt-out of sale:</strong> We do not sell your data. No opt-out is needed.</li>
+            <li><strong>Right to non-discrimination:</strong> We do not discriminate based on your privacy choices.</li>
+        </ul>
+
+        <h2>8. Children's Privacy</h2>
+        <p>SmokeFree is not directed at children under the age of 13 (or 16 in jurisdictions where GDPR-K applies a higher age). We do not knowingly collect personal information from children.</p>
+        <p>If you believe a child has provided information through the App, please contact us so we can investigate. Since all data is stored locally on the user's device, we cannot access or delete data on a child's device remotely — the parent or guardian should uninstall the App to delete all data.</p>
+
+        <h2>9. International Data Transfers</h2>
+        <p><strong>Not applicable.</strong> SmokeFree does not transfer any data across borders or to any server. All data remains on the user's local device at all times.</p>
+
+        <h2>10. Cookies and Tracking Technologies</h2>
+        <p>SmokeFree does not use cookies, web beacons, tracking pixels, or any other tracking technologies. The App does not track your activity across other applications or websites.</p>
+        <p>Apple's App Tracking Transparency (ATT) framework is not applicable because the App does not engage in tracking as defined by Apple's policies.</p>
+
+        <h2>11. Health Information Disclaimer</h2>
+        <p>SmokeFree is a habit-tracking and motivational tool. It is <strong>not</strong> a medical device and does not provide medical advice, diagnosis, or treatment recommendations. The health recovery timelines shown in the App are based on general scientific research and are for informational purposes only. Always consult a healthcare professional for medical advice regarding smoking cessation.</p>
+
+        <h2>12. Changes to This Privacy Policy</h2>
+        <p>We may update this Privacy Policy from time to time. When we make changes, we will:</p>
+        <ul>
+            <li>Update the "Effective Date" at the top of this page</li>
+            <li>Increase the version number</li>
+            <li>Notify you of material changes through an in-app notification</li>
+        </ul>
+        <p>We encourage you to review this page periodically for updates.</p>
+
+        <h2>13. Contact Us</h2>
+        <div class="contact-box">
+            <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your data, please contact us:</p>
+            <ul>
+                <li><strong>Email:</strong> [your-email@your-domain.com]</li>
+                <li><strong>In-app:</strong> Settings → Help & Feedback</li>
+            </ul>
+            <p>We will respond to your request within 30 days (as required by GDPR).</p>
+        </div>
+
+        <hr>
+        <p style="font-size:13px;color:#888;">This Privacy Policy is designed to comply with the EU General Data Protection Regulation (GDPR), the California Consumer Privacy Act (CCPA), the U.S. Children's Online Privacy Protection Act (COPPA), and the Personal Information Protection Law (PIPL) of the People's Republic of China.</p>
+    </div>
+
+    <!-- ============ CHINESE ============ -->
+    <div class="zh" style="display:none;">
+        <h1>SmokeFree — 隐私政策</h1>
+        <p class="date">生效日期：2026年7月16日 | 版本：2.0</p>
+
+        <p>SmokeFree（"我们"）运营 SmokeFree 移动应用程序（"本应用"）。本隐私政策说明当您使用本应用时我们如何处理您的信息。</p>
+
+        <p><strong>核心承诺：SmokeFree 将您的所有数据存储在本地设备上。我们不会收集、传输或与任何服务器或第三方共享您的个人数据。</strong></p>
+
+        <h2>一、我们收集的信息</h2>
+
+        <h3>1.1 您主动提供的信息</h3>
+        <p>使用 SmokeFree 时，您可能会输入以下数据，这些数据仅存储在您的设备上：</p>
+        <ul>
+            <li><strong>吸烟记录：</strong>每日吸烟数量、戒烟开始日期</li>
+            <li><strong>吸烟历史：</strong>每日吸烟支数、吸烟年限、香烟价格（用于计算节省金额）</li>
+            <li><strong>提醒设置：</strong>自定义提醒间隔和设置</li>
+            <li><strong>目标：</strong>您设定的储蓄目标</li>
+        </ul>
+
+        <h3>1.2 自动收集的信息</h3>
+        <p><strong>无。</strong>SmokeFree 不使用分析 SDK、广告 SDK、崩溃报告工具或任何其他自动收集设备信息、使用数据或行为数据的代码。</p>
+
+        <h3>1.3 账户信息</h3>
+        <p>本应用可能提供可选的本地登录。如果您选择登录，登录凭证仅存储在您的本地设备上。任何账户信息均不会传输到服务器。</p>
+
+        <h2>二、我们如何使用您的信息</h2>
+        <p>您的数据仅用于应用内的以下目的：</p>
+        <ul>
+            <li>计算戒烟进度、节省金额和身体恢复里程碑</li>
+            <li>通过系统通知提供定时提醒</li>
+            <li>生成本地数据报告（仅当您选择分享时才导出）</li>
+            <li>在您的设备屏幕上显示趋势和统计</li>
+        </ul>
+
+        <h2>三、处理的法律依据（GDPR）</h2>
+        <p>对于欧洲经济区（EEA）、英国和瑞士的用户，我们处理您数据的法律依据为：</p>
+        <ul>
+            <li><strong>同意（第6(1)(a)条）：</strong>您自愿将吸烟数据输入应用供个人使用。</li>
+            <li><strong>履行合同（第6(1)(b)条）：</strong>处理对于提供您请求的应用核心功能是必要的。</li>
+        </ul>
+        <p>由于所有数据均存储在本地且不传输到任何服务器，数据保护义务极小。您始终保持对数据的完全控制。</p>
+
+        <h2>四、数据存储与安全</h2>
+        <ul>
+            <li><strong>仅本地存储：</strong>所有数据通过 Android 的 SharedPreferences 和本地文件存储（或 iOS 等效方式）存储在您的设备上。</li>
+            <li><strong>无网络传输：</strong>本应用不向任何服务器发送数据。没有后端、没有云同步、没有分析端点。</li>
+            <li><strong>传输加密：</strong>不适用 — 无数据传输。</li>
+            <li><strong>头像图片：</strong>如果您设置了自定义头像，图片文件存储在应用私有目录中。</li>
+        </ul>
+
+        <h2>五、数据保留期限</h2>
+        <p>您的数据在设备上保留，直到您选择删除。您可以随时通过以下方式删除数据：</p>
+        <ul>
+            <li>使用应用内"清除所有数据"或"重置"功能</li>
+            <li>使用"删除账户"功能（如果您的版本提供）</li>
+            <li>卸载应用 — 这将永久删除所有本地存储的数据</li>
+        </ul>
+        <p>删除后我们不保留任何数据，因为我们从未拥有过 — 所有数据仅存在于您的设备上。</p>
+
+        <h2>六、第三方服务</h2>
+        <p>SmokeFree <strong>不</strong>集成任何第三方 SDK 或服务。具体包括：</p>
+        <ul>
+            <li>无广告网络（无 Google AdMob、无 Facebook Audience Network）</li>
+            <li>无分析平台（无 Google Analytics、无 Firebase Analytics）</li>
+            <li>无崩溃报告（无 Crashlytics、无 Sentry）</li>
+            <li>无社交媒体 SDK（无微信 SDK、无 Facebook SDK）</li>
+            <li>无云同步服务</li>
+        </ul>
+        <p>我们不会出售、出租或与任何第三方共享您的数据。</p>
+
+        <h2>七、您的权利</h2>
+
+        <h3>7.1 GDPR 权利（EEA、英国、瑞士）</h3>
+        <p>您对您的数据享有以下权利：</p>
+        <ul>
+            <li><strong>访问权：</strong>您可以随时在应用内查看您的所有数据。</li>
+            <li><strong>更正权：</strong>您可以在应用设置中编辑或更正您的数据。</li>
+            <li><strong>删除权（"被遗忘权"）：</strong>您可以通过应用内功能或卸载应用删除所有数据。</li>
+            <li><strong>可携带性权：</strong>您可以使用应用内"数据导出"功能导出数据。</li>
+            <li><strong>反对权：</strong>您可以停止使用应用并随时删除所有数据。</li>
+            <li><strong>限制处理权：</strong>您可以停止输入数据或卸载应用。</li>
+            <li><strong>撤回同意权：</strong>您可以随时删除数据，即撤回处理同意。</li>
+        </ul>
+        <p>由于所有数据均为本地存储，行使这些权利只需使用应用内置的数据管理功能或卸载即可。</p>
+
+        <h3>7.2 CCPA/CPRA 权利（美国加州）</h3>
+        <p>根据《加州消费者隐私法》（CCPA）和《加州隐私权利法》（CPRA）：</p>
+        <ul>
+            <li><strong>知情权：</strong>您可以在应用内查看应用存储的所有数据。</li>
+            <li><strong>删除权：</strong>您可以通过应用内功能或卸载应用删除所有数据。</li>
+            <li><strong>选择不出售数据的权利：</strong>我们不出售您的数据，无需选择退出。</li>
+            <li><strong>不受歧视的权利：</strong>我们不会基于您的隐私选择进行歧视。</li>
+        </ul>
+
+        <h2>八、儿童隐私</h2>
+        <p>SmokeFree 不面向 13 岁以下儿童（或 GDPR-K 适用更高年龄的司法管辖区中的 16 岁以下儿童）。我们不会故意收集儿童的个人信息。</p>
+        <p>如果您认为有儿童通过应用提供了信息，请联系我们。由于所有数据均存储在用户本地设备上，我们无法远程访问或删除儿童设备上的数据 — 家长或监护人应卸载应用以删除所有数据。</p>
+
+        <h2>九、国际数据传输</h2>
+        <p><strong>不适用。</strong>SmokeFree 不会跨境传输任何数据或传输到任何服务器。所有数据始终保留在用户本地设备上。</p>
+
+        <h2>十、Cookie 和追踪技术</h2>
+        <p>SmokeFree 不使用 Cookie、网络信标、追踪像素或任何其他追踪技术。本应用不追踪您在其他应用或网站上的活动。</p>
+        <p>Apple 的应用追踪透明度（ATT）框架不适用，因为本应用不从事 Apple 政策所定义的追踪行为。</p>
+
+        <h2>十一、健康信息免责声明</h2>
+        <p>SmokeFree 是一款习惯追踪和激励工具。它<strong>不是</strong>医疗器械，不提供医疗建议、诊断或治疗建议。应用中显示的身体恢复时间线基于一般科学研究，仅供参考。关于戒烟的医疗建议，请始终咨询医疗专业人士。</p>
+
+        <h2>十二、隐私政策更新</h2>
+        <p>我们可能会不时更新本隐私政策。当我们做出更改时，将：</p>
+        <ul>
+            <li>更新本页面顶部的"生效日期"</li>
+            <li>增加版本号</li>
+            <li>如有重大变更，通过应用内通知告知您</li>
+        </ul>
+        <p>我们建议您定期查看本页面以获取更新。</p>
+
+        <h2>十三、联系我们</h2>
+        <div class="contact-box">
+            <p>如果您对本隐私政策或您的数据有任何疑问、关注或请求，请通过以下方式联系我们：</p>
+            <ul>
+                <li><strong>邮箱：</strong>[your-email@your-domain.com]</li>
+                <li><strong>应用内：</strong>设置 → 帮助与反馈</li>
+            </ul>
+            <p>我们将在 30 天内回复您的请求（GDPR 要求）。</p>
+        </div>
+
+        <hr>
+        <p style="font-size:13px;color:#888;">本隐私政策旨在符合《欧盟通用数据保护条例》（GDPR）、《加州消费者隐私法》（CCPA）、《美国儿童在线隐私保护法》（COPPA）以及《中华人民共和国个人信息保护法》（PIPL）的要求。</p>
+    </div>
+
+    <script>
+        // Default to English
+        switchLang('en');
+    </script>
 </body>
 </html>
