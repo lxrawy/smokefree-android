@@ -56,11 +56,6 @@
             android:name=".activity.AboutActivity"
             android:exported="false" />
 
-        <!-- Donate Activity -->
-        <activity
-            android:name=".activity.DonateActivity"
-            android:exported="false" />
-
         <!-- Reminder Receiver -->
         <receiver
             android:name=".receiver.ReminderReceiver"

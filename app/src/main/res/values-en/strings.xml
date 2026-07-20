@@ -179,17 +179,6 @@
     <string name="format_cigs_per_day">%1$d/day</string>
     <string name="format_years">%1$d yrs</string>
 
-    <!-- Donate -->
-    <string name="donate_title">Support us</string>
-    <string name="donate_subtitle">If you quit successfully, feel free to tip us a little</string>
-    <string name="donate_activity_title">💖 Thanks for your support</string>
-    <string name="donate_intro">If SmokeFree helped you quit smoking, please consider tipping to support the developer in continuing to improve the app.</string>
-    <string name="donate_thanks">Every bit of support keeps us going 🙏</string>
-    <string name="donate_qr_hint">Scan QR code to tip</string>
-    <string name="donate_email_hint">Or contact us via email: coleleeindia@gmail.com</string>
-    <string name="donate_close">Close</string>
-    <string name="donate_placeholder">QR code placeholder (insert your payment QR here)</string>
-
     <!-- Account -->
     <string name="account_info">Account info</string>
     <string name="profile_title">Account Details</string>

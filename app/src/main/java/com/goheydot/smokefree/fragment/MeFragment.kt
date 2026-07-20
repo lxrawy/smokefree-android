@@ -15,7 +15,6 @@ import androidx.fragment.app.Fragment
 import com.goheydot.smokefree.R
 import com.goheydot.smokefree.activity.AboutActivity
 import com.goheydot.smokefree.activity.DataExportActivity
-import com.goheydot.smokefree.activity.DonateActivity
 import com.goheydot.smokefree.activity.FeedbackActivity
 import com.goheydot.smokefree.receiver.ReminderReceiver
 
@@ -121,11 +120,6 @@ class MeFragment : Fragment() {
             startActivity(intent)
         }
 
-        // Donate
-        view?.findViewById<View>(R.id.layout_donate)?.setOnClickListener {
-            val intent = Intent(requireContext(), DonateActivity::class.java)
-            startActivity(intent)
-        }
     }
 
     private fun updateUI() {
