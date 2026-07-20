@@ -179,6 +179,17 @@
     <string name="format_cigs_per_day">%1$d支/天</string>
     <string name="format_years">%1$d年</string>
 
+    <!-- Donate -->
+    <string name="donate_title">支持我们</string>
+    <string name="donate_subtitle">如果你戒烟成功，请随便打赏一点支持我们</string>
+    <string name="donate_activity_title">💖 感谢你的支持</string>
+    <string name="donate_intro">如果 SmokeFree 帮你成功戒烟，欢迎打赏支持开发者继续优化这个应用。</string>
+    <string name="donate_thanks">每一份支持都是我们继续前行的动力 🙏</string>
+    <string name="donate_qr_hint">微信扫码打赏</string>
+    <string name="donate_email_hint">或邮件联系我们：coleleeindia@gmail.com</string>
+    <string name="donate_close">关闭</string>
+    <string name="donate_placeholder">二维码占位（请放入你的收款二维码）</string>
+
     <!-- Account -->
     <string name="account_info">账户信息</string>
     <string name="profile_title">账户详情</string>

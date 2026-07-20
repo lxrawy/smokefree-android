@@ -13,17 +13,14 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.goheydot.smokefree.R
-import com.goheydot.smokefree.receiver.ReminderReceiver
-import com.goheydot.smokefree.activity.DataExportActivity
-import com.goheydot.smokefree.activity.FeedbackActivity
 import com.goheydot.smokefree.activity.AboutActivity
-import com.goheydot.smokefree.activity.UserProfileActivity
+import com.goheydot.smokefree.activity.DataExportActivity
+import com.goheydot.smokefree.activity.DonateActivity
+import com.goheydot.smokefree.activity.FeedbackActivity
+import com.goheydot.smokefree.receiver.ReminderReceiver
 
 class MeFragment : Fragment() {
 
-    private lateinit var tvUserName: TextView
-    private lateinit var tvUserDesc: TextView
-    private lateinit var layoutLoggedIn: LinearLayout
     private lateinit var layoutHistoryForm: LinearLayout
     private lateinit var layoutHistoryResult: LinearLayout
     private lateinit var etDaily: EditText
@@ -58,9 +55,6 @@ class MeFragment : Fragment() {
     }
 
     private fun initViews(view: View) {
-        tvUserName = view.findViewById(R.id.tv_user_name)
-        tvUserDesc = view.findViewById(R.id.tv_user_desc)
-        layoutLoggedIn = view.findViewById(R.id.layout_logged_in)
         layoutHistoryForm = view.findViewById(R.id.layout_history_form)
         layoutHistoryResult = view.findViewById(R.id.layout_history_result)
         etDaily = view.findViewById(R.id.et_daily_cigs)
@@ -75,19 +69,9 @@ class MeFragment : Fragment() {
 
         gridTimerOptions = view.findViewById(R.id.grid_timer_options)
         tvTimerDesc = view.findViewById(R.id.tv_timer_desc)
-
-        // Hide login-related views since we removed login
-        view.findViewById<View>(R.id.layout_not_logged_in)?.visibility = View.GONE
-        view.findViewById<View>(R.id.btn_logout)?.visibility = View.GONE
     }
 
     private fun setupListeners() {
-        // User profile area → open profile (for avatar etc.)
-        view?.findViewById<View>(R.id.layout_logged_in)?.setOnClickListener {
-            val intent = Intent(requireContext(), UserProfileActivity::class.java)
-            startActivity(intent)
-        }
-
         // Toggle history form
         view?.findViewById<View>(R.id.layout_smoking_history)?.setOnClickListener {
             layoutHistoryForm.visibility = if (layoutHistoryForm.visibility == View.VISIBLE) {
@@ -136,17 +120,15 @@ class MeFragment : Fragment() {
             val intent = Intent(requireContext(), AboutActivity::class.java)
             startActivity(intent)
         }
+
+        // Donate
+        view?.findViewById<View>(R.id.layout_donate)?.setOnClickListener {
+            val intent = Intent(requireContext(), DonateActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun updateUI() {
-        // Always show logged-in layout (no login needed)
-        layoutLoggedIn.visibility = View.VISIBLE
-        view?.findViewById<View>(R.id.layout_not_logged_in)?.visibility = View.GONE
-        view?.findViewById<View>(R.id.btn_logout)?.visibility = View.GONE
-
-        tvUserName.text = getString(R.string.me_user_default)
-        tvUserDesc.text = getString(R.string.me_view_account)
-
         val prefs = requireContext().getSharedPreferences("smokefree", 0)
         val currency = getString(R.string.currency_symbol)
 

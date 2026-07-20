@@ -10,98 +10,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Me Header -->
-        <LinearLayout
-            android:id="@+id/layout_me_header"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/bg_header"
-            android:padding="32dp">
-
-            <!-- Logged Out State -->
-            <LinearLayout
-                android:id="@+id/layout_not_logged_in"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:background="@drawable/bg_tab_selected"
-                android:padding="12dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="😊"
-                    android:textSize="32sp"
-                    android:layout_marginEnd="14dp" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/click_login"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/white"
-                    android:gravity="center" />
-            </LinearLayout>
-
-            <!-- Logged In State -->
-            <LinearLayout
-                android:id="@+id/layout_logged_in"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:visibility="gone">
-
-                <TextView
-                    android:id="@+id/tv_avatar"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:gravity="center"
-                    android:text="😊"
-                    android:textSize="32sp"
-                    android:background="@drawable/bg_avatar" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_marginStart="14dp">
-
-                    <TextView
-                        android:id="@+id/tv_user_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/me_user_default"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/white" />
-
-                    <TextView
-                        android:id="@+id/tv_user_desc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/me_view_account"
-                        android:textSize="12sp"
-                        android:textColor="@color/white"
-                        android:alpha="0.85"
-                        android:layout_marginTop="3dp" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="›"
-                    android:textSize="18sp"
-                    android:textColor="@color/white"
-                    android:alpha="0.7" />
-            </LinearLayout>
-        </LinearLayout>
-
         <!-- Me Body -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -429,6 +337,67 @@
                         android:textStyle="bold"
                         android:paddingVertical="12dp"
                         android:layout_marginTop="16dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Donate Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp">
+
+                <LinearLayout
+                    android:id="@+id/layout_donate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_card"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="18dp"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="💖"
+                        android:textSize="16sp"
+                        android:layout_marginEnd="12dp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/donate_title"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/gray_700" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/donate_subtitle"
+                            android:textSize="11sp"
+                            android:textColor="@color/gray_400"
+                            android:layout_marginTop="2dp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="›"
+                        android:textSize="14sp"
+                        android:textColor="@color/gray_300" />
                 </LinearLayout>
             </LinearLayout>
 
