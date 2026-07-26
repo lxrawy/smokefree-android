@@ -83,8 +83,8 @@
     <string name="timer_start_prompt">点击下方按钮开始你的戒烟之旅</string>
     <string name="btn_start_quit_now">🚀 现在开始戒烟</string>
     <string name="timer_running_subtitle">坚持住！你正在创造奇迹 ✨</string>
-    <string name="timer_format">%1$d小時 %2$02d分 %3$02d秒</string>
-    <string name="format_24h">24小時</string>
+    <string name="timer_format">%1$d小时 %2$02d分 %3$02d秒</string>
+    <string name="format_24h">24小时</string>
 
     <!-- History -->
     <string name="history_title">吸烟回顾</string>
@@ -166,11 +166,11 @@
     <string name="me_total_spent">累计花费（元）</string>
     <string name="me_start_quit">🚭 正式启动戒烟计划！</string>
     <string name="me_quit_in_progress">🚀 戒烟计划进行中...</string>
-    <string name="me_reminder_desc">每%1$d小時</string>
+    <string name="me_reminder_desc">每%1$d小时</string>
     <string name="me_save_reminder">✅ 保存提醒设置</string>
     <string name="me_export_records">导出戒烟记录</string>
     <string name="me_encounter_problem">遇到问题？</string>
-    <string name="me_unit_hour">小時</string>
+    <string name="me_unit_hour">小时</string>
     <string name="me_toast_fill_complete">请填写完整信息哦～</string>
     <string name="me_toast_history_saved">已保存你的吸烟历史 📊</string>
     <string name="me_toast_reminder_set">✅ 已设置每 %1$d 小时提醒</string>
@@ -226,47 +226,47 @@
 
     <!-- Progress Page -->
     <string name="progress_title">进度</string>
-    <string name="time_smoke_free">未吸菸時間</string>
-    <string name="money_saved">省下的錢</string>
+    <string name="time_smoke_free">未吸烟时间</string>
+    <string name="money_saved">省下的钱</string>
     <string name="life_regained">挽回的生命</string>
-    <string name="cigarettes_avoided">未吸的香菸</string>
-    <string name="cigarettes_smoked">已吸的香菸</string>
-    <string name="money_wasted">浪費的錢</string>
-    <string name="life_lost">損失的生命</string>
-    <string name="during_smoking_period">在您吸菸期間：</string>
-    <string name="reset_timer">重置計時器</string>
+    <string name="cigarettes_avoided">未吸的香烟</string>
+    <string name="cigarettes_smoked">已吸的香烟</string>
+    <string name="money_wasted">浪费的钱</string>
+    <string name="life_lost">损失的生命</string>
+    <string name="during_smoking_period">在您吸烟期间：</string>
+    <string name="reset_timer">重置计时器</string>
     <string name="reset_confirm_title">不要放弃！</string>
-    <string name="reset_confirm_message">如果您不小心破戒，不要责怪自己"软弱"。\n當您接近成功時，一兩次失誤不是失敗。\n唯一的失敗是放棄。</string>
-    <string name="reset_confirm_button">重置計時器</string>
+    <string name="reset_confirm_message">如果您不小心破戒，不要责怪自己"软弱"。\n当您接近成功时，一兩次失误不是失败。\n唯一的失败是放弃。</string>
+    <string name="reset_confirm_button">重置计时器</string>
     <string name="reset_cancel_button">取消</string>
-    <string name="toast_timer_reset">已重新開始計時，你可以的！💪</string>
-    <string name="menu_today_realtime">📅 今天（實時）</string>
+    <string name="toast_timer_reset">已重新开始计时，你可以的！💪</string>
+    <string name="menu_today_realtime">📅 今天（实时）</string>
     <string name="format_day_n">第%1$d天</string>
-    <string name="format_time_hms">%1$d小時 %2$02d分 %3$02d秒</string>
+    <string name="format_time_hms">%1$d小时 %2$02d分 %3$02d秒</string>
     <string name="format_money_2f">¥ %1$.2f</string>
     <string name="format_life_ymd">%1$d年 %2$d月 %3$d天</string>
 
     <!-- Progress Motivation - Today -->
     <string name="motiv_today_default">每天我都在贏！</string>
-    <string name="motiv_today_day2">第二天！繼續保持！</string>
-    <string name="motiv_today_day3">三天了，最難的階段已過去！</string>
+    <string name="motiv_today_day2">第二天！继续保持！</string>
+    <string name="motiv_today_day3">三天了，最难的階段已过去！</string>
     <string name="motiv_today_week">一周了！你做得很棒！</string>
-    <string name="motiv_today_month">堅持了一個月！身體正在恢復</string>
-    <string name="motiv_today_year">你已成功戒菸一年！你是傳奇！</string>
+    <string name="motiv_today_month">坚持了一个月！身體正在恢復</string>
+    <string name="motiv_today_year">你已成功戒烟一年！你是传奇！</string>
 
     <!-- Progress Motivation - Past Day -->
-    <string name="motiv_past_day1">第一天成功！偉大的開始！</string>
+    <string name="motiv_past_day1">第一天成功！伟大的开始！</string>
     <string name="motiv_past_week">一周全勤！太強了！</string>
     <string name="motiv_past_milestone">第%1$d天里程碑！🎉</string>
-    <string name="motiv_past_warrior">第%1$d天！你是戰神！</string>
-    <string name="motiv_past_year">一年了！！！傳奇人物！！！</string>
-    <string name="motiv_past_default">第%1$d天完美通關 ✅</string>
-    <string name="motiv_past_normal">第%1$d天完成！堅持住！</string>
+    <string name="motiv_past_warrior">第%1$d天！你是战神！</string>
+    <string name="motiv_past_year">一年了！！！传奇人物！！！</string>
+    <string name="motiv_past_default">第%1$d天完美通关 ✅</string>
+    <string name="motiv_past_normal">第%1$d天完成！坚持住！</string>
 
     <!-- Progress Zero State -->
     <string name="zero_day">第0天</string>
-    <string name="zero_status">點擊首頁開始戒菸</string>
-    <string name="zero_time">0小時 00分 00秒</string>
+    <string name="zero_status">點擊首頁开始戒烟</string>
+    <string name="zero_time">0小时 00分 00秒</string>
     <string name="zero_money">¥ 0.00</string>
     <string name="zero_money_short">¥ 0</string>
     <string name="zero_life">0年 0月 0天</string>

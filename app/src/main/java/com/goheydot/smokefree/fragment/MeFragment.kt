@@ -205,7 +205,7 @@ class MeFragment : Fragment() {
 
         val hourLabel = getString(R.string.me_unit_hour)
 
-        for (hour in 1..24) {
+        for (hour in listOf(1, 2, 4, 6, 8)) {
             val tv = TextView(requireContext()).apply {
                 id = View.generateViewId()
                 text = "$hour\n$hourLabel"
