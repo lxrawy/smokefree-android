@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">戒菸助手</string>
+    <string name="slogan">每一次堅持，都是給自己最好的禮物</string>
+
+    <!-- Currency -->
+    <string name="currency_symbol">HK$</string>
+
+    <!-- Privacy Policy URL -->
+    <string name="privacy_policy_url">https://lxrawy.github.io/smokefree-android/privacy_policy.html</string>
+    <string name="support_email">lxr@goheydot.com</string>
+
+    <!-- Login -->
+    <string name="login_title">戒菸助手</string>
+    <string name="login_subtitle">每一次堅持，都是給自己最好的禮物</string>
+    <string name="phone_login">手機號登入</string>
+    <string name="email_login">郵箱登入</string>
+    <string name="wechat_login">WeChat登入</string>
+    <string name="hint_phone">請輸入11位手機號</string>
+    <string name="hint_email">請輸入郵箱</string>
+    <string name="hint_code">請輸入驗證碼</string>
+    <string name="btn_send_code">發送驗證碼</string>
+    <string name="btn_login">登入 / 註冊</string>
+    <string name="btn_wechat_login">WeChat授權登入</string>
+    <string name="login_agreement">登入即代表同意《用户協議》和《隱私政策》</string>
+    <string name="login_data_note">你的資料僅用於戒菸跟蹤，不會被共享</string>
+    <string name="skip_login">暫不登入，隨便看看</string>
+
+    <!-- Home -->
+    <string name="home_title">戒菸助手</string>
+    <string name="home_days">天 · 已成功遠離香菸</string>
+    <string name="today_status">今日情況</string>
+    <string name="today_smoked">今日已吸</string>
+    <string name="today_cost">今日花費</string>
+    <string name="total_saved">累計節省</string>
+    <string name="health_recovery">健康指數</string>
+    <string name="health_timeline">身體恢復進度</string>
+    <string name="quick_record">隨時記錄</string>
+    <string name="record_prompt">剛才有吸菸嗎？記錄一下吧</string>
+    <string name="btn_no_smoke">✅ 沒有，堅持住了！</string>
+    <string name="btn_smoked">😔 沒忍住…</string>
+    <string name="unit_cigs">支</string>
+    <string name="unit_yuan">元</string>
+    <string name="recovery_label">恢復</string>
+    <string name="home_motivation_default">繼續加油，你可以的！💪</string>
+
+    <!-- Home Quotes -->
+    <string name="quote_1">「種一棵樹最好的時間是十年前，其次是現在。」</string>
+    <string name="quote_2">「每一次拒絕香菸，都是給未來自己的一份禮物。」</string>
+    <string name="quote_3">「你比香菸更強大，相信自己！」</string>
+    <string name="quote_4">「堅持一天，就是勝利；堅持一生，就是奇蹟。」</string>
+    <string name="quote_5">「今天的堅持，是明天健康的基石。」</string>
+
+    <!-- Home Encouragements -->
+    <string name="encourage_title_1">🎉 太棒了！你一根都沒抽！</string>
+    <string name="encourage_sub_1">每一次拒絕，都是對健康的投資</string>
+    <string name="encourage_title_2">💪 堅持就是勝利！你做得很棒！</string>
+    <string name="encourage_sub_2">身體正在悄悄變好</string>
+    <string name="encourage_title_3">🌟 零吸菸，完美的記錄！</string>
+    <string name="encourage_sub_3">為自己驕傲吧</string>
+    <string name="encourage_title_4">🏆 你是自律的冠軍！</string>
+    <string name="encourage_sub_4">繼續這張完美的成績單</string>
+    <string name="encourage_title_5">💚 你的肺正在感謝你！</string>
+    <string name="encourage_sub_5">每一次呼吸都更輕鬆</string>
+
+    <!-- Home Toast -->
+    <string name="toast_smoked_warning">⚠️ 記錄吸菸 %1$d 支\n💔 生命減少了 %2$d 分鐘\n別灰心，下一次一定能忍住！</string>
+
+    <!-- Health Recovery Milestones -->
+    <string name="milestone_20min">20分鐘後</string>
+    <string name="milestone_20min_desc">心率和血壓恢復正常</string>
+    <string name="milestone_12h">12小時</string>
+    <string name="milestone_12h_desc">血液中的一氧化碳降至正常</string>
+    <string name="milestone_3weeks">2-3周</string>
+    <string name="milestone_3weeks_desc">循環系統改善，肺功能增強</string>
+    <string name="milestone_9months">1-9個月</string>
+    <string name="milestone_9months_desc">咳嗽和氣短情況減少</string>
+    <string name="milestone_1year">1年</string>
+    <string name="milestone_1year_desc">冠心病風險降低50%</string>
+
+    <!-- Timer -->
+    <string name="timer_label">⏱ 戒菸倒計時</string>
+    <string name="timer_start_prompt">點擊下方按鈕開始你的戒菸之旅</string>
+    <string name="btn_start_quit_now">🚀 現在開始戒菸</string>
+    <string name="timer_running_subtitle">堅持住！你正在創造奇蹟 ✨</string>
+    <string name="timer_format">%1$d小時 %2$02d分 %3$02d秒</string>
+    <string name="format_24h">24小時</string>
+
+    <!-- History -->
+    <string name="history_title">吸菸回顧</string>
+    <string name="history_desc">看看你一路走來的變化</string>
+    <string name="history_summary">吸菸歷史總結</string>
+    <string name="weekly_trend">本週吸菸趨勢</string>
+    <string name="daily_record">每日記錄</string>
+    <string name="date">日期</string>
+    <string name="cigarettes">吸菸</string>
+    <string name="cost">花費</string>
+    <string name="status">狀態</string>
+    <string name="unit_per_day">支/天</string>
+    <string name="unit_year">年</string>
+    <string name="trend_improving">📉 趨勢正在向好！</string>
+    <string name="label_smoking_count">吸菸數量</string>
+    <string name="status_perfect">✅ 完美</string>
+    <string name="status_warning">⚠️ 注意</string>
+    <string name="status_over">❌ 超標</string>
+    <string name="format_history_note">💡 你已累計吸菸 %1$s 支，相當於 %2$s 包菸。\n這些錢可以買 %3$s 杯咖啡 ☕</string>
+
+    <!-- Weekday labels -->
+    <string name="weekday_mon">一</string>
+    <string name="weekday_tue">二</string>
+    <string name="weekday_wed">三</string>
+    <string name="weekday_thu">四</string>
+    <string name="weekday_fri">五</string>
+    <string name="weekday_sat">六</string>
+    <string name="weekday_sun">日</string>
+
+    <!-- Track -->
+    <string name="track_title">每日打卡</string>
+    <string name="track_desc">記錄每一天，見證改變</string>
+    <string name="track_days">天 · 打卡堅持中</string>
+    <string name="set_goal">設定戒菸目標獎勵</string>
+    <string name="goal_hint">省下的菸錢用來買什麼？設定一個目標，讓戒菸更有動力！</string>
+    <string name="goal_name_hint">例如：買一台MacBook</string>
+    <string name="goal_amount_hint">例如：8000</string>
+    <string name="btn_set_goal">🎯 設定目標</string>
+    <string name="today_checkin">今日打卡</string>
+    <string name="cigarette_count_prompt">今天抽了幾支菸？</string>
+    <string name="zero_cigarette_note">支（0 = 今天完全沒吸！）</string>
+    <string name="btn_submit_checkin">✅ 提交今日打卡</string>
+    <string name="achievements">成就徽章</string>
+    <string name="goal_achieved_msg">🎉 恭喜！目標已達成！快去購買你心儀的物品吧！</string>
+    <string name="goal_name_label">🎁 目標名稱</string>
+    <string name="goal_amount_label">💰 目標金額（元）</string>
+    <string name="badge_day1_title">第一天</string>
+    <string name="badge_day1_desc">成功完成第一次打卡</string>
+    <string name="badge_day3_title">3天堅持</string>
+    <string name="badge_day3_desc">連續三天沒有吸菸</string>
+    <string name="toast_goal_achieved">🎉 恭喜！目標已達成！</string>
+    <string name="toast_already_checked_in">今天已經打過卡了，明天再來！</string>
+    <string name="toast_checkin_zero">🎉 太棒了！你一根都沒抽！已堅持 %1$d 天！</string>
+    <string name="toast_checkin_count">✅ 打卡成功！今天抽了 %1$d 支，已堅持 %2$d 天！</string>
+    <string name="format_goal_target">目標金額：HK$%1$d</string>
+    <string name="format_goal_saved">已攢：HK$%1$d</string>
+    <string name="format_goal_remain">還差：HK$%1$d</string>
+
+    <!-- Me -->
+    <string name="me_title">我的</string>
+    <string name="me_desc">管理你的戒菸之旅</string>
+    <string name="click_login">點擊登入 · 開啓戒菸之旅</string>
+    <string name="quit_settings">戒菸設定</string>
+    <string name="smoking_history">吸菸歷史資訊</string>
+    <string name="notification_settings">提醒設定</string>
+    <string name="others">其他</string>
+    <string name="data_export">資料匯出</string>
+    <string name="help_feedback">幫助與回饋</string>
+    <string name="about">關於</string>
+    <string name="version">v1.0.2</string>
+    <string name="logout">退出登入</string>
+    <string name="me_user_default">用户</string>
+    <string name="me_view_account">點擊查看賬户詳情</string>
+    <string name="me_history_not_filled">未填寫</string>
+    <string name="me_daily_cigs_prompt">🚬 每天吸多少支菸？</string>
+    <string name="me_pack_price_prompt">💰 一包菸多少錢？（20支/包）</string>
+    <string name="me_years_prompt">📅 已經吸菸多少年？</string>
+    <string name="me_view_summary">📊 查看我的吸菸總結</string>
+    <string name="me_total_spent">累計花費（元）</string>
+    <string name="me_start_quit">🚭 正式啓動戒菸計劃！</string>
+    <string name="me_quit_in_progress">🚀 戒菸計劃進行中...</string>
+    <string name="me_reminder_desc">每%1$d小時</string>
+    <string name="me_save_reminder">✅ 儲存提醒設定</string>
+    <string name="me_export_records">匯出戒菸記錄</string>
+    <string name="me_encounter_problem">遇到問題？</string>
+    <string name="me_unit_hour">小時</string>
+    <string name="me_toast_fill_complete">請填寫完整資訊哦～</string>
+    <string name="me_toast_history_saved">已儲存你的吸菸歷史 📊</string>
+    <string name="me_toast_reminder_set">✅ 已設定每 %1$d 小時提醒</string>
+    <string name="me_toast_quit_started">🚭 戒菸計劃已啓動！加油！</string>
+    <string name="me_toast_logged_out">已退出登入</string>
+    <string name="format_cigs_per_day">%1$d支/天</string>
+    <string name="format_years">%1$d年</string>
+
+    <!-- Account -->
+    <string name="account_info">賬户資訊</string>
+    <string name="profile_title">賬户詳情</string>
+    <string name="bind_manage">綁定管理</string>
+    <string name="bind_phone">綁定手機號</string>
+    <string name="bind_email">綁定郵箱</string>
+    <string name="bind_wechat">綁定WeChat</string>
+    <string name="security_settings">安全設定</string>
+    <string name="change_password">修改密碼</string>
+    <string name="account_login_method">登入方式</string>
+    <string name="bind_wechat_desc">關聯WeChat賬號，支持WeChat登入</string>
+    <string name="bind_phone_desc">關聯手機號碼，安全更有保障</string>
+    <string name="bind_email_desc">接收戒菸報告與資料備份通知</string>
+    <string name="phone_login_label">手機號登入</string>
+    <string name="wechat_login_label">WeChat登入</string>
+    <string name="toast_wechat_bound">✅ WeChat綁定成功</string>
+    <string name="toast_phone_bound">✅ 手機號綁定成功</string>
+    <string name="toast_email_bound">✅ 郵箱綁定成功</string>
+    <string name="toast_avatar_permission">需要相冊權限才能更換頭像</string>
+    <string name="toast_avatar_updated">頭像更新成功</string>
+    <string name="toast_avatar_failed">頭像設定失敗: %1$s</string>
+    <string name="choose_avatar">選擇頭像</string>
+
+    <!-- Notifications -->
+    <string name="notif_title">戒菸提醒</string>
+    <string name="notif_message">嘿！過去 %d 小時裏，你抽了幾支菸？</string>
+    <string name="notif_channel_name">戒菸提醒</string>
+    <string name="notif_channel_desc">戒菸定時提醒</string>
+    <string name="notif_title_emoji">🚭 戒菸提醒</string>
+    <string name="notif_encourage_1">每一次拒絕香菸，都是給未來自己的一份禮物</string>
+    <string name="notif_encourage_2">你比香菸更強大，相信自己！</string>
+    <string name="notif_encourage_3">堅持一天，就是勝利；堅持一生，就是奇蹟</string>
+    <string name="notif_encourage_4">今天的堅持，是明天健康的基石</string>
+    <string name="notif_encourage_5">呼吸越來越順暢，身體正在感謝你</string>
+    <string name="notif_encourage_6">別讓一根菸毀掉你的努力</string>
+    <string name="notif_encourage_7">你已經很棒了，繼續保持！</string>
+    <string name="notif_encourage_8">種一棵樹最好的時間是十年前，其次是現在</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_home">首頁</string>
+    <string name="nav_history">回顧</string>
+    <string name="nav_progress">進度</string>
+    <string name="nav_track">打卡</string>
+    <string name="nav_me">我</string>
+
+    <!-- Progress Page -->
+    <string name="progress_title">進度</string>
+    <string name="time_smoke_free">未吸菸時間</string>
+    <string name="money_saved">省下的錢</string>
+    <string name="life_regained">挽回的生命</string>
+    <string name="cigarettes_avoided">未吸的香菸</string>
+    <string name="cigarettes_smoked">已吸的香菸</string>
+    <string name="money_wasted">浪費的錢</string>
+    <string name="life_lost">損失的生命</string>
+    <string name="during_smoking_period">在您吸菸期間：</string>
+    <string name="reset_timer">重置計時器</string>
+    <string name="reset_confirm_title">不要放棄！</string>
+    <string name="reset_confirm_message">如果您不小心破戒，不要責怪自己"軟弱"。\n當您接近成功時，一兩次失誤不是失敗。\n唯一的失敗是放棄。</string>
+    <string name="reset_confirm_button">重置計時器</string>
+    <string name="reset_cancel_button">取消</string>
+    <string name="toast_timer_reset">已重新開始計時，你可以的！💪</string>
+    <string name="menu_today_realtime">📅 今天（實時）</string>
+    <string name="format_day_n">第%1$d天</string>
+    <string name="format_time_hms">%1$d小時 %2$02d分 %3$02d秒</string>
+    <string name="format_money_2f">HK$ %1$.2f</string>
+    <string name="format_life_ymd">%1$d年 %2$d月 %3$d天</string>
+
+    <!-- Progress Motivation - Today -->
+    <string name="motiv_today_default">每天我都在贏！</string>
+    <string name="motiv_today_day2">第二天！繼續保持！</string>
+    <string name="motiv_today_day3">三天了，最難的階段已過去！</string>
+    <string name="motiv_today_week">一週了！你做得很棒！</string>
+    <string name="motiv_today_month">堅持了一個月！身體正在恢復</string>
+    <string name="motiv_today_year">你已成功戒菸一年！你是傳奇！</string>
+
+    <!-- Progress Motivation - Past Day -->
+    <string name="motiv_past_day1">第一天成功！偉大的開始！</string>
+    <string name="motiv_past_week">一週全勤！太強了！</string>
+    <string name="motiv_past_milestone">第%1$d天里程碑！🎉</string>
+    <string name="motiv_past_warrior">第%1$d天！你是戰神！</string>
+    <string name="motiv_past_year">一年了！！！傳奇人物！！！</string>
+    <string name="motiv_past_default">第%1$d天完美通關 ✅</string>
+    <string name="motiv_past_normal">第%1$d天完成！堅持住！</string>
+
+    <!-- Progress Zero State -->
+    <string name="zero_day">第0天</string>
+    <string name="zero_status">點擊首頁開始戒菸</string>
+    <string name="zero_time">0小時 00分 00秒</string>
+    <string name="zero_money">HK$ 0.00</string>
+    <string name="zero_money_short">HK$ 0</string>
+    <string name="zero_life">0年 0月 0天</string>
+    <string name="progress_default_status">現在我掌控了！</string>
+
+    <!-- Data Export -->
+    <string name="export_title">資料匯出</string>
+    <string name="export_select_range">📊 選擇匯出時間範圍</string>
+    <string name="export_start_date">📅 開始日期</string>
+    <string name="export_end_date">📅 結束日期</string>
+    <string name="export_start_hint">點擊選擇開始日期</string>
+    <string name="export_end_hint">點擊選擇結束日期</string>
+    <string name="export_range_hint">請選擇日期範圍（最多30天）</string>
+    <string name="export_info_note">💡 匯出內容包括：\n· 吸菸歷史資料\n· 戒菸進度統計\n· 省錢與挽回生命時長\n· 可透過郵件或WeChat發送</string>
+    <string name="export_btn">📤 生成並匯出報告</string>
+    <string name="export_date_range">Select date range (max 30 days)</string>
+    <string name="format_days_selected">已選 %1$d 天資料</string>
+    <string name="format_days_over_limit">已選 %1$d 天（最多30天）</string>
+    <string name="select_valid_range">請選擇有效的日期範圍</string>
+    <string name="toast_export_generated">✅ 資料已生成，請選擇儲存或分享</string>
+    <string name="export_report_title">=== 戒菸助手 - 資料匯出報告 ===</string>
+    <string name="export_report_time">匯出時間：%1$s</string>
+    <string name="export_report_range">匯出範圍：%1$s ~ %2$s</string>
+    <string name="export_report_history">【吸菸歷史資訊】</string>
+    <string name="export_report_daily">日均吸菸量：%1$d 支/天</string>
+    <string name="export_report_price">每包價格：HK$%1$d</string>
+    <string name="export_report_years">吸菸年限：%1$d 年</string>
+    <string name="export_report_total_cigs">歷史總吸菸量：%1$d 支</string>
+    <string name="export_report_total_money">歷史累計花費：HK$%1$d 元</string>
+    <string name="export_report_life_saved">挽回生命時長：約 %1$d 天 %2$d 小時</string>
+    <string name="export_report_progress">【戒菸進度統計】</string>
+    <string name="export_report_quit_date">戒菸開始日期：%1$s</string>
+    <string name="export_report_quit_days">已堅持天數：%1$d天 %2$d小時</string>
+    <string name="export_report_unsmoked">未吸香菸數：約 %1$d 支</string>
+    <string name="export_report_saved_money">已節省金額：HK$%1$d 元</string>
+    <string name="export_report_life_regained">挽回生命：約 %1$d 天 %2$d 小時</string>
+    <string name="export_report_not_started">【戒菸進度】尚未啓動戒菸計劃</string>
+    <string name="export_report_footer">感謝使用戒菸助手，祝您早日戒菸成功！🚭</string>
+    <string name="export_share_title">戒菸助手-資料匯出報告</string>
+    <string name="export_share_chooser">分享/儲存戒菸報告</string>
+
+    <!-- Feedback -->
+    <string name="feedback_title">幫助與回饋</string>
+    <string name="feedback_header">💬 我們非常重視您的回饋！</string>
+    <string name="feedback_subheader">您的每一條建議都能幫助我們做得更好</string>
+    <string name="feedback_subject">📝 回饋標題 *</string>
+    <string name="feedback_content">📋 詳細內容 *</string>
+    <string name="feedback_contact">✉️ 聯繫方式（選填）</string>
+    <string name="feedback_quick">⚡ 快捷回饋</string>
+    <string name="feedback_bug">🐛 Bug回饋</string>
+    <string name="feedback_suggestion">💡 功能建議</string>
+    <string name="btn_send_feedback">📤 發送回饋</string>
+    <string name="toast_enter_title">請輸入回饋標題</string>
+    <string name="toast_enter_content">請輸入回饋內容</string>
+    <string name="toast_opening_email">正在打開郵件客户端...</string>
+    <string name="share_feedback">分享回饋內容</string>
+    <string name="feedback_email_body_title">=== 戒菸助手 - 用户回饋 ===</string>
+    <string name="feedback_email_body_title_label">【回饋標題】</string>
+    <string name="feedback_email_body_content_label">【回饋內容】</string>
+    <string name="feedback_email_body_contact_label">【聯繫方式】%1$s</string>
+    <string name="feedback_email_device">裝置資訊：Android %1$s</string>
+    <string name="feedback_email_version">應用版本：v1.0.2</string>
+    <string name="feedback_email_time">回饋時間：%1$s</string>
+    <string name="feedback_email_subject">[戒菸助手] %1$s</string>
+
+    <!-- About -->
+    <string name="about_title">關於</string>
+    <string name="about_title_bar">關於</string>
+    <string name="about_version">Version</string>
+    <string name="about_privacy_policy">隱私政策</string>
+    <string name="about_terms">用户協議</string>
+    <string name="about_rate">給我們評分</string>
+    <string name="about_tagline">🚭 戒菸助手 · 助力健康生活</string>
+    <string name="about_copyright">© 2026 SmokeFree Team</string>
+    <string name="about_rights">All Rights Reserved</string>
+    <string name="toast_rate_thanks">感謝您的支持！</string>
+    <string name="toast_coming_soon">即將上線</string>
+
+    <!-- Common -->
+    <string name="cancel">取消</string>
+    <string name="confirm">確認</string>
+    <string name="ok">OK</string>
+    <string name="already_checked_in">You already checked in today!</string>
+
+    <!-- Toast messages -->
+    <string name="smoked_toast">已抽了%1$d根菸，壽命縮短了%2$d分鐘</string>
+    <string name="health_disclaimer">本應用不是醫療器械，不提供醫療建議。關於戒菸的醫療建議，請諮詢醫療專業人士。</string>
+</resources>

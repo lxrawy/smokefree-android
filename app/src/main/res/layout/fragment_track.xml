@@ -182,7 +182,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="🎁 目标名称"
+                android:text="@string/goal_name_label"
                 android:textSize="13sp"
                 android:textColor="@color/gray_600"
                 android:layout_marginBottom="6dp" />

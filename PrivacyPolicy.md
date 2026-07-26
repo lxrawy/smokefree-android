@@ -71,7 +71,7 @@ SmokeFree is not a medical device. Health recovery timelines are based on genera
 We update the effective date and version number. Material changes notified in-app.
 
 ## 13. Contact
-- Email: coleleeindia@gmail.com
+- Email: lxr@goheydot.com
 - In-app: Settings → Help & Feedback
 - Response within 30 days (GDPR requirement)
 

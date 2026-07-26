@@ -24,8 +24,8 @@ android {
         applicationId = "com.goheydot.smokefree"
         minSdk = 24
         targetSdk = 34
-        versionCode = 2
-        versionName = "1.0.1"
+        versionCode = 3
+        versionName = "1.0.2"
     }
 
     // 签名配置
@@ -37,6 +37,10 @@ android {
                 keyAlias = keystoreProperties["keyAlias"] as String
                 keyPassword = keystoreProperties["keyPassword"] as String
             }
+            // 同时启用 v1 和 v2 签名，确保国产手机安装器兼容
+            enableV1Signing = true
+            enableV2Signing = true
+            enableV3Signing = true
         }
     }
 

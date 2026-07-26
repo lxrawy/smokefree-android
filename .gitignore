@@ -68,3 +68,6 @@ node_modules/
 # 签名配置（不要提交密码）
 keystore.properties
 keystore/
+
+# APK signing signature files
+*.idsig
